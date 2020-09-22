@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SortationSideBar from './SortationSideBar.component';
 
-const SideBar = () => {
-  const SideBar = styled.div`
+  const SideBarBox = styled.div`
     height: calc(100% - 60px);
     overflow: auto;
     width: 15rem;
@@ -30,12 +29,13 @@ const SideBar = () => {
     }
   `;
 
+const SideBar = () => {
   return (
-    <SideBar>
+    <SideBarBox>
       <SideBarLayout>
         <SortationSideBar />
       </SideBarLayout>
-    </SideBar>
+    </SideBarBox>
   )
 }
 

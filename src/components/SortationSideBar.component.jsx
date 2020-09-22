@@ -22,85 +22,85 @@ import sideImg18 from '../lib/png/sideImg18.png';
 import sideImg19 from '../lib/png/sideImg19.png';
 import sideImg20 from '../lib/png/sideImg20.png';
 
-const SortationSideBar = () => {
   const SideLayout_1 = styled.div`
-  width: 100%;
-  height: 140px;
-  margin-top: 10px;
-  border-bottom: 1px solid #e8e8e8;
+    width: 100%;
+    height: 140px;
+    margin-top: 10px;
+    border-bottom: 1px solid #e8e8e8;
 
-  div:first-child {
-    background-color: #e8e8e8;  
-  }
+    div:first-child {
+      background-color: #e8e8e8;  
+    }
 
-  div {
-    box-sizing: border-box;
-  }
-`;
+    div {
+      box-sizing: border-box;
+    }
+  `;
 
   const SideLayout_2 = styled(SideLayout_1)`
-  height: 173px;
+    height: 173px;
 
-  div:first-child {
-    background-color: #fff;  
-  }
-`;
+    div:first-child {
+      background-color: #fff;  
+    }
+  `;
 
   const SideLayout_3 = styled(SideLayout_2)`
-  height: 210px;
-`;
+    height: 210px;
+  `;
 
   const SideLayout_4 = styled(SideLayout_2)`
-  height: 250px;
-`;
+    height: 250px;
+  `;
 
   const SideLayout_5 = styled.div`
-  width: 100%;
-  font-size: 13px;
-`;
+    width: 100%;
+    font-size: 13px;
+  `;
 
   const LayoutBox = styled.div`
-  width: 100%;
-  height: 40px;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
+    width: 100%;
+    height: 40px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
 
-  img {
-    margin: 0 24px 0 0;
-  }
-`;
+    img {
+      margin: 0 24px 0 0;
+    }
+  `;
 
   const LayoutBoxHeader = styled.div`
-  width: 100%;
-  height: 33px;
-  font-size: 14px;
-  padding: 8px 24px;
-`;
+    width: 100%;
+    height: 33px;
+    font-size: 14px;
+    padding: 8px 24px;
+  `;
 
   const HeaderMessageBoxLayout = styled.div`
-  padding: 16px 24px 0px;
+    padding: 16px 24px 0px;
 
-  span {
-  margin-right: 8px;
-  }
-`;
+    span {
+      margin-right: 8px;
+    }
+  `;
 
   const MiddleMessageBoxLayout = styled(HeaderMessageBoxLayout)`
-  padding: 12px 24px 0px;
-`;
+    padding: 12px 24px 0px;
+  `;
 
   const FooterMessageBoxLayout = styled(HeaderMessageBoxLayout)`
-  padding: 16px 24px;
-  font-size: 0.8125rem;
-  color: #909090;
+    padding: 16px 24px;
+    font-size: 0.8125rem;
+    color: #909090;
 
-  span {
-    margin-right: 0px;
-  }
-`;
+    span {
+      margin-right: 0px;
+    }
+  `;
 
+const SortationSideBar = () => {
   return (
     <>
       <SideLayout_1>
@@ -219,17 +219,17 @@ const SortationSideBar = () => {
         <FooterMessageBoxLayout>
           <span>
             © 2020 Google LLC
-      <br />
-      회사명: Google LLC
-      <br />
-      CEO: Sundar Pichai
-      <br />
-      주소: 1600 Amphitheatre
-      <br />
-      Parkway, Mountain View, CA 94043 USA.
-      <br />
-      전화: 080-822-1450 (무료)
-    </span>
+          <br />
+          회사명: Google LLC
+          <br />
+          CEO: Sundar Pichai
+          <br />
+          주소: 1600 Amphitheatre
+          <br />
+          Parkway, Mountain View, CA 94043 USA.
+          <br />
+          전화: 080-822-1450 (무료)
+          </span>
         </FooterMessageBoxLayout>
       </SideLayout_5>
     </>
