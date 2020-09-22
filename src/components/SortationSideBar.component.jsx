@@ -155,7 +155,7 @@ const SortationSideBar = () => {
         </LayoutBox>
       </SideLayout_3>
       <SideLayout_4>
-        <LayoutBoxHeader>YouTube 더보기</LayoutBoxHeader>
+        <LayoutBoxHeader>YOUTUBE 더보기</LayoutBoxHeader>
         <LayoutBox>
           <img src={sideImg12} />
           <span>YouTube Preminum</span>
