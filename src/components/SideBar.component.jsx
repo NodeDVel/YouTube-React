@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MediaSideBar from './MediaSideBar.component';
 import SortationSideBar from './SortationSideBar.component';
 
   const SideBarBox = styled.div`
@@ -18,6 +19,10 @@ import SortationSideBar from './SortationSideBar.component';
       width: 24px;
       height: 24px;
     }
+
+    @media all and (max-width: 1300px) {
+      width: auto;
+    }
   `;
 
   const SideBarLayout = styled.div`
@@ -27,11 +32,17 @@ import SortationSideBar from './SortationSideBar.component';
       cursor: pointer;
       background-color: #e8e8e8;
     }
+
+    @media all and (max-width: 1300px) {
+      display: none;
+      width: 30%;
+    }
   `;
 
 const SideBar = () => {
   return (
     <SideBarBox>
+      <MediaSideBar />
       <SideBarLayout>
         <SortationSideBar />
       </SideBarLayout>

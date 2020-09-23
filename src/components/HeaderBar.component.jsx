@@ -69,6 +69,10 @@ const SearchHeader = styled.div`
     border-bottom-left-radius: 3px;
     outline: none;
   }
+
+  @media all and (max-width: 650px) {
+    display: none;
+  }
 `;
 
 const SearchHeaderButton = styled.div`
@@ -95,6 +99,12 @@ const RightHeader = styled.div`
 
   img {
     margin-left: 27px;
+  }
+
+  @media all and (max-width: 650px) {
+    img:first-child {
+      display: block;
+    }
   }
 `;
 
