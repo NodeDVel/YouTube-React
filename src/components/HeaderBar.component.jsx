@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import iconPng from '../lib/png/icon.png';
@@ -12,6 +12,8 @@ import rightIcon_2 from '../lib/png/iconRight-2.png';
 import rightIcon_3 from '../lib/png/iconRight-3.png';
 import rightIcon_4 from '../lib/png/iconRight-4.png';
 import rightIcon_5 from '../lib/png/iconRight-5.png';
+
+import SearchList from './SearchList';
 
 const HoverText1 = styled.div`
   font-size: 13px;
@@ -73,12 +75,12 @@ const LeftHeader = styled.div`
   }
 `;
 
-const SearchHeader = styled.div`
+const SearchHeader = styled.form`
   display: flex;
   width: 35.82881692%;
   position: relative;
 
-  div:nth-child(2) {
+  .icon {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     display: flex;
@@ -87,7 +89,7 @@ const SearchHeader = styled.div`
     padding-right: 5px;
   }
 
-  input {
+  /* input {
     font-size: 16px;
     text-indent: 5px;
     padding: 0;
@@ -99,17 +101,32 @@ const SearchHeader = styled.div`
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     outline: none;
-  }
+  } */
 
   @media all and (max-width: 650px) {
     display: none;
   }
 `;
 
-const SearchHeaderButton = styled.div`
+const SearchHeaderInput = styled.input`
+    font-size: 16px;
+    text-indent: 5px;
+    padding: 0;
+    color: #111111;
+    width: 85%;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    outline: none;
+`;
+
+const SearchHeaderButton = styled.button`
+  outline: none;
   background-color: #F8F8F8;
   cursor: pointer;
-  width: 4.063rem;
+  width: 4.163rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,18 +164,60 @@ const RightImgHeader = styled.div`
 `;
 
 const HeaderBar = (props) => {
-  // const [isShowed, setShowed] = useState(false);
-
-  
-  // const onClickSearch = (e) => {
-    //   setShowed(true);
-    
-    //   if (isShowed === true) {
-      //   }
-      // }
   const handleClick = (e) => {
     props.onClickMenu && props.onClickMenu();
   };
+
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      text: '검색한 기록'
+    },
+    {
+      id: 2,
+      text: '검색한 기록',
+    },
+    {
+      id: 3,
+      text: '검색한 기록',
+    }
+  ]);
+
+  const nextId = useRef(4);
+
+  const [value, setValue] = useState('');
+  const [isShowed, setShowed] = useState(false);
+  const [isPressed, setPressed] = useState(false);
+
+  const onClickSearch = (e) => {
+    setShowed(!isShowed);
+    console.log('Showed : ' + !isShowed);
+  }
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  const onSubmit = (e) => {
+    onInsert(value);
+    setValue('');
+
+    e.preventDefault();
+  }
+
+  const onInsert = (text) => {
+    const item = {
+      id: nextId.current,
+      text,
+    }
+
+    setItems(items.concat(item));
+    nextId.current += 1;
+  }
+
+  const onRemove = (id) => {
+    setItems(items.filter(item => item.id !== id));
+  }
 
   return (
     <LayoutHeader>
@@ -167,12 +226,15 @@ const HeaderBar = (props) => {
           <img src={iconPng} onClick={handleClick}/>
           <img src={mainIcon} />
         </LeftHeader>
-        <SearchHeader> 
-          <input type="text" placeholder="검색"/>
-          <div><img src={middleIcon}/></div>
+        <SearchHeader onSubmit={onSubmit}> 
+          <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
+          <div className="icon"><img src={middleIcon}/></div>
           <SearchHeaderButton>
             <img src={buttonPng} />
           </SearchHeaderButton>
+          {
+            isShowed ? <SearchList items={items} onRemove={onRemove} /> : console.log('Not List')
+          }
         </SearchHeader>
         <RightHeader>
           <RightImgHeader>
