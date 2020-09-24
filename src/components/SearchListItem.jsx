@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const SearchListItemLayout = styled.div`
@@ -23,9 +23,8 @@ const RemoveButton = styled.div`
   cursor: pointer;
 `;
 
-const SearchListItem = ({item, onRemove}) => {
+const SearchListItem = ({ item, onRemove }) => {
   const { id, text } = item;
-
   return (
     <SearchListItemLayout>
       <AddList key={id}>{text}</AddList>

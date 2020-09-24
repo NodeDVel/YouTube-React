@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 import iconPng from '../lib/png/icon.png';
@@ -89,37 +89,23 @@ const SearchHeader = styled.form`
     padding-right: 5px;
   }
 
-  /* input {
-    font-size: 16px;
-    text-indent: 5px;
-    padding: 0;
-    color: #111111;
-    width: 85%;
-    height: 28px;
-    border: 1px solid #ccc;
-    border-right: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    outline: none;
-  } */
-
   @media all and (max-width: 650px) {
     display: none;
   }
 `;
 
 const SearchHeaderInput = styled.input`
-    font-size: 16px;
-    text-indent: 5px;
-    padding: 0;
-    color: #111111;
-    width: 85%;
-    height: 28px;
-    border: 1px solid #ccc;
-    border-right: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    outline: none;
+  font-size: 16px;
+  text-indent: 5px;
+  padding: 0;
+  color: #111111;
+  width: 85%;
+  height: 28px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  outline: none;
 `;
 
 const SearchHeaderButton = styled.button`
@@ -168,22 +154,9 @@ const HeaderBar = (props) => {
     props.onClickMenu && props.onClickMenu();
   };
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      text: '검색한 기록'
-    },
-    {
-      id: 2,
-      text: '검색한 기록',
-    },
-    {
-      id: 3,
-      text: '검색한 기록',
-    }
-  ]);
+  const [items, setItems] = useState([]);
 
-  const nextId = useRef(4);
+  const nextId = useRef(1);
 
   const [value, setValue] = useState('');
   const [isShowed, setShowed] = useState(false);
@@ -191,12 +164,11 @@ const HeaderBar = (props) => {
 
   const onClickSearch = (e) => {
     setShowed(!isShowed);
-    console.log('Showed : ' + !isShowed);
   }
 
-  const onChange = (e) => {
+  const onChange = useCallback(e => {
     setValue(e.target.value);
-  }
+  }, []);
 
   const onSubmit = (e) => {
     onInsert(value);
@@ -205,19 +177,25 @@ const HeaderBar = (props) => {
     e.preventDefault();
   }
 
-  const onInsert = (text) => {
-    const item = {
-      id: nextId.current,
-      text,
-    }
+  const onInsert = useCallback(
+    text => {
+      const item = {
+        id: nextId.current,
+        text,
+      }
+  
+      setItems(items.concat(item));
+      nextId.current += 1;
+    },
+    [items]
+  )
 
-    setItems(items.concat(item));
-    nextId.current += 1;
-  }
-
-  const onRemove = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  }
+  const onRemove = useCallback(
+    id => {
+      setItems(items.filter(item => item.id !== id));
+    },
+    [items]
+  )
 
   return (
     <LayoutHeader>

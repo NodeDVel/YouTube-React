@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import SearchListItem from './SearchListItem';
 
 const SearchListLayout = styled.div`
@@ -14,13 +16,13 @@ const SearchListLayout = styled.div`
   overflow: auto;
 `;
 
-const SearchList = ({items, onRemove}) => {
+const SearchList = ({ items, onRemove }) => {
   return (
     <SearchListLayout>
       {items.map(item => (
         <SearchListItem
           item={item}
-          key={item.id} 
+          key={item.id}
           onRemove={onRemove}
         />
       ))}
