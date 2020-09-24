@@ -9,6 +9,21 @@ import sideImg4 from '../lib/png/sideImg4.png';
 const MediaSideBarLayout = styled.div`
   display: none;
 
+   ${props => props.changed && `
+      display: block;
+      heigth: 100%;
+
+      div:first-child {
+        color: red;
+      }
+
+      div:hover {
+        cursor: pointer;
+        background-color: #e8e8e8;
+      }
+    `
+    }
+
   @media all and (max-width: 1300px) {
     display: block;
     width: 100%;
@@ -30,6 +45,21 @@ const MediaSideBarLayout = styled.div`
 `;
 
 const MediaBoxLayout = styled.div`
+  ${props => props.changed && `
+    width: 72px;
+    height: 74px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      margin-bottom: 20%;
+    }
+  `
+  }
+
   @media all and (max-width: 1300px) {
     width: 72px;
     height: 74px;
@@ -45,19 +75,19 @@ const MediaBoxLayout = styled.div`
   }
 `;
 
-const MediaSideBar = () => {
+const MediaSideBar = (props) => {
   return (
-    <MediaSideBarLayout>
-      <MediaBoxLayout>
+    <MediaSideBarLayout changed={props.showed}>
+      <MediaBoxLayout changed={props.showed}>
         <img src={sideImg1} />홈
       </MediaBoxLayout>
-      <MediaBoxLayout>
+      <MediaBoxLayout changed={props.showed}>
         <img src={sideImg2} />인기
       </MediaBoxLayout>
-      <MediaBoxLayout>
+      <MediaBoxLayout changed={props.showed}>
         <img src={sideImg3} />구독
       </MediaBoxLayout>
-      <MediaBoxLayout>
+      <MediaBoxLayout changed={props.showed}>
         <img src={sideImg4} />보관함
       </MediaBoxLayout>
     </MediaSideBarLayout>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import MediaSideBar from './MediaSideBar.component';
 import SortationSideBar from './SortationSideBar.component';
 
@@ -10,6 +11,11 @@ import SortationSideBar from './SortationSideBar.component';
     background-color: #ffffff;
     position: fixed;
     top: 60px;
+
+    ${props => props.shrink && `
+      width: 4.5rem;
+    `
+    }
 
     div {
       box-sizing: border-box;
@@ -26,8 +32,6 @@ import SortationSideBar from './SortationSideBar.component';
   `;
 
   const SideBarLayout = styled.div`
-    padding-bottom: 15px;
-
     div > div:hover {
       cursor: pointer;
       background-color: #e8e8e8;
@@ -39,13 +43,12 @@ import SortationSideBar from './SortationSideBar.component';
     }
   `;
 
-const SideBar = () => {
+const SideBar = (props) => {
   return (
-    <SideBarBox>
-      <MediaSideBar />
-      <SideBarLayout>
-        <SortationSideBar />
-      </SideBarLayout>
+    <SideBarBox shrink={props.collapsed}>
+      {
+        props.collapsed ? <MediaSideBar showed={props.collapsed} /> : <SideBarLayout><SortationSideBar /></SideBarLayout>
+      }
     </SideBarBox>
   )
 }

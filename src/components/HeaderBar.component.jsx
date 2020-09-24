@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import iconPng from '../lib/png/icon.png';
@@ -12,6 +12,33 @@ import rightIcon_2 from '../lib/png/iconRight-2.png';
 import rightIcon_3 from '../lib/png/iconRight-3.png';
 import rightIcon_4 from '../lib/png/iconRight-4.png';
 import rightIcon_5 from '../lib/png/iconRight-5.png';
+
+const HoverText1 = styled.div`
+  font-size: 13px;
+  padding: 8px;
+  margin: 8px;
+  position: absolute;
+  top: 54px;
+  right: 228px;
+  color: #ffffff;
+  background-color: #616161;
+  opacity: 0;
+`;
+
+const HoverText2 = styled(HoverText1)`
+  top: 54px;
+  right: 168px;
+`;
+
+const HoverText3 = styled(HoverText1)`
+  top: 54px;
+  right: 94px;
+`;
+
+const HoverText4 = styled(HoverText1)`
+  top: 54px;
+  right: 68px;
+`;
 
 const LayoutHeader = styled.div`
   width: 100%;
@@ -35,6 +62,10 @@ const LeftHeader = styled.div`
   width: 12.2273628553%;
   display: flex;
   align-items: center;
+
+  img {
+    cursor: pointer;
+  }
 
   img:first-child {
     padding: 0.5rem;
@@ -92,43 +123,77 @@ const RightHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+`;
 
-  img:first-child {
+const RightImgHeader = styled.div`
+  & {
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  &:first-child {
     display: none;
   }
 
-  img {
-    margin-left: 27px;
+  &:hover ${HoverText1}, &:hover ${HoverText2}, &:hover ${HoverText3}, &:hover ${HoverText4} {
+    opacity: 1;
   }
 
   @media all and (max-width: 650px) {
-    img:first-child {
+    &:first-child {
       display: block;
     }
   }
 `;
 
-const HeaderBar = () => {
+const HeaderBar = (props) => {
+  // const [isShowed, setShowed] = useState(false);
+
+  
+  // const onClickSearch = (e) => {
+    //   setShowed(true);
+    
+    //   if (isShowed === true) {
+      //   }
+      // }
+  const handleClick = (e) => {
+    props.onClickMenu && props.onClickMenu();
+  };
+
   return (
     <LayoutHeader>
       <Header>
         <LeftHeader>
-          <img src={iconPng} />
+          <img src={iconPng} onClick={handleClick}/>
           <img src={mainIcon} />
         </LeftHeader>
-        <SearchHeader>
-          <input type="text" placeholder="검색" />
-          <div><img src={middleIcon} /></div>
+        <SearchHeader> 
+          <input type="text" placeholder="검색"/>
+          <div><img src={middleIcon}/></div>
           <SearchHeaderButton>
             <img src={buttonPng} />
           </SearchHeaderButton>
         </SearchHeader>
         <RightHeader>
-          <img src={rightIcon_5} />
-          <img src={rightIcon_1} />
-          <img src={rightIcon_2} />
-          <img src={rightIcon_3} />
-          <img src={rightIcon_4} />
+          <RightImgHeader>
+            <img src={rightIcon_5} />
+            <HoverText1>검색</HoverText1>
+          </RightImgHeader>
+          <RightImgHeader>
+            <img src={rightIcon_1} />
+            <HoverText2>만들기</HoverText2>
+          </RightImgHeader>
+          <RightImgHeader>
+            <img src={rightIcon_2} />
+            <HoverText3>YouTube 앱</HoverText3>
+          </RightImgHeader>
+          <RightImgHeader>
+            <img src={rightIcon_3} />
+            <HoverText4>알림</HoverText4>
+          </RightImgHeader>
+          <RightImgHeader>
+            <img src={rightIcon_4} />
+          </RightImgHeader>
         </RightHeader>
       </Header>
     </LayoutHeader>

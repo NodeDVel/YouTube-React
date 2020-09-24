@@ -69,6 +69,12 @@ const SpaceBox = styled.div`
   height: 100%;
   background-color: #F9F9F9;
 
+  ${props => props.changed &&`
+    width: 0px;
+  `
+  }
+
+
   @media all and (max-width: 1300px) {
     width: 72px;
   }
@@ -101,6 +107,11 @@ const VideoLayout = styled.div`
   position: relative;
   cursor: pointer;
 
+  ${props => props.changed && `
+    width: 19.7%;
+    `
+    }
+
   &:hover ${MiddleHover} {
     opacity: 1;
   }
@@ -109,6 +120,7 @@ const VideoLayout = styled.div`
     width: 100%;
     margin-bottom: 4%;
   }
+
 
   @media all and (max-width: 1500px) {
     width: 32%;
@@ -145,13 +157,13 @@ const VideoTextLayout = styled.div`
   }
 `;
 
-const MainBar = () => {
+const MainBar = (props) => {
   return (
     <SpaceBoxLayout>
-      <SpaceBox />
+      <SpaceBox changed={props.collapsed} />
       <MainBarBox>
         <MainBarLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -178,7 +190,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -205,7 +217,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -232,7 +244,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -259,7 +271,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -286,7 +298,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -313,7 +325,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -340,7 +352,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -367,7 +379,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -394,7 +406,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -421,7 +433,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -448,7 +460,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -475,7 +487,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -502,7 +514,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -529,7 +541,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
@@ -556,7 +568,7 @@ const MainBar = () => {
               </VideoTextLayout>
             </VideoBoxLayout>
           </VideoLayout>
-          <VideoLayout>
+          <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
               <div>
