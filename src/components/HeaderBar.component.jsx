@@ -19,7 +19,26 @@ import firstRightImg2 from '../lib/png/FirstRightImg2.png';
 import secondRightImg from '../lib/png/SecondRightImg.png';
 import secondRightImg2 from '../lib/png/SecondRightImg2.png';
 import secondRightImg3 from '../lib/png/SecondRightImg3.png';
-import secondRightImg4 from '../lib/png/SecondRightImg4.png';
+
+import thirdRightImg from '../lib/png/ThirdRightImg.png';
+import thirdRightImg2 from '../lib/png/ThirdRightImg2.png';
+import thirdRightImg3 from '../lib/png/ThirdRightImg3.png';
+
+import fourthRightImg1 from '../lib/png/FourthRightImg1.png';
+import fourthRightImg2 from '../lib/png/FourthRightImg2.png';
+import fourthRightImg3 from '../lib/png/FourthRightImg3.png';
+import fourthRightImg4 from '../lib/png/FourthRightImg4.png';
+import fourthRightImg5 from '../lib/png/FourthRightImg5.png';
+import fourthRightImg6 from '../lib/png/FourthRightImg6.png';
+import fourthRightImg7 from '../lib/png/FourthRightImg7.png';
+import fourthRightImg8 from '../lib/png/FourthRightImg8.png';
+import fourthRightImg9 from '../lib/png/FourthRightImg9.png';
+import fourthRightImg10 from '../lib/png/FourthRightImg10.png';
+import fourthRightImg11 from '../lib/png/FourthRightImg11.png';
+import fourthRightImg12 from '../lib/png/FourthRightImg12.png';
+import fourthRightImg13 from '../lib/png/FourthRightImg13.png';
+import fourthRightImg14 from '../lib/png/FourthRightImg14.png';
+
 
 import SearchList from './SearchList';
 
@@ -203,8 +222,131 @@ const SecondRightHeaderClickMenu = styled(FirstRightHeaderClickMenu)`
   right: 135px;
 `;
 
-const SecondRightHeaderBox = styled(FirstRightHeaderBox)`
+const SecondRightHeaderBox = styled(FirstRightHeaderBox)``;
+
+const ThirdRightHeaderClickMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 478px;
+  height: 610px;
+  max-height: 1949px;
+  border: 1px solid #eee;
+  position: absolute;
+  top: 50px;
+  right: 81px;
 `;
+
+const ThirdRightHeaderBox = styled.div`
+  width: 100%;
+  height: 49px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 0px 15px;
+  border-bottom: 1px solid #eee;
+`;
+
+const ThirdRightListBox = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+`;
+
+const FourthRightHeaderClickMenu = styled.div`
+  width: 298px;
+  height: 719px;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  box-sizing: border-box;
+
+  .FourthRightMenu_1 {
+    display: flex;
+    padding: 16px;
+    flex-direction: row;
+    border-bottom: 2px solid #eee;
+
+    img {
+      width: 50px;
+      height: 42px;
+      margin-right: 8px;
+    }
+    
+    span {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    span:first-child {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    span:last-child {
+      margin-top: 10px;
+      color: #065fd4;
+      cursor: pointer;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column
+    }
+  }
+
+  .FourthRightMenu_2 {
+    padding: 8px 0px;
+    border-bottom: 2px solid #eee;
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      cursor: pointer;
+      padding: 0px 16px;
+    }
+
+    div:hover {
+      background-color: #e8e8e8;
+    }
+
+    img {
+      margin-right: 16px;
+    }
+  }
+
+  .FourthRightMenu_3 {
+    padding: 8px 0px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    div {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 14px;
+      padding: 0px 16px;
+    }
+
+    div:hover {
+      background-color: #e8e8e8;
+    }
+
+    span {
+      display: flex;
+      flex: 1;
+    }
+  }
+`;
+
 const HeaderBar = (props) => {
   const handleClick = (e) => {
     props.onClickMenu && props.onClickMenu();
@@ -256,22 +398,6 @@ const HeaderBar = (props) => {
     },
     [items]
   )
-
-  const onClickValue = (val) => {
-    const bool = isPressed;
-
-    if (bool) { //true
-      switch (val) { //1
-        case 1:
-          setPressed(!isPressed);
-          break;
-        case 2:
-          setPressed(!isPressed);
-      }
-    } else {
-      console.log('Button false');
-    }
-  }
 
   return (
     <LayoutHeader>
@@ -364,11 +490,171 @@ const HeaderBar = (props) => {
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_3} />
+            <img src={rightIcon_3} onClick={onClickPressed} />
             <HoverText4>알림</HoverText4>
+            {
+              isPressed && 
+              <ThirdRightHeaderClickMenu>
+              <ThirdRightHeaderBox>
+                <span style={{
+                  display: 'flex',
+                  flex: 1,
+                  fontSize: '16px'
+                }}>알림</span>
+                <img src={thirdRightImg} />
+              </ThirdRightHeaderBox>
+              <ThirdRightListBox>
+                <div style={{
+                  display: 'flex',
+                  padding: '10px 65px 0px 7px',
+                }}>
+                  <img src={thirdRightImg2} style={{
+                    marginRight: '8px',
+                    height: '100%',
+                  }} />
+                  <span style={{
+                    fontSize: '14px',
+                  }}>
+                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                    Best K POP Songs Korean #발라드 모음
+                    <br />
+                    <span style={{
+                      fontSize: '13px',
+                      color: '#606060',
+                    }}>1주전</span>
+                  </span>
+                  <img src={thirdRightImg3} style={{
+                    marginLeft: '10px',
+                  }} />
+                </div>
+                <div style={{
+                  display: 'flex',
+                  padding: '30px 65px 0px 7px',
+                }}>
+                  <img src={thirdRightImg2} style={{
+                    marginRight: '8px',
+                    height: '100%',
+                  }} />
+                  <span style={{
+                    fontSize: '14px',
+                  }}>
+                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                    Best K POP Songs Korean #발라드 모음
+                    <br />
+                    <span style={{
+                      fontSize: '13px',
+                      color: '#606060',
+                    }}>1주전</span>
+                  </span>
+                  <img src={thirdRightImg3} style={{
+                    marginLeft: '10px',
+                  }} />
+                </div>
+                <div style={{
+                  display: 'flex',
+                  padding: '30px 65px 0px 7px',
+                }}>
+                  <img src={thirdRightImg2} style={{
+                    marginRight: '8px',
+                    height: '100%',
+                  }} />
+                  <span style={{
+                    fontSize: '14px',
+                  }}>
+                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                    Best K POP Songs Korean #발라드 모음
+                    <br />
+                    <span style={{
+                      fontSize: '13px',
+                      color: '#606060',
+                    }}>1주전</span>
+                  </span>
+                  <img src={thirdRightImg3} style={{
+                    marginLeft: '10px',
+                  }} />
+                </div>
+              </ThirdRightListBox>
+            </ThirdRightHeaderClickMenu>
+            }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
             <img src={rightIcon_4} />
+            <FourthRightHeaderClickMenu>
+              <div className="FourthRightMenu_1">
+                <img src={rightIcon_4} alt=""/>
+                <div>
+                  <span>김민기</span>
+                  <span>minki@firmagroup.co</span>
+                  <span>Google 계정 관리</span>
+                </div>
+              </div>
+              <div className="FourthRightMenu_2">
+                <div>
+                  <img src={fourthRightImg1} />
+                  <span>채널 만들기</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg2} />
+                  <span>유료 멤버십</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg3} />
+                  <span>YouTube 스튜디오</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg4} />
+                  <span style={{ display: 'flex', flex: '1'}}>계정 전환</span>
+                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                </div>
+                <div>
+                  <img src={fourthRightImg5} />
+                  <span>로그아웃</span>
+                </div>
+              </div>
+              <div className="FourthRightMenu_2">
+                <div>
+                  <img src={fourthRightImg6} />
+                  <span style={{ display: 'flex', flex: '1'}}>어두운 테마: 사용 안함</span>
+                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                </div>
+                <div>
+                  <img src={fourthRightImg7} />
+                  <span style={{ display: 'flex', flex: '1'}}>언어: 한국어</span>
+                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                </div>
+                <div>
+                  <img src={fourthRightImg8} />
+                  <span style={{ display: 'flex', flex: '1'}}>위치: 한국</span>
+                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                </div>
+                <div>
+                  <img src={fourthRightImg9} />
+                  <span>설정</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg10} />
+                  <span>YouTube의 내 데이터</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg11} />
+                  <span>고객센터</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg12} />
+                  <span>의견 보내기</span>
+                </div>
+                <div>
+                  <img src={fourthRightImg13} />
+                  <span>단축키</span>
+                </div>
+              </div>
+              <div className="FourthRightMenu_3">
+                <div style={{ display: 'flex', flex: '1'}}>
+                  <span>제한 모드: 사용 안함</span>
+                <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                </div>
+              </div>
+            </FourthRightHeaderClickMenu>
           </RightImgHeader>
         </RightHeader>
       </Header>
