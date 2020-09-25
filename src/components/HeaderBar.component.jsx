@@ -13,6 +13,14 @@ import rightIcon_3 from '../lib/png/iconRight-3.png';
 import rightIcon_4 from '../lib/png/iconRight-4.png';
 import rightIcon_5 from '../lib/png/iconRight-5.png';
 
+import firstRightImg from '../lib/png/FirstRightImg.png';
+import firstRightImg2 from '../lib/png/FirstRightImg2.png';
+
+import secondRightImg from '../lib/png/SecondRightImg.png';
+import secondRightImg2 from '../lib/png/SecondRightImg2.png';
+import secondRightImg3 from '../lib/png/SecondRightImg3.png';
+import secondRightImg4 from '../lib/png/SecondRightImg4.png';
+
 import SearchList from './SearchList';
 
 const HoverText1 = styled.div`
@@ -140,6 +148,10 @@ const RightImgHeader = styled.div`
 
   &:hover ${HoverText1}, &:hover ${HoverText2}, &:hover ${HoverText3}, &:hover ${HoverText4} {
     opacity: 1;
+    ${props => props.hover && `
+      opacity: 0;
+    `
+  }
   }
 
   @media all and (max-width: 650px) {
@@ -149,6 +161,50 @@ const RightImgHeader = styled.div`
   }
 `;
 
+const FirstRightHeaderClickMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  width: 212px;
+  height: 96px;
+  padding: 8px 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+`;
+
+const FirstRightHeaderBox = styled.div`
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 0px 15px;
+
+  img {
+    width: 23px;
+    margin-right: 14px;
+  }
+
+  &:hover {
+    cursor:pointer;
+    background-color: #e8e8e8;
+  }
+`;
+
+const SecondRightHeaderClickMenu = styled(FirstRightHeaderClickMenu)`
+  width: 210px;
+  height: 251px;
+  right: 135px;
+`;
+
+const SecondRightHeaderBox = styled(FirstRightHeaderBox)`
+`;
 const HeaderBar = (props) => {
   const handleClick = (e) => {
     props.onClickMenu && props.onClickMenu();
@@ -161,6 +217,10 @@ const HeaderBar = (props) => {
   const [value, setValue] = useState('');
   const [isShowed, setShowed] = useState(false);
   const [isPressed, setPressed] = useState(false);
+
+  const onClickPressed = (e) => {
+    setPressed(!isPressed);
+  }
 
   const onClickSearch = (e) => {
     setShowed(!isShowed);
@@ -183,7 +243,7 @@ const HeaderBar = (props) => {
         id: nextId.current,
         text,
       }
-  
+
       setItems(items.concat(item));
       nextId.current += 1;
     },
@@ -197,16 +257,32 @@ const HeaderBar = (props) => {
     [items]
   )
 
+  const onClickValue = (val) => {
+    const bool = isPressed;
+
+    if (bool) { //true
+      switch (val) { //1
+        case 1:
+          setPressed(!isPressed);
+          break;
+        case 2:
+          setPressed(!isPressed);
+      }
+    } else {
+      console.log('Button false');
+    }
+  }
+
   return (
     <LayoutHeader>
       <Header>
         <LeftHeader>
-          <img src={iconPng} onClick={handleClick}/>
+          <img src={iconPng} onClick={handleClick} />
           <img src={mainIcon} />
         </LeftHeader>
-        <SearchHeader onSubmit={onSubmit}> 
+        <SearchHeader onSubmit={onSubmit}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
-          <div className="icon"><img src={middleIcon}/></div>
+          <div className="icon"><img src={middleIcon} /></div>
           <SearchHeaderButton>
             <img src={buttonPng} />
           </SearchHeaderButton>
@@ -215,23 +291,83 @@ const HeaderBar = (props) => {
           }
         </SearchHeader>
         <RightHeader>
-          <RightImgHeader>
+          <RightImgHeader hover={isPressed}>
             <img src={rightIcon_5} />
             <HoverText1>검색</HoverText1>
           </RightImgHeader>
-          <RightImgHeader>
-            <img src={rightIcon_1} />
+          <RightImgHeader hover={isPressed}>
+            <img src={rightIcon_1} onClick={onClickPressed} />
             <HoverText2>만들기</HoverText2>
+            {
+              isPressed
+                ?
+                <FirstRightHeaderClickMenu>
+                  <FirstRightHeaderBox>
+                    <img src={firstRightImg} />
+                    <span>동영상 업로드</span>
+                  </FirstRightHeaderBox>
+                  <FirstRightHeaderBox>
+                    <img src={firstRightImg2} />
+                    <span>실시간 스트리밍 시작</span>
+                  </FirstRightHeaderBox>
+                </FirstRightHeaderClickMenu> : console.log('Not RightHeader')
+            }
           </RightImgHeader>
-          <RightImgHeader>
-            <img src={rightIcon_2} />
+          <RightImgHeader hover={isPressed}>
+            <img src={rightIcon_2} onClick={onClickPressed} />
             <HoverText3>YouTube 앱</HoverText3>
+            {
+              isPressed
+                ? <SecondRightHeaderClickMenu>
+                  <div
+                    style={{
+                      width: '100%',
+                      padding: '0px 0px 8px 0px',
+                      borderBottom: '1px solid #eee',
+                    }}>
+                    <SecondRightHeaderBox>
+                      <img src={secondRightImg} />
+                      <span>YouTube TV</span>
+                    </SecondRightHeaderBox>
+                  </div>
+                  <div
+                    style={{
+                      width: '100%',
+                      padding: '8px 0px',
+                      borderBottom: '1px solid #eee',
+                    }}>
+                    <SecondRightHeaderBox>
+                      <img src={secondRightImg2} />
+                      <span>YouTube Music</span>
+                    </SecondRightHeaderBox>
+                    <SecondRightHeaderBox>
+                      <img src={secondRightImg3} />
+                      <span>YouTube Kids</span>
+                    </SecondRightHeaderBox>
+                  </div>
+                  <div
+                    style={{
+                      width: '100%',
+                      padding: '8px 0px',
+                      borderBottom: '1px solid #eee',
+                    }}>
+                    <SecondRightHeaderBox>
+                      <img src={secondRightImg3} />
+                      <span>크리에이터 아카데미</span>
+                    </SecondRightHeaderBox>
+                    <SecondRightHeaderBox>
+                      <img src={secondRightImg3} />
+                      <span>YouTube for Artists</span>
+                    </SecondRightHeaderBox>
+                  </div>
+                </SecondRightHeaderClickMenu> : console.log('Not RightHeader-2')
+            }
           </RightImgHeader>
-          <RightImgHeader>
+          <RightImgHeader hover={isPressed}>
             <img src={rightIcon_3} />
             <HoverText4>알림</HoverText4>
           </RightImgHeader>
-          <RightImgHeader>
+          <RightImgHeader hover={isPressed}>
             <img src={rightIcon_4} />
           </RightImgHeader>
         </RightHeader>
