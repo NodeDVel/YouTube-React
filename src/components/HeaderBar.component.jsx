@@ -358,11 +358,48 @@ const HeaderBar = (props) => {
 
   const [value, setValue] = useState('');
   const [isShowed, setShowed] = useState(false);
+
+  // ---------------------------------------------
+  const [openPopup, setOpenPopup] = useState('');
   const [isPressed, setPressed] = useState(false);
 
-  const onClickPressed = (e) => {
+  const onClickOpenPopup = (str) => {
+    setOpenPopup(str);
     setPressed(!isPressed);
   }
+
+  // const [isPressed2, setPressed2] = useState(false);
+  // const [isPressed3, setPressed3] = useState(false);
+  // const [isPressed4, setPressed4] = useState(false);
+
+  // const onClickPressed = (e) => {
+  //   setPressed(!isPressed);
+  //   setPressed2(false);
+  //   setPressed3(false);
+  //   setPressed4(false);
+  // }
+
+  // const onClickPressed2 = (e) => {
+  //   setPressed2(!isPressed2);
+  //   setPressed(false);
+  //   setPressed3(false);
+  //   setPressed4(false);
+  // }
+
+  // const onClickPressed3 = (e) => {
+  //   setPressed3(!isPressed3);
+  //   setPressed(false);
+  //   setPressed2(false);
+  //   setPressed4(false);
+  // }
+
+  // const onClickPressed4 = (e) => {
+  //   setPressed4(!isPressed4);
+  //   setPressed(false);
+  //   setPressed2(false);
+  //   setPressed3(false);
+  // }
+  // // ---------------------------------------------
 
   const onClickSearch = (e) => {
     setShowed(!isShowed);
@@ -375,7 +412,7 @@ const HeaderBar = (props) => {
   const onSubmit = (e) => {
     onInsert(value);
     setValue('');
-
+  
     e.preventDefault();
   }
 
@@ -386,8 +423,12 @@ const HeaderBar = (props) => {
         text,
       }
 
-      setItems(items.concat(item));
-      nextId.current += 1;
+      if (!item.text) {
+        alert('최소 1자 이상 입력해주세요');
+      } else {
+        setItems(items.concat(item));
+        nextId.current += 1;
+      }
     },
     [items]
   )
@@ -413,7 +454,7 @@ const HeaderBar = (props) => {
             <img src={buttonPng} />
           </SearchHeaderButton>
           {
-            isShowed ? <SearchList items={items} onRemove={onRemove} /> : console.log('Not List')
+            isShowed && <SearchList items={items} onRemove={onRemove} />
           }
         </SearchHeader>
         <RightHeader>
@@ -422,239 +463,241 @@ const HeaderBar = (props) => {
             <HoverText1>검색</HoverText1>
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_1} onClick={onClickPressed} />
+            <img src={rightIcon_1} onClick={() => onClickOpenPopup('upload')} />
             <HoverText2>만들기</HoverText2>
             {
-              isPressed
-                ?
-                <FirstRightHeaderClickMenu>
-                  <FirstRightHeaderBox>
-                    <img src={firstRightImg} />
-                    <span>동영상 업로드</span>
-                  </FirstRightHeaderBox>
-                  <FirstRightHeaderBox>
-                    <img src={firstRightImg2} />
-                    <span>실시간 스트리밍 시작</span>
-                  </FirstRightHeaderBox>
-                </FirstRightHeaderClickMenu> : console.log('Not RightHeader')
+              openPopup === 'upload' && isPressed &&
+              <FirstRightHeaderClickMenu>
+                <FirstRightHeaderBox>
+                  <img src={firstRightImg} />
+                  <span>동영상 업로드</span>
+                </FirstRightHeaderBox>
+                <FirstRightHeaderBox>
+                  <img src={firstRightImg2} />
+                  <span>실시간 스트리밍 시작</span>
+                </FirstRightHeaderBox>
+              </FirstRightHeaderClickMenu>
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_2} onClick={onClickPressed} />
+            <img src={rightIcon_2} onClick={() => {onClickOpenPopup('app')}} />
             <HoverText3>YouTube 앱</HoverText3>
             {
-              isPressed
-                ? <SecondRightHeaderClickMenu>
-                  <div
-                    style={{
-                      width: '100%',
-                      padding: '0px 0px 8px 0px',
-                      borderBottom: '1px solid #eee',
-                    }}>
-                    <SecondRightHeaderBox>
-                      <img src={secondRightImg} />
-                      <span>YouTube TV</span>
-                    </SecondRightHeaderBox>
-                  </div>
-                  <div
-                    style={{
-                      width: '100%',
-                      padding: '8px 0px',
-                      borderBottom: '1px solid #eee',
-                    }}>
-                    <SecondRightHeaderBox>
-                      <img src={secondRightImg2} />
-                      <span>YouTube Music</span>
-                    </SecondRightHeaderBox>
-                    <SecondRightHeaderBox>
-                      <img src={secondRightImg3} />
-                      <span>YouTube Kids</span>
-                    </SecondRightHeaderBox>
-                  </div>
-                  <div
-                    style={{
-                      width: '100%',
-                      padding: '8px 0px',
-                      borderBottom: '1px solid #eee',
-                    }}>
-                    <SecondRightHeaderBox>
-                      <img src={secondRightImg3} />
-                      <span>크리에이터 아카데미</span>
-                    </SecondRightHeaderBox>
-                    <SecondRightHeaderBox>
-                      <img src={secondRightImg3} />
-                      <span>YouTube for Artists</span>
-                    </SecondRightHeaderBox>
-                  </div>
-                </SecondRightHeaderClickMenu> : console.log('Not RightHeader-2')
+              openPopup === 'app' && isPressed &&
+              <SecondRightHeaderClickMenu>
+                <div
+                  style={{
+                    width: '100%',
+                    padding: '0px 0px 8px 0px',
+                    borderBottom: '1px solid #eee',
+                  }}>
+                  <SecondRightHeaderBox>
+                    <img src={secondRightImg} />
+                    <span>YouTube TV</span>
+                  </SecondRightHeaderBox>
+                </div>
+                <div
+                  style={{
+                    width: '100%',
+                    padding: '8px 0px',
+                    borderBottom: '1px solid #eee',
+                  }}>
+                  <SecondRightHeaderBox>
+                    <img src={secondRightImg2} />
+                    <span>YouTube Music</span>
+                  </SecondRightHeaderBox>
+                  <SecondRightHeaderBox>
+                    <img src={secondRightImg3} />
+                    <span>YouTube Kids</span>
+                  </SecondRightHeaderBox>
+                </div>
+                <div
+                  style={{
+                    width: '100%',
+                    padding: '8px 0px',
+                    borderBottom: '1px solid #eee',
+                  }}>
+                  <SecondRightHeaderBox>
+                    <img src={secondRightImg3} />
+                    <span>크리에이터 아카데미</span>
+                  </SecondRightHeaderBox>
+                  <SecondRightHeaderBox>
+                    <img src={secondRightImg3} />
+                    <span>YouTube for Artists</span>
+                  </SecondRightHeaderBox>
+                </div>
+              </SecondRightHeaderClickMenu>
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_3} onClick={onClickPressed} />
+            <img src={rightIcon_3} onClick={() => onClickOpenPopup('noti')} />
             <HoverText4>알림</HoverText4>
             {
-              isPressed && 
+              openPopup === 'noti' && isPressed &&
               <ThirdRightHeaderClickMenu>
-              <ThirdRightHeaderBox>
-                <span style={{
-                  display: 'flex',
-                  flex: 1,
-                  fontSize: '16px'
-                }}>알림</span>
-                <img src={thirdRightImg} />
-              </ThirdRightHeaderBox>
-              <ThirdRightListBox>
-                <div style={{
-                  display: 'flex',
-                  padding: '10px 65px 0px 7px',
-                }}>
-                  <img src={thirdRightImg2} style={{
-                    marginRight: '8px',
-                    height: '100%',
-                  }} />
+                <ThirdRightHeaderBox>
                   <span style={{
-                    fontSize: '14px',
+                    display: 'flex',
+                    flex: 1,
+                    fontSize: '16px'
+                  }}>알림</span>
+                  <img src={thirdRightImg} />
+                </ThirdRightHeaderBox>
+                <ThirdRightListBox>
+                  <div style={{
+                    display: 'flex',
+                    padding: '10px 65px 0px 7px',
                   }}>
-                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
-                    Best K POP Songs Korean #발라드 모음
-                    <br />
+                    <img src={thirdRightImg2} style={{
+                      marginRight: '8px',
+                      height: '100%',
+                    }} />
                     <span style={{
-                      fontSize: '13px',
-                      color: '#606060',
-                    }}>1주전</span>
-                  </span>
-                  <img src={thirdRightImg3} style={{
-                    marginLeft: '10px',
-                  }} />
-                </div>
-                <div style={{
-                  display: 'flex',
-                  padding: '30px 65px 0px 7px',
-                }}>
-                  <img src={thirdRightImg2} style={{
-                    marginRight: '8px',
-                    height: '100%',
-                  }} />
-                  <span style={{
-                    fontSize: '14px',
+                      fontSize: '14px',
+                    }}>
+                      맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                      Best K POP Songs Korean #발라드 모음
+                    <br />
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#606060',
+                      }}>1주전</span>
+                    </span>
+                    <img src={thirdRightImg3} style={{
+                      marginLeft: '10px',
+                    }} />
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    padding: '30px 65px 0px 7px',
                   }}>
-                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
-                    Best K POP Songs Korean #발라드 모음
-                    <br />
+                    <img src={thirdRightImg2} style={{
+                      marginRight: '8px',
+                      height: '100%',
+                    }} />
                     <span style={{
-                      fontSize: '13px',
-                      color: '#606060',
-                    }}>1주전</span>
-                  </span>
-                  <img src={thirdRightImg3} style={{
-                    marginLeft: '10px',
-                  }} />
-                </div>
-                <div style={{
-                  display: 'flex',
-                  padding: '30px 65px 0px 7px',
-                }}>
-                  <img src={thirdRightImg2} style={{
-                    marginRight: '8px',
-                    height: '100%',
-                  }} />
-                  <span style={{
-                    fontSize: '14px',
+                      fontSize: '14px',
+                    }}>
+                      맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                      Best K POP Songs Korean #발라드 모음
+                    <br />
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#606060',
+                      }}>1주전</span>
+                    </span>
+                    <img src={thirdRightImg3} style={{
+                      marginLeft: '10px',
+                    }} />
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    padding: '30px 65px 0px 7px',
                   }}>
-                    맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
-                    Best K POP Songs Korean #발라드 모음
-                    <br />
+                    <img src={thirdRightImg2} style={{
+                      marginRight: '8px',
+                      height: '100%',
+                    }} />
                     <span style={{
-                      fontSize: '13px',
-                      color: '#606060',
-                    }}>1주전</span>
-                  </span>
-                  <img src={thirdRightImg3} style={{
-                    marginLeft: '10px',
-                  }} />
-                </div>
-              </ThirdRightListBox>
-            </ThirdRightHeaderClickMenu>
+                      fontSize: '14px',
+                    }}>
+                      맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
+                      Best K POP Songs Korean #발라드 모음
+                    <br />
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#606060',
+                      }}>1주전</span>
+                    </span>
+                    <img src={thirdRightImg3} style={{
+                      marginLeft: '10px',
+                    }} />
+                  </div>
+                </ThirdRightListBox>
+              </ThirdRightHeaderClickMenu>
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_4} />
-            <FourthRightHeaderClickMenu>
-              <div className="FourthRightMenu_1">
-                <img src={rightIcon_4} alt=""/>
-                <div>
-                  <span>김민기</span>
-                  <span>minki@firmagroup.co</span>
-                  <span>Google 계정 관리</span>
+            <img src={rightIcon_4} onClick={() => onClickOpenPopup('profile')} />
+            {
+              openPopup === 'profile' && isPressed &&
+              <FourthRightHeaderClickMenu>
+                <div className="FourthRightMenu_1">
+                  <img src={rightIcon_4} alt="" />
+                  <div>
+                    <span>김민기</span>
+                    <span>minki@firmagroup.co</span>
+                    <span>Google 계정 관리</span>
+                  </div>
                 </div>
-              </div>
-              <div className="FourthRightMenu_2">
-                <div>
-                  <img src={fourthRightImg1} />
-                  <span>채널 만들기</span>
+                <div className="FourthRightMenu_2">
+                  <div>
+                    <img src={fourthRightImg1} />
+                    <span>채널 만들기</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg2} />
+                    <span>유료 멤버십</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg3} />
+                    <span>YouTube 스튜디오</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg4} />
+                    <span style={{ display: 'flex', flex: '1' }}>계정 전환</span>
+                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                  </div>
+                  <div>
+                    <img src={fourthRightImg5} />
+                    <span>로그아웃</span>
+                  </div>
                 </div>
-                <div>
-                  <img src={fourthRightImg2} />
-                  <span>유료 멤버십</span>
+                <div className="FourthRightMenu_2">
+                  <div>
+                    <img src={fourthRightImg6} />
+                    <span style={{ display: 'flex', flex: '1' }}>어두운 테마: 사용 안함</span>
+                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                  </div>
+                  <div>
+                    <img src={fourthRightImg7} />
+                    <span style={{ display: 'flex', flex: '1' }}>언어: 한국어</span>
+                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                  </div>
+                  <div>
+                    <img src={fourthRightImg8} />
+                    <span style={{ display: 'flex', flex: '1' }}>위치: 한국</span>
+                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                  </div>
+                  <div>
+                    <img src={fourthRightImg9} />
+                    <span>설정</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg10} />
+                    <span>YouTube의 내 데이터</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg11} />
+                    <span>고객센터</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg12} />
+                    <span>의견 보내기</span>
+                  </div>
+                  <div>
+                    <img src={fourthRightImg13} />
+                    <span>단축키</span>
+                  </div>
                 </div>
-                <div>
-                  <img src={fourthRightImg3} />
-                  <span>YouTube 스튜디오</span>
+                <div className="FourthRightMenu_3">
+                  <div style={{ display: 'flex', flex: '1' }}>
+                    <span>제한 모드: 사용 안함</span>
+                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                  </div>
                 </div>
-                <div>
-                  <img src={fourthRightImg4} />
-                  <span style={{ display: 'flex', flex: '1'}}>계정 전환</span>
-                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
-                </div>
-                <div>
-                  <img src={fourthRightImg5} />
-                  <span>로그아웃</span>
-                </div>
-              </div>
-              <div className="FourthRightMenu_2">
-                <div>
-                  <img src={fourthRightImg6} />
-                  <span style={{ display: 'flex', flex: '1'}}>어두운 테마: 사용 안함</span>
-                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
-                </div>
-                <div>
-                  <img src={fourthRightImg7} />
-                  <span style={{ display: 'flex', flex: '1'}}>언어: 한국어</span>
-                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
-                </div>
-                <div>
-                  <img src={fourthRightImg8} />
-                  <span style={{ display: 'flex', flex: '1'}}>위치: 한국</span>
-                  <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
-                </div>
-                <div>
-                  <img src={fourthRightImg9} />
-                  <span>설정</span>
-                </div>
-                <div>
-                  <img src={fourthRightImg10} />
-                  <span>YouTube의 내 데이터</span>
-                </div>
-                <div>
-                  <img src={fourthRightImg11} />
-                  <span>고객센터</span>
-                </div>
-                <div>
-                  <img src={fourthRightImg12} />
-                  <span>의견 보내기</span>
-                </div>
-                <div>
-                  <img src={fourthRightImg13} />
-                  <span>단축키</span>
-                </div>
-              </div>
-              <div className="FourthRightMenu_3">
-                <div style={{ display: 'flex', flex: '1'}}>
-                  <span>제한 모드: 사용 안함</span>
-                <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
-                </div>
-              </div>
-            </FourthRightHeaderClickMenu>
+              </FourthRightHeaderClickMenu>
+            }
           </RightImgHeader>
         </RightHeader>
       </Header>
