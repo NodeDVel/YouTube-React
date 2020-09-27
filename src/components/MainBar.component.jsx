@@ -108,7 +108,7 @@ const VideoLayout = styled.div`
   cursor: pointer;
 
   ${props => props.changed && `
-    width: 19.7%;
+    width: 19.6%;
     `
     }
 
