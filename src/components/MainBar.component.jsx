@@ -71,12 +71,12 @@ const SpaceBox = styled.div`
 
   ${props => props.changed &&`
     width: 0px;
+    margin-right: 2%;
   `
   }
 
-
   @media all and (max-width: 1300px) {
-    width: 72px;
+    width: 64px;
   }
 
   @media all and (max-width: 650px) {

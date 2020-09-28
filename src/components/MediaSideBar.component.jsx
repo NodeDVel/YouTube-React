@@ -9,7 +9,7 @@ import sideImg4 from '../lib/png/sideImg4.png';
 const MediaSideBarLayout = styled.div`
   display: none;
 
-   ${props => props.changed && `
+  ${props => props.changed && `
       display: block;
       heigth: 100%;
 
@@ -61,6 +61,7 @@ const MediaBoxLayout = styled.div`
   }
 
   @media all and (max-width: 1300px) {
+    display: block;
     width: 72px;
     height: 74px;
     font-size: 10px;

@@ -25,6 +25,7 @@ const RemoveButton = styled.div`
 
 const SearchListItem = ({ item, onRemove }) => {
   const { id, text } = item;
+
   return (
     <SearchListItemLayout>
       <AddList key={id}>{text}</AddList>

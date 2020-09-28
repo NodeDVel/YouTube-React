@@ -252,6 +252,11 @@ const ThirdRightListBox = styled.div`
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  cursor: pointer;
+
+  & > div:hover {
+    background-color: #e8e8e8;
+  }
 `;
 
 const FourthRightHeaderClickMenu = styled.div`
@@ -359,7 +364,6 @@ const HeaderBar = (props) => {
   const [value, setValue] = useState('');
   const [isShowed, setShowed] = useState(false);
 
-  // ---------------------------------------------
   const [openPopup, setOpenPopup] = useState('');
   const [isPressed, setPressed] = useState(false);
 
@@ -367,39 +371,6 @@ const HeaderBar = (props) => {
     setOpenPopup(str);
     setPressed(!isPressed);
   }
-
-  // const [isPressed2, setPressed2] = useState(false);
-  // const [isPressed3, setPressed3] = useState(false);
-  // const [isPressed4, setPressed4] = useState(false);
-
-  // const onClickPressed = (e) => {
-  //   setPressed(!isPressed);
-  //   setPressed2(false);
-  //   setPressed3(false);
-  //   setPressed4(false);
-  // }
-
-  // const onClickPressed2 = (e) => {
-  //   setPressed2(!isPressed2);
-  //   setPressed(false);
-  //   setPressed3(false);
-  //   setPressed4(false);
-  // }
-
-  // const onClickPressed3 = (e) => {
-  //   setPressed3(!isPressed3);
-  //   setPressed(false);
-  //   setPressed2(false);
-  //   setPressed4(false);
-  // }
-
-  // const onClickPressed4 = (e) => {
-  //   setPressed4(!isPressed4);
-  //   setPressed(false);
-  //   setPressed2(false);
-  //   setPressed3(false);
-  // }
-  // // ---------------------------------------------
 
   const onClickSearch = (e) => {
     setShowed(!isShowed);
@@ -429,6 +400,7 @@ const HeaderBar = (props) => {
         setItems(items.concat(item));
         nextId.current += 1;
       }
+
     },
     [items]
   )
@@ -480,7 +452,7 @@ const HeaderBar = (props) => {
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_2} onClick={() => {onClickOpenPopup('app')}} />
+            <img src={rightIcon_2} onClick={() =>  onClickOpenPopup('app')} />
             <HoverText3>YouTube 앱</HoverText3>
             {
               openPopup === 'app' && isPressed &&

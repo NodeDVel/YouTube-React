@@ -23,6 +23,12 @@ import sideImg18 from '../lib/png/sideImg18.png';
 import sideImg19 from '../lib/png/sideImg19.png';
 import sideImg20 from '../lib/png/sideImg20.png';
 
+const SideLayoutBox = styled.div`
+  @media all and (max-width: 1300px) {
+    display: none;
+  }
+`;
+
 const SideLayout_1 = styled.div`
   width: 100%;
   height: 140px;
@@ -103,7 +109,7 @@ const FooterMessageBoxLayout = styled(HeaderMessageBoxLayout)`
 
 const SortationSideBar = () => {
   return (
-    <>
+    <SideLayoutBox>
       <SideLayout_1>
         <LayoutBox>
           <img src={sideImg1} />
@@ -233,7 +239,7 @@ const SortationSideBar = () => {
           </span>
         </FooterMessageBoxLayout>
       </SideLayout_5>
-    </>
+    </SideLayoutBox>
   )
 }
 

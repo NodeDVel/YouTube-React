@@ -33,13 +33,12 @@ const SideBarBox = styled.div`
 `;
 
 const SideBarLayout = styled.div`
-  div > div:hover {
+  div > div > div:hover {
     cursor: pointer;
     background-color: #e8e8e8;
   }
 
   @media all and (max-width: 1300px) {
-    display: none;
     width: 30%;
   }
 `;
@@ -48,7 +47,8 @@ const SideBar = (props) => {
   return (
     <SideBarBox shrink={props.collapsed}>
       {
-        props.collapsed ? <MediaSideBar showed={props.collapsed} /> : <SideBarLayout><SortationSideBar /></SideBarLayout>
+        props.collapsed
+         ? <MediaSideBar showed={props.collapsed} /> : <SideBarLayout><MediaSideBar /><SortationSideBar /></SideBarLayout>
       }
     </SideBarBox>
   )
