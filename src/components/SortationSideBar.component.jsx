@@ -227,15 +227,15 @@ const SortationSideBar = () => {
           <span>
             © 2020 Google LLC
           <br />
-          회사명: Google LLC
+            회사명: Google LLC
           <br />
-          CEO: Sundar Pichai
+            CEO: Sundar Pichai
           <br />
-          주소: 1600 Amphitheatre
+            주소: 1600 Amphitheatre
           <br />
-          Parkway, Mountain View, CA 94043 USA.
+            Parkway, Mountain View, CA 94043 USA.
           <br />
-          전화: 080-822-1450 (무료)
+            전화: 080-822-1450 (무료)
           </span>
         </FooterMessageBoxLayout>
       </SideLayout_5>

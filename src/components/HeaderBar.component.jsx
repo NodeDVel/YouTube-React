@@ -387,6 +387,8 @@ const HeaderBar = (props) => {
     e.preventDefault();
   }
 
+  let blank_pattern = /[\s]/g;
+
   const onInsert = useCallback(
     text => {
       const item = {

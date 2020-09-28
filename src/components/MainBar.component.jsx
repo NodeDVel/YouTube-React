@@ -70,13 +70,12 @@ const SpaceBox = styled.div`
   background-color: #F9F9F9;
 
   ${props => props.changed &&`
-    width: 0px;
-    margin-right: 2%;
+    width: 75px;
   `
   }
 
   @media all and (max-width: 1300px) {
-    width: 64px;
+    width: 81px;
   }
 
   @media all and (max-width: 650px) {
@@ -95,6 +94,10 @@ const MainBarLayout = styled.div`
   flex-flow: row wrap;
   margin: 1% 4% 1% 5%;
   height: 100%;
+
+  ${props => props.changed && `
+    margin: 1% 4% 1% 1.5%;
+  `}
 
   @media all and (max-width: 1000px) {
     margin: 1% 6% 1% 7%;
@@ -162,7 +165,7 @@ const MainBar = (props) => {
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
       <MainBarBox>
-        <MainBarLayout>
+        <MainBarLayout changed={props.collapsed}>
           <VideoLayout changed={props.collapsed}>
             <img src={videoImg1} />
             <MiddleHover>
