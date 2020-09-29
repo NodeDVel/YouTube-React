@@ -39,6 +39,7 @@ import fourthRightImg12 from '../lib/png/FourthRightImg12.png';
 import fourthRightImg13 from '../lib/png/FourthRightImg13.png';
 import fourthRightImg14 from '../lib/png/FourthRightImg14.png';
 
+import backImg from '../lib/png/back.png'
 
 import SearchList from './SearchList';
 
@@ -85,6 +86,13 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
+
+  @media all and (max-width: 650px) {
+    ${props => props.none && `
+      display: none;
+    `}
+  }
+
 `;
 
 const LeftHeader = styled.div`
@@ -99,6 +107,24 @@ const LeftHeader = styled.div`
   img:first-child {
     padding: 0.5rem;
     margin: 0 1rem 0 0;
+  }
+
+  @media all and (max-width: 650px) {
+    ${props => props.none && `
+      display: none;
+    `}
+  }
+`;
+
+const HiddenSearchHeader = styled.div`
+  display: none;
+  cursor: pointer;
+
+  @media all and (max-width: 650px) {
+    ${props => props.none && `
+      display: block;
+      margin-right: 4%;
+    `}
   }
 `;
 
@@ -118,6 +144,11 @@ const SearchHeader = styled.form`
 
   @media all and (max-width: 650px) {
     display: none;
+
+    ${props => props.none && `
+      display: flex;
+      flex: 1;
+    `}
   }
 `;
 
@@ -153,6 +184,12 @@ const RightHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media all and (max-width: 650px) {
+    ${props => props.none && `
+      display: none;
+    `}
+  }
 `;
 
 const RightImgHeader = styled.div`
@@ -366,10 +403,16 @@ const HeaderBar = (props) => {
 
   const [openPopup, setOpenPopup] = useState('');
   const [isPressed, setPressed] = useState(false);
+  const [isHidden, setHidden] = useState(false);
 
   const onClickOpenPopup = (str) => {
     setOpenPopup(str);
     setPressed(!isPressed);
+  }
+
+  const onClickHiddenPopup = (str) => {
+    setOpenPopup(str);
+    setHidden(!isHidden)
   }
 
   const onClickSearch = (e) => {
@@ -383,11 +426,9 @@ const HeaderBar = (props) => {
   const onSubmit = (e) => {
     onInsert(value);
     setValue('');
-  
+
     e.preventDefault();
   }
-
-  let blank_pattern = /[\s]/g;
 
   const onInsert = useCallback(
     text => {
@@ -417,11 +458,12 @@ const HeaderBar = (props) => {
   return (
     <LayoutHeader>
       <Header>
-        <LeftHeader>
+        <LeftHeader none={isHidden}>
           <img src={iconPng} onClick={handleClick} />
           <img src={mainIcon} />
         </LeftHeader>
-        <SearchHeader onSubmit={onSubmit}>
+        <HiddenSearchHeader none={isHidden}><img src={backImg} onClick={() => setHidden(!isHidden)} /></HiddenSearchHeader>
+        <SearchHeader onSubmit={onSubmit} none={isHidden}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
           <div className="icon"><img src={middleIcon} /></div>
           <SearchHeaderButton>
@@ -431,9 +473,9 @@ const HeaderBar = (props) => {
             isShowed && <SearchList items={items} onRemove={onRemove} />
           }
         </SearchHeader>
-        <RightHeader>
+        <RightHeader none={isHidden}>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_5} />
+            <img src={rightIcon_5} onClick={() => onClickHiddenPopup('search')} />
             <HoverText1>검색</HoverText1>
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
@@ -454,7 +496,7 @@ const HeaderBar = (props) => {
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_2} onClick={() =>  onClickOpenPopup('app')} />
+            <img src={rightIcon_2} onClick={() => onClickOpenPopup('app')} />
             <HoverText3>YouTube 앱</HoverText3>
             {
               openPopup === 'app' && isPressed &&
