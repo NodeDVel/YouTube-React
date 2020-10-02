@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import VideoLayoutComponent from './VideoLayoutComponent';
+import VideoLayoutComponent from './VideoLayoutComponent.component';
 
 
 const SpaceBoxLayout = styled.div`

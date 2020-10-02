@@ -48,7 +48,8 @@ const SideBar = (props) => {
     <SideBarBox shrink={props.collapsed}>
       {
         props.collapsed
-         ? <MediaSideBar showed={props.collapsed} /> : <SideBarLayout><MediaSideBar /><SortationSideBar /></SideBarLayout>
+          ? <MediaSideBar showed={props.collapsed} /> 
+          : <SideBarLayout><MediaSideBar /><SortationSideBar /></SideBarLayout>
       }
     </SideBarBox>
   )
