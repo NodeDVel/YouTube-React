@@ -468,7 +468,9 @@ const HeaderBar = (props) => {
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
           <div className="icon"><img src={middleIcon} /></div>
             <SearchHeaderButton>
-              <Link to="/search/:title"><img src={buttonPng} style={{ marginTop: '3px' }} /></Link>
+              <Link to={`/search/${value}`}>
+                <img src={buttonPng} style={{ marginTop: '3px' }} />
+              </Link>
             </SearchHeaderButton>
           {
             isShowed && <SearchList items={items} onRemove={onRemove} />

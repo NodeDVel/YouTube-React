@@ -5,8 +5,8 @@ import SideBar from '../components/SideBar.component';
 import SearchResult from '../components/SearchResult.component';
 
 const Search = ({ match }) => {
-  const { searchValue } = match.params;
-  console.log(searchValue);
+  const { title } = match.params;
+  console.log(title);
 
   const [isCollapsed, setCollapsed] = useState(false);
 
@@ -18,7 +18,7 @@ const Search = ({ match }) => {
     <>
       <HeaderBar onClickMenu={handleClickMenu} />
       <SideBar collapsed={isCollapsed} />
-      <SearchResult collapsed={isCollapsed} />
+      <SearchResult collapsed={isCollapsed} title={title} />
     </>
   )
 }

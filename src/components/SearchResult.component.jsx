@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components'
+
 import SearchResultList from './SearchResultList.component';
+import Exception from './Exception.component';
+
+import filterImg from '../lib/png/filter.png';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -52,6 +56,22 @@ const SearchListLayout = styled.div`
   }
 `;
 
+const SearchFilter = styled.div`
+  display: flex;
+  align-items: center;
+  width: 862px;
+  height: 36px;
+  border-bottom: 1px solid #e3e3e3;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  span {
+    font-size: 14px;
+    margin-left: 8px;
+    color: #606060;
+  }
+`;
+
 const SearchResult = (props) => {
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
@@ -68,21 +88,33 @@ const SearchResult = (props) => {
       setLayout((arr) => arr.concat(arr.length));
     }
   }
+
   return (
-      <SpaceBoxLayout>
-        <SpaceBox changed={props.collapsed} />
-        <SearchListBox>
-          <SearchListLayout changed={props.collapsed}>
-            {
-              layout.map((val, key) => {
-                return (
-                  <SearchResultList collapsed={props.collapsed} key={key} />
-                )
-              })
-            }
-          </SearchListLayout>
-        </SearchListBox>
-      </SpaceBoxLayout>
+    <>
+      {
+        props.title === "popularChart" || "news" || "vlog"
+          ? 
+          <SpaceBoxLayout>
+            <SpaceBox changed={props.collapsed} />
+            <SearchListBox>
+              <SearchListLayout changed={props.collapsed}>
+                <SearchFilter>
+                  <img src={filterImg} />
+                  <span>필터</span>
+                </SearchFilter>
+                {
+                  layout.map((val, key) => {
+                    return (
+                      <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
+                    )
+                  })
+                }
+              </SearchListLayout>
+            </SearchListBox>
+          </SpaceBoxLayout>
+          : <h1>{props.title}에 대한 검색 결과가 없습니다.</h1>
+      }
+    </>
   )
 }
 
