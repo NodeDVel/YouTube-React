@@ -23,7 +23,8 @@ const SpaceBox = styled.div`
   }
 
   @media all and (max-width: 1300px) {
-    width: 81px;
+    width: auto;
+    margin-left: 5%;
   }
 
   @media all and (max-width: 650px) {
@@ -35,12 +36,13 @@ const SearchListBox = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
+  
 `;
 
 const SearchListLayout = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1% 4% 1% 12%;
+  margin: 1% 4% 0% 12%;
   height: 100%;
 
   ${props => props.changed && `
@@ -59,7 +61,7 @@ const SearchListLayout = styled.div`
 const SearchFilter = styled.div`
   display: flex;
   align-items: center;
-  width: 862px;
+  width: 85%;
   height: 36px;
   border-bottom: 1px solid #e3e3e3;
   margin-bottom: 10px;
@@ -90,31 +92,27 @@ const SearchResult = (props) => {
   }
 
   return (
-    <>
-      {
-        props.title === "popularChart" || "news" || "vlog"
-          ? 
-          <SpaceBoxLayout>
-            <SpaceBox changed={props.collapsed} />
-            <SearchListBox>
-              <SearchListLayout changed={props.collapsed}>
-                <SearchFilter>
-                  <img src={filterImg} />
-                  <span>필터</span>
-                </SearchFilter>
-                {
-                  layout.map((val, key) => {
-                    return (
-                      <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
-                    )
-                  })
-                }
-              </SearchListLayout>
-            </SearchListBox>
-          </SpaceBoxLayout>
-          : <h1>{props.title}에 대한 검색 결과가 없습니다.</h1>
-      }
-    </>
+    <SpaceBoxLayout>
+      <SpaceBox changed={props.collapsed} />
+      <SearchListBox>
+        <SearchListLayout changed={props.collapsed}>
+          <SearchFilter>
+            <img src={filterImg} />
+            <span>필터</span>
+          </SearchFilter>
+          {
+            props.title == "인기차트" || props.title == "브이로그" || props.title == "뉴스"
+            ?
+            layout.map((val, key) => {
+              return (
+                <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
+              )
+            })
+            : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>
+          }
+        </SearchListLayout>
+      </SearchListBox>
+    </SpaceBoxLayout>
   )
 }
 

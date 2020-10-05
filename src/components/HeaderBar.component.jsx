@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import iconPng from '../lib/png/icon.png';
 import mainIcon from '../lib/png/mainIcon.png';
@@ -456,6 +456,14 @@ const HeaderBar = (props) => {
     [items]
   )
 
+  const ClickFilter = () => {
+    if (!value) {
+      console.log('none');
+    } else {
+      props.history.push(`/search/${value}`);
+    }
+  }
+
   return (
     <LayoutHeader>
       <Header>
@@ -467,11 +475,9 @@ const HeaderBar = (props) => {
         <SearchHeader onSubmit={onSubmit} none={isHidden}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
           <div className="icon"><img src={middleIcon} /></div>
-            <SearchHeaderButton>
-              <Link to={`/search/${value}`}>
-                <img src={buttonPng} style={{ marginTop: '3px' }} />
-              </Link>
-            </SearchHeaderButton>
+          <SearchHeaderButton onClick={() => ClickFilter()}>
+            <img src={buttonPng} style={{ marginTop: '3px' }} />
+          </SearchHeaderButton>
           {
             isShowed && <SearchList items={items} onRemove={onRemove} />
           }
@@ -724,4 +730,4 @@ const HeaderBar = (props) => {
   )
 }
 
-export default HeaderBar;
+export default withRouter(HeaderBar);

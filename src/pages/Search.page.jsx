@@ -6,7 +6,6 @@ import SearchResult from '../components/SearchResult.component';
 
 const Search = ({ match }) => {
   const { title } = match.params;
-  console.log(title);
 
   const [isCollapsed, setCollapsed] = useState(false);
 

@@ -67,7 +67,7 @@ const SearchResultListLayout = styled.div`
   display: flex;
   position: relative;
   margin-top: 18px;
-  width: 862px;
+  /* width: 61%; */
   height: 138px;
   
   &:hover ${MiddleHover} {
@@ -92,22 +92,22 @@ const SearchListTextLayout = styled.div`
 
 const SearchResultList = (props) => {
   const data = {
-    popularChart: {
+    "인기차트": {
       imgSrc: videoImg1,
       title: '노래방 인기차트 TOP 20 가사',
       information: '낭소월드 • 조회수 11만회 • 1일전',
       description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'
     },
-    vlog: {
+    "브이로그": {
       imgSrc: vlogImg,
       title: 'YouTube Vlog',
-      information: 'asdf • 조회수 20만회 • 3일전',
+      information: 'firma • 조회수 20만회 • 3일전',
       description: '유튜버의 vlog',
     },
-    news: {
+    "뉴스": {
       imgSrc: newsImg,
       title: 'new News',
-      information: 'zxcv • 조회수 32만회 • 1달전',
+      information: 'MBC News • 조회수 32만회 • 1달전',
       description: '새로운 뉴스'
     }
   }
