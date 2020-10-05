@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 import iconPng from '../lib/png/icon.png';
 import mainIcon from '../lib/png/mainIcon.png';
@@ -460,15 +461,15 @@ const HeaderBar = (props) => {
       <Header>
         <LeftHeader none={isHidden}>
           <img src={iconPng} onClick={handleClick} />
-          <img src={mainIcon} />
+          <Link to="/"><img src={mainIcon} /></Link>
         </LeftHeader>
         <HiddenSearchHeader none={isHidden}><img src={backImg} onClick={() => setHidden(!isHidden)} /></HiddenSearchHeader>
         <SearchHeader onSubmit={onSubmit} none={isHidden}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
           <div className="icon"><img src={middleIcon} /></div>
-          <SearchHeaderButton>
-            <img src={buttonPng} />
-          </SearchHeaderButton>
+            <SearchHeaderButton>
+              <Link to="/search/:title"><img src={buttonPng} style={{ marginTop: '3px' }} /></Link>
+            </SearchHeaderButton>
           {
             isShowed && <SearchList items={items} onRemove={onRemove} />
           }

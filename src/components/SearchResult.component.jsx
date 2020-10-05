@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 
-import VideoLayoutComponent from './VideoLayoutComponent.component';
-
+import styled from 'styled-components'
+import SearchResultList from './SearchResultList.component';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -28,16 +27,16 @@ const SpaceBox = styled.div`
   }
 `;
 
-const MainBarBox = styled.div`
+const SearchListBox = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
 `;
 
-const MainBarLayout = styled.div`
+const SearchListLayout = styled.div`
   display: flex;
-  flex-flow: row wrap;
-  margin: 1% 4% 1% 5%;
+  flex-direction: column;
+  margin: 1% 4% 1% 12%;
   height: 100%;
 
   ${props => props.changed && `
@@ -53,8 +52,7 @@ const MainBarLayout = styled.div`
   }
 `;
 
-
-const MainBar = (props) => {
+const SearchResult = (props) => {
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
   });
@@ -70,23 +68,22 @@ const MainBar = (props) => {
       setLayout((arr) => arr.concat(arr.length));
     }
   }
-
   return (
-    <SpaceBoxLayout>
-      <SpaceBox changed={props.collapsed} />
-      <MainBarBox>
-        <MainBarLayout changed={props.collapsed}>
-          {
-            layout.map((val, key) => {
-              return (
-                <VideoLayoutComponent collapsed={props.collapsed} key={key} />
-              )
-            })
-          }
-        </MainBarLayout>
-      </MainBarBox>
-    </SpaceBoxLayout>
+      <SpaceBoxLayout>
+        <SpaceBox changed={props.collapsed} />
+        <SearchListBox>
+          <SearchListLayout changed={props.collapsed}>
+            {
+              layout.map((val, key) => {
+                return (
+                  <SearchResultList collapsed={props.collapsed} key={key} />
+                )
+              })
+            }
+          </SearchListLayout>
+        </SearchListBox>
+      </SpaceBoxLayout>
   )
 }
 
-export default MainBar;
+export default SearchResult;
