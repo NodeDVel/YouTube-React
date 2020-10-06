@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import VideoLayoutComponent from './VideoLayoutComponent.component';
 
+import { withRouter } from 'react-router-dom';
+
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -71,6 +73,10 @@ const MainBar = (props) => {
     }
   }
 
+  const onClickWatch = () => {
+    props.history.push('/search/인기차트/watch');
+  }
+
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
@@ -79,7 +85,7 @@ const MainBar = (props) => {
           {
             layout.map((val, key) => {
               return (
-                <VideoLayoutComponent collapsed={props.collapsed} key={key} />
+                <VideoLayoutComponent collapsed={props.collapsed} key={key} onClick={() => onClickWatch()} />
               )
             })
           }
@@ -89,4 +95,4 @@ const MainBar = (props) => {
   )
 }
 
-export default MainBar;
+export default withRouter(MainBar);

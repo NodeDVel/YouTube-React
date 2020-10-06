@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 import videoImg2 from '../lib/png/videoImg2.png';
 import videoImg3 from '../lib/png/videoImg3.png';
 import videoImg4 from '../lib/png/videoImg4.png';
@@ -15,8 +17,8 @@ const MiddleHover = styled.div`
   transition: .2s ease;
   opacity: 0;
   position: absolute;
-  top: 4.2%;
-  left: 14.8%;
+  top: 4%;
+  left: 208px;
   text-align: center;
   cursor: pointer;
 
@@ -101,7 +103,7 @@ const SearchResultList = (props) => {
       imgSrc: vlogImg,
       title: 'YouTube Vlog',
       information: 'firma • 조회수 20만회 • 3일전',
-      description: '유튜버의 vlog',
+      description: '유튜버의 vlog'
     },
     "뉴스": {
       imgSrc: newsImg,
@@ -123,7 +125,9 @@ const SearchResultList = (props) => {
   return (
     <>
       <SearchResultListLayout>
-        <img src={searchName.imgSrc} />
+        <Link to={`/search/${params}/watch`}>
+          <img src={searchName.imgSrc} />
+        </Link>
         <MiddleHover>
           <div>
             <ImgHover>

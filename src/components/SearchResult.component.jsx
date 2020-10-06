@@ -35,7 +35,6 @@ const SearchListBox = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
-  
 `;
 
 const SearchListLayout = styled.div`
@@ -60,16 +59,28 @@ const SearchListLayout = styled.div`
 const SearchFilter = styled.div`
   display: flex;
   align-items: center;
-  width: 85%;
+  width: 65%;
   height: 36px;
   border-bottom: 1px solid #e3e3e3;
   margin-bottom: 10px;
-  cursor: pointer;
+
+  img, span {
+    cursor: pointer;
+  }
 
   span {
     font-size: 14px;
     margin-left: 8px;
     color: #606060;
+  }
+
+  @media all and (max-width: 800px) {
+    width: 80%;
+  }
+
+  @media all and (max-width: 573px) {
+    margin-left: 1%;
+    width: 90%;
   }
 `;
 
@@ -100,7 +111,7 @@ const SearchResult = (props) => {
             <span>필터</span>
           </SearchFilter>
           {
-            props.title == "인기차트" || props.title == "브이로그" || props.title == "뉴스" || props.title == "게임"
+            props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
               ? layout.map((key) => {
                   return (
                     <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />

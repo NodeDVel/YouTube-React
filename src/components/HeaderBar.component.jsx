@@ -210,7 +210,7 @@ const RightImgHeader = styled.div`
     ${props => props.hover && `
       opacity: 0;
     `
-  }
+    }
   }
 
   @media all and (max-width: 650px) {
@@ -446,7 +446,6 @@ const HeaderBar = (props) => {
         setItems(items.concat(item));
         nextId.current += 1;
       }
-
     },
     [items]
   )

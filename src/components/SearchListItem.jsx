@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 const SearchListItemLayout = styled.div`
   display: flex;
   align-items: center;
@@ -15,8 +17,9 @@ const SearchListItemLayout = styled.div`
 `;
 
 const AddList = styled.div`
-  display: flex;
-  flex: 1;
+  color: #0000CD; /* DarkBlue */
+  font-size: 15px;
+  font-weight: 700;
 `;
 
 const RemoveButton = styled.div`
@@ -29,7 +32,9 @@ const SearchListItem = ({ item, onRemove }) => {
 
   return (
     <SearchListItemLayout>
-      <AddList key={id}>{text}</AddList>
+      <Link to={`/search/${text}`} style={{ textDecoration: 'none', display: 'flex', flex: '1' }}>
+        <AddList key={id}>{text}</AddList>
+      </Link>
       <RemoveButton onClick={() => onRemove(id)}>제거</RemoveButton>
     </SearchListItemLayout>
   )
