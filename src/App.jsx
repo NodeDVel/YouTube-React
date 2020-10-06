@@ -11,7 +11,6 @@ const App = () => {
     <>
       <Switch>
         <Route exact={true} path="/" component={Main} />
-        {/* <Route exact={true} path="/search" component={Main} /> */}
         <Route exact={true} path="/search/:title" component={Search} />
         <Route path="*" component={Exception} />
       </Switch>
