@@ -9,15 +9,14 @@ import videoImg4 from '../lib/png/videoImg4.png';
 import videoImg5 from '../lib/png/videoImg5.png';
 import vlogImg from '../lib/png/vlog.png';
 import newsImg from '../lib/png/news.png';
-
-import Exception from './Exception.component';
+import gameImg from '../lib/png/game.png';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
   opacity: 0;
   position: absolute;
-  top: 4.5%;
-  left: 24.2%;
+  top: 4.2%;
+  left: 14.8%;
   text-align: center;
   cursor: pointer;
 
@@ -67,7 +66,6 @@ const SearchResultListLayout = styled.div`
   display: flex;
   position: relative;
   margin-top: 18px;
-  /* width: 61%; */
   height: 138px;
   
   &:hover ${MiddleHover} {
@@ -78,8 +76,9 @@ const SearchResultListLayout = styled.div`
     background-color: black;
   }
 
-  img {
-    height: 100%;
+  & > img:first-child {
+    width: 246px;
+    height: 138px;
     cursor: pointer;
   }
 `;
@@ -109,7 +108,13 @@ const SearchResultList = (props) => {
       title: 'new News',
       information: 'MBC News • 조회수 32만회 • 1달전',
       description: '새로운 뉴스'
-    }
+    },
+    "게임": {
+      imgSrc: gameImg,
+      title: '리그 오브 레전드',
+      information: 'LOL • 조회수 120만회 • 1일전',
+      description: '새 게임 영상'
+    },
   }
   
   const params = props.title;

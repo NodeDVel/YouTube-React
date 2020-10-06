@@ -1,6 +1,10 @@
 import React, { useRef, useState, useCallback } from 'react';
+
 import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom'
+
+import { Link, withRouter } from 'react-router-dom';
+
+import SearchList from './SearchList';
 
 import iconPng from '../lib/png/icon.png';
 import mainIcon from '../lib/png/mainIcon.png';
@@ -41,8 +45,6 @@ import fourthRightImg13 from '../lib/png/FourthRightImg13.png';
 import fourthRightImg14 from '../lib/png/FourthRightImg14.png';
 
 import backImg from '../lib/png/back.png'
-
-import SearchList from './SearchList';
 
 const HoverText1 = styled.div`
   font-size: 13px;

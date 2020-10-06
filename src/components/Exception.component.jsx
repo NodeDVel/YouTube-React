@@ -2,12 +2,29 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import styled from 'styled-components';
+
+import mainIcon from '../lib/png/mainIcon.png';
+
+const ErrorHost = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-top: 50%;
+  }
+`;
+
 const Exception = () => {
   return (
-    <>
-      <h1>잘못된 주소입니다. 다시 입력해주세요</h1>
-      <Link to="/">홈으로</Link>
-    </>
+    <ErrorHost>
+      <Link to="/"><img src={mainIcon} /></Link>
+      <h3>잘못된 주소입니다. 홈버튼을 클릭해주세요.</h3>
+    </ErrorHost>
   )
 }
 

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 import SearchResultList from './SearchResultList.component';
-import Exception from './Exception.component';
 
 import filterImg from '../lib/png/filter.png';
 
@@ -101,7 +100,7 @@ const SearchResult = (props) => {
             <span>필터</span>
           </SearchFilter>
           {
-            props.title == "인기차트" || props.title == "브이로그" || props.title == "뉴스"
+            props.title == "인기차트" || props.title == "브이로그" || props.title == "뉴스" || props.title == "게임"
             ?
             layout.map((val, key) => {
               return (
