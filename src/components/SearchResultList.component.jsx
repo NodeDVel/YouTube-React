@@ -2,11 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import videoImg1 from '../lib/png/videoImg1.png';
 import videoImg2 from '../lib/png/videoImg2.png';
 import videoImg3 from '../lib/png/videoImg3.png';
 import videoImg4 from '../lib/png/videoImg4.png';
 import videoImg5 from '../lib/png/videoImg5.png';
+import chartImg from '../lib/png/chart.png';
 import vlogImg from '../lib/png/vlog.png';
 import newsImg from '../lib/png/news.png';
 import gameImg from '../lib/png/game.png';
@@ -92,7 +92,7 @@ const SearchListTextLayout = styled.div`
 const SearchResultList = (props) => {
   const data = {
     "인기차트": {
-      imgSrc: videoImg1,
+      imgSrc: chartImg,
       title: '노래방 인기차트 TOP 20 가사',
       information: '낭소월드 • 조회수 11만회 • 1일전',
       description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'

@@ -101,13 +101,12 @@ const SearchResult = (props) => {
           </SearchFilter>
           {
             props.title == "인기차트" || props.title == "브이로그" || props.title == "뉴스" || props.title == "게임"
-            ?
-            layout.map((val, key) => {
-              return (
-                <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
-              )
-            })
-            : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>
+              ? layout.map((key) => {
+                  return (
+                    <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
+                  )
+                })
+              : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>
           }
         </SearchListLayout>
       </SearchListBox>
