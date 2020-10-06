@@ -91,33 +91,42 @@ const SearchListTextLayout = styled.div`
   flex-direction: column;
 `;
 
+export const data = {
+  "인기차트": {
+    imgSrc: chartImg,
+    title: '노래방 인기차트 TOP 20 가사',
+    informationName: '낭소월드',
+    informationNumber: '조회수 11만회',
+    informationDate: '1일전',
+    description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'
+  },
+  "브이로그": {
+    imgSrc: vlogImg,
+    title: 'YouTube Vlog',
+    informationName: 'firma',
+    informationNumber: '조회수 20만회',
+    informationDate: '3일전',
+    description: '유튜버의 vlog'
+  },
+  "뉴스": {
+    imgSrc: newsImg,
+    title: 'new News',
+    informationName: 'MBC News',
+    informationNumber: '조회수 32만회',
+    informationDate: '1달전',
+    description: '새로운 뉴스'
+  },
+  "게임": {
+    imgSrc: gameImg,
+    title: '리그 오브 레전드',
+    informationName: 'LOL',
+    informationNumber: '조회수 120만회',
+    informationDate: '1일전',
+    description: '새 게임 영상'
+  },
+}
+
 const SearchResultList = (props) => {
-  const data = {
-    "인기차트": {
-      imgSrc: chartImg,
-      title: '노래방 인기차트 TOP 20 가사',
-      information: '낭소월드 • 조회수 11만회 • 1일전',
-      description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'
-    },
-    "브이로그": {
-      imgSrc: vlogImg,
-      title: 'YouTube Vlog',
-      information: 'firma • 조회수 20만회 • 3일전',
-      description: '유튜버의 vlog'
-    },
-    "뉴스": {
-      imgSrc: newsImg,
-      title: 'new News',
-      information: 'MBC News • 조회수 32만회 • 1달전',
-      description: '새로운 뉴스'
-    },
-    "게임": {
-      imgSrc: gameImg,
-      title: '리그 오브 레전드',
-      information: 'LOL • 조회수 120만회 • 1일전',
-      description: '새 게임 영상'
-    },
-  }
   
   const params = props.title;
   const searchName = data[params];
@@ -146,7 +155,7 @@ const SearchResultList = (props) => {
         </MiddleHover>
         <SearchListTextLayout>
           <span style={{ fontSize: '18px' }}>{searchName.title}</span>
-          <span style={{ fontSize: '13px', color: '#606060' }}>{searchName.information} </span>
+          <span style={{ fontSize: '13px', color: '#606060' }}>{searchName.informationName} • {searchName.informationNumber} • {searchName.informationDate} </span>
           <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{searchName.description}</span>
         </SearchListTextLayout>
       </SearchResultListLayout>

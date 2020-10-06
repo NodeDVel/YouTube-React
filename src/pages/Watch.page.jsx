@@ -5,7 +5,6 @@ import WatchScreen from '../components/WatchSreen.component';
 
 const Watch = ({ match }) => {
   const { title } = match.params;
-  console.log(title);
 
   return (
     <>
