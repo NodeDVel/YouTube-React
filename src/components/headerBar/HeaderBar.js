@@ -4,47 +4,46 @@ import styled from 'styled-components';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import SearchList from './SearchList';
+import SearchList from './searchList/SearchList';
 
-import iconPng from '../lib/png/icon.png';
-import mainIcon from '../lib/png/mainIcon.png';
-import middleIcon from '../lib/png/iconMiddle.png';
+import iconPng from '../../lib/png/icon.png';
+import mainIcon from '../../lib/png/mainIcon.png';
+import middleIcon from '../../lib/png/iconMiddle.png';
 
-import buttonPng from '../lib/png/Button.png'
+import buttonPng from '../../lib/png/Button.png';
 
-import rightIcon_1 from '../lib/png/iconRight-1.png';
-import rightIcon_2 from '../lib/png/iconRight-2.png';
-import rightIcon_3 from '../lib/png/iconRight-3.png';
-import rightIcon_4 from '../lib/png/iconRight-4.png';
-import rightIcon_5 from '../lib/png/iconRight-5.png';
+import rightIcon_1 from '../../lib/png/iconRight-1.png';
+import rightIcon_2 from '../../lib/png/iconRight-2.png';
+import rightIcon_3 from '../../lib/png/iconRight-3.png';
+import rightIcon_4 from '../../lib/png/iconRight-4.png';
+import rightIcon_5 from '../../lib/png/iconRight-5.png';
 
-import firstRightImg from '../lib/png/FirstRightImg.png';
-import firstRightImg2 from '../lib/png/FirstRightImg2.png';
+import firstRightImg from '../../lib/png/FirstRightImg.png';
+import firstRightImg2 from '../../lib/png/FirstRightImg2.png';
 
-import secondRightImg from '../lib/png/SecondRightImg.png';
-import secondRightImg2 from '../lib/png/SecondRightImg2.png';
-import secondRightImg3 from '../lib/png/SecondRightImg3.png';
+import secondRightImg from '../../lib/png/SecondRightImg.png';
+import secondRightImg2 from '../../lib/png/SecondRightImg2.png';
+import secondRightImg3 from '../../lib/png/SecondRightImg3.png';
 
-import thirdRightImg from '../lib/png/ThirdRightImg.png';
-import thirdRightImg2 from '../lib/png/ThirdRightImg2.png';
-import thirdRightImg3 from '../lib/png/ThirdRightImg3.png';
+import thirdRightImg from '../../lib/png/ThirdRightImg.png';
+import thirdRightImg2 from '../../lib/png/ThirdRightImg2.png';
+import thirdRightImg3 from '../../lib/png/ThirdRightImg3.png';
 
-import fourthRightImg1 from '../lib/png/FourthRightImg1.png';
-import fourthRightImg2 from '../lib/png/FourthRightImg2.png';
-import fourthRightImg3 from '../lib/png/FourthRightImg3.png';
-import fourthRightImg4 from '../lib/png/FourthRightImg4.png';
-import fourthRightImg5 from '../lib/png/FourthRightImg5.png';
-import fourthRightImg6 from '../lib/png/FourthRightImg6.png';
-import fourthRightImg7 from '../lib/png/FourthRightImg7.png';
-import fourthRightImg8 from '../lib/png/FourthRightImg8.png';
-import fourthRightImg9 from '../lib/png/FourthRightImg9.png';
-import fourthRightImg10 from '../lib/png/FourthRightImg10.png';
-import fourthRightImg11 from '../lib/png/FourthRightImg11.png';
-import fourthRightImg12 from '../lib/png/FourthRightImg12.png';
-import fourthRightImg13 from '../lib/png/FourthRightImg13.png';
-import fourthRightImg14 from '../lib/png/FourthRightImg14.png';
-
-import backImg from '../lib/png/back.png'
+import fourthRightImg1 from '../../lib/png/FourthRightImg1.png';
+import fourthRightImg2 from '../../lib/png/FourthRightImg2.png';
+import fourthRightImg3 from '../../lib/png/FourthRightImg3.png';
+import fourthRightImg4 from '../../lib/png/FourthRightImg4.png';
+import fourthRightImg5 from '../../lib/png/FourthRightImg5.png';
+import fourthRightImg6 from '../../lib/png/FourthRightImg6.png';
+import fourthRightImg7 from '../../lib/png/FourthRightImg7.png';
+import fourthRightImg8 from '../../lib/png/FourthRightImg8.png';
+import fourthRightImg9 from '../../lib/png/FourthRightImg9.png';
+import fourthRightImg10 from '../../lib/png/FourthRightImg10.png';
+import fourthRightImg11 from '../../lib/png/FourthRightImg11.png';
+import fourthRightImg12 from '../../lib/png/FourthRightImg12.png';
+import fourthRightImg13 from '../../lib/png/FourthRightImg13.png';
+import fourthRightImg14 from '../../lib/png/FourthRightImg14.png';
+import backImg from '../../lib/png/back.png'
 
 const HoverText1 = styled.div`
   font-size: 13px;

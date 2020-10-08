@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Main from './pages/Main.page';
 import Search from './pages/Search.page';
 import Watch from './pages/Watch.page';
-import Exception from './components/Exception.component';
+import Exception from './components/addressError/Exception';
 
 const App = () => {
   return (

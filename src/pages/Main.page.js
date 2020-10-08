@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import HeaderBar from '../components/HeaderBar.component';
-import MainBar from '../components/MainBar.component';
-import SideBar from '../components/SideBar.component';
+import HeaderBar from '../components/headerBar/HeaderBar';
+import MainBar from '../components/mainBar/MainBar';
+import SideBar from '../components/sideBar/SideBar';
 
 const Main = () => {
   const [isCollapsed, setCollapsed] = useState(false);

@@ -4,14 +4,14 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import videoImg2 from '../lib/png/videoImg2.png';
-import videoImg3 from '../lib/png/videoImg3.png';
-import videoImg4 from '../lib/png/videoImg4.png';
-import videoImg5 from '../lib/png/videoImg5.png';
-import chartImg from '../lib/png/chart.png';
-import vlogImg from '../lib/png/vlog.png';
-import newsImg from '../lib/png/news.png';
-import gameImg from '../lib/png/game.png';
+import videoImg2 from '../../lib/png/videoImg2.png';
+import videoImg3 from '../../lib/png/videoImg3.png';
+import videoImg4 from '../../lib/png/videoImg4.png';
+import videoImg5 from '../../lib/png/videoImg5.png';
+import chartImg from '../../lib/png/chart.png';
+import vlogImg from '../../lib/png/vlog.png';
+import newsImg from '../../lib/png/news.png';
+import gameImg from '../../lib/png/game.png';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -135,7 +135,7 @@ const SearchResultList = (props) => {
     <>
       <SearchResultListLayout>
         <Link to={`/search/${params}/watch`}>
-          <img src={searchName.imgSrc} />
+          <img src={searchName.imgSrc} width="249px" height="138px" />
         </Link>
         <MiddleHover>
           <div>

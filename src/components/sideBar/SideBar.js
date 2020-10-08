@@ -2,8 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import MediaSideBar from './MediaSideBar.component';
-import SortationSideBar from './SortationSideBar.component';
+import MediaSideBar from './MediaSideBar';
+import SortationSideBar from './SortationSideBar';
 
 const SideBarBox = styled.div`
   height: calc(100% - 60px);

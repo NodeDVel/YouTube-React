@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import sideImg1 from '../lib/png/sideImg1.png';
-import sideImg2 from '../lib/png/sideImg2.png';
-import sideImg3 from '../lib/png/sideImg3.png';
-import sideImg4 from '../lib/png/sideImg4.png';
+import sideImg2 from '../../lib/png/sideImg2.png';
+import sideImg3 from '../../lib/png/sideImg3.png';
+import sideImg4 from '../../lib/png/sideImg4.png';
 
 const MediaSideBarLayout = styled.div`
   display: none;
@@ -80,7 +79,7 @@ const MediaSideBar = (props) => {
   return (
     <MediaSideBarLayout changed={props.showed}>
       <MediaBoxLayout changed={props.showed}>
-        <img src={sideImg1} />홈
+        <img src="img/sideImg1.png" />홈
       </MediaBoxLayout>
       <MediaBoxLayout changed={props.showed}>
         <img src={sideImg2} />인기

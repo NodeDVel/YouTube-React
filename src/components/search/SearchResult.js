@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components'
 
-import SearchResultList from './SearchResultList.component';
+import SearchResultList from './SearchResultList';
 
-import filterImg from '../lib/png/filter.png';
+import filterImg from '../../lib/png/filter.png';
 
 const SpaceBoxLayout = styled.div`
   display: flex;

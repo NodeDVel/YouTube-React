@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import VideoLayoutComponent from './VideoLayoutComponent.component';
+import VideoLayoutComponent from './VideoLayoutComponent';
 
 import { withRouter } from 'react-router-dom';
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import mainIcon from '../lib/png/mainIcon.png';
+import mainIcon from '../../lib/png/mainIcon.png';
 
 const ErrorHost = styled.div`
   width: 100%;

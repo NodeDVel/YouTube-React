@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import HeaderBar from '../components/HeaderBar.component';
-import SideBar from '../components/SideBar.component';
-import SearchResult from '../components/SearchResult.component';
+import HeaderBar from '../components/headerBar/HeaderBar';
+import SideBar from '../components/sideBar/SideBar';
+import SearchResult from '../components/search/SearchResult';
 
 const Search = ({ match }) => {
   const { title } = match.params;

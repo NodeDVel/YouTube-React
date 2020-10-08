@@ -1,27 +1,26 @@
 import React from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import sideImg1 from '../lib/png/sideImg1.png';
-import sideImg2 from '../lib/png/sideImg2.png';
-import sideImg3 from '../lib/png/sideImg3.png';
-import sideImg4 from '../lib/png/sideImg4.png';
-import sideImg5 from '../lib/png/sideImg5.png';
-import sideImg6 from '../lib/png/sideImg6.png';
-import sideImg7 from '../lib/png/sideImg7.png';
-import sideImg8 from '../lib/png/sideImg8.png';
-import sideImg9 from '../lib/png/sideImg9.png';
-import sideImg10 from '../lib/png/sideImg10.png';
-import sideImg11 from '../lib/png/sideImg11.png';
-import sideImg12 from '../lib/png/sideImg12.png';
-import sideImg13 from '../lib/png/sideImg13.png';
-import sideImg14 from '../lib/png/sideImg14.png';
-import sideImg15 from '../lib/png/sideImg15.png';
-import sideImg16 from '../lib/png/sideImg16.png';
-import sideImg17 from '../lib/png/sideImg17.png';
-import sideImg18 from '../lib/png/sideImg18.png';
-import sideImg19 from '../lib/png/sideImg19.png';
-import sideImg20 from '../lib/png/sideImg20.png';
+import sideImg2 from '../../lib/png/sideImg2.png';
+import sideImg3 from '../../lib/png/sideImg3.png';
+import sideImg4 from '../../lib/png/sideImg4.png';
+import sideImg5 from '../../lib/png/sideImg5.png';
+import sideImg6 from '../../lib/png/sideImg6.png';
+import sideImg7 from '../../lib/png/sideImg7.png';
+import sideImg8 from '../../lib/png/sideImg8.png';
+import sideImg9 from '../../lib/png/sideImg9.png';
+import sideImg10 from '../../lib/png/sideImg10.png';
+import sideImg11 from '../../lib/png/sideImg11.png';
+import sideImg12 from '../../lib/png/sideImg12.png';
+import sideImg13 from '../../lib/png/sideImg13.png';
+import sideImg14 from '../../lib/png/sideImg14.png';
+import sideImg15 from '../../lib/png/sideImg15.png';
+import sideImg16 from '../../lib/png/sideImg16.png';
+import sideImg17 from '../../lib/png/sideImg17.png';
+import sideImg18 from '../../lib/png/sideImg18.png';
+import sideImg19 from '../../lib/png/sideImg19.png';
+import sideImg20 from '../../lib/png/sideImg20.png';
 
 const SideLayoutBox = styled.div`
   @media all and (max-width: 1300px) {
@@ -112,7 +111,7 @@ const SortationSideBar = () => {
     <SideLayoutBox>
       <SideLayout_1>
         <LayoutBox>
-          <img src={sideImg1} />
+          <img src="/img/sideImg1.png" />
           <span>홈</span>
         </LayoutBox>
         <LayoutBox>

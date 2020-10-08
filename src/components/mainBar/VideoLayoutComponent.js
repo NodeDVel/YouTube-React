@@ -1,12 +1,15 @@
 import React from 'react';
-import styled from 'styled-components'
 
-import videoImg1 from '../lib/png/videoImg1.png';
-import videoImg2 from '../lib/png/videoImg2.png';
-import videoImg3 from '../lib/png/videoImg3.png';
-import videoImg4 from '../lib/png/videoImg4.png';
-import videoImg5 from '../lib/png/videoImg5.png';
-import profilePng from '../lib/png/unnamed.jpg';
+import styled from 'styled-components';
+
+import { Link } from 'react-router-dom';
+
+import chartImg from '../../lib/png/chart.png';
+import videoImg2 from '../../lib/png/videoImg2.png';
+import videoImg3 from '../../lib/png/videoImg3.png';
+import videoImg4 from '../../lib/png/videoImg4.png';
+import videoImg5 from '../../lib/png/videoImg5.png';
+import profilePng from '../../lib/png/unnamed.jpg';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -118,7 +121,7 @@ const VideoTextLayout = styled.div`
 const VideoLayoutComponent = (props, key) => {
   return (
     <VideoLayout changed={props.collapsed} key={key}>
-      <img src={videoImg1} />
+      <Link to="/search/인기차트/watch"><img src={chartImg} /></Link>
       <MiddleHover>
         <div>
           <ImgHover>
