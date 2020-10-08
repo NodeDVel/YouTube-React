@@ -9,17 +9,17 @@ const MediaSideBarLayout = styled.div`
   display: none;
 
   ${props => props.changed && `
-      display: block;
-      heigth: 100%;
+    display: block;
+    heigth: 100%;
 
-      div:first-child {
-        color: red;
-      }
+    div:first-child {
+      color: red;
+    }
 
-      div:hover {
-        cursor: pointer;
-        background-color: #e8e8e8;
-      }
+    div:hover {
+      cursor: pointer;
+      background-color: #e8e8e8;
+    }
   `}
 
   @media all and (max-width: 1300px) {

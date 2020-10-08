@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { data } from './SearchResultList';
+import Comment from './comment/Comment';
 
 import windPng from '../../lib/png/wind.png';
 import profilePng from '../../lib/png/unnamed.jpg';
@@ -43,8 +44,7 @@ const FotterBar = styled.div`
     width: 100%;
     height: 4px;
     animation-name: trans;
-    animation-duration:800s;
-    animation-duration: leaner;
+    animation-duration: 750s;
     animation-iteration-count:1;
     animation-direction:alternate;
     animation-fill-mode: forwards;
@@ -57,14 +57,14 @@ const WatchBoxFotterLayout = styled.div`
   position: relative;
   overflow: hidden;
 
-   .ImgLayout {
+  .ImgLayout {
     max-width: 100%;
     height: 720px;
-    }
+  }
 
-    &:hover ${FotterBar} {
-      opacity: 1;
-    }
+  &:hover ${FotterBar} {
+    opacity: 1;
+  }
 
   ${props => props.wide && `
     & {
@@ -77,7 +77,7 @@ const WatchBoxFotterLayout = styled.div`
 
     .ImgLayout {
       width: 65%;
-      height: auto;
+      height: 101%;
     }
   `}
 
@@ -112,7 +112,7 @@ const LeftWatch = styled.div`
 
       .ImgLayout {
         width: 1100px;
-        height: auto;
+        height: 101%;
       }
     `}
   }
@@ -194,6 +194,7 @@ const LeftWatchInformation = styled.div`
     height: 48px;
     border-radius: 25px;
     margin-right: 20px;
+    cursor: pointer;
   }
 `;
 
@@ -242,7 +243,7 @@ const RightWatch = styled.div`
 
   ${props => props.wide && `
     position: absolute;
-    top: 740px;
+    top: 640px;
     right: 78px;
   `}
 
@@ -321,9 +322,18 @@ const WatchScreen = (props) => {
               <span>{params.description} </span>
             </div>
             <div
-              style={{ width: '72px', height: '37px', backgroundColor: '#CC0000', color: 'white', fontSize: '14px', alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-              구독
-              </div>
+              style={{
+                width: '72px', 
+                height: '37px', 
+                backgroundColor: '#CC0000', 
+                color: 'white', 
+                fontSize: '14px', 
+                alignItems: 'center', 
+                display: 'flex', 
+                justifyContent: 'center' ,
+                cursor: 'pointer'
+                }}>구독
+            </div>
           </LeftWatchInformation>
           <LeftWatchComment>
             <span>댓글 1000개</span> <br />
@@ -334,13 +344,7 @@ const WatchScreen = (props) => {
             {
               layout.map((val, key) => {
                 return (
-                  <div className="comment" key={key}>
-                    <img src={rightIcon_4} />
-                    <div>
-                      <span>김민기</span>
-                      <span>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓<br />글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글<br />댓글댓글댓글댓글댓글댓글댓글댓글댓</span>
-                    </div>
-                  </div>
+                  <Comment key={key} />
                 )
               })
             }
@@ -348,7 +352,7 @@ const WatchScreen = (props) => {
         </LeftWatchUser>
       </LeftWatch>
       <RightWatch wide={isWidened}>
-        <span>다음 동영상</span>
+        <div>다음 동영상</div>
         {
           layout.map((val, key) => {
             return (

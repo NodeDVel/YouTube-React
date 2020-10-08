@@ -23,7 +23,7 @@ const Exception = () => {
   return (
     <ErrorHost>
       <Link to="/"><img src={mainIcon} /></Link>
-      <h3>잘못된 주소입니다. 홈버튼을 클릭해주세요.</h3>
+      <h3>잘못된 주소입니다. 위에 홈버튼을 클릭해주세요.</h3>
     </ErrorHost>
   )
 }
