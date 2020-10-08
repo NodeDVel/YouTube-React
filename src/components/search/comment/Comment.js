@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import rightIcon_4 from '../../../lib/png/iconRight-4.png';
+import { ImgData } from '../../../lib/png';
 
 const CommentWrapper = styled.div`
   font-size: 13px;
@@ -22,7 +22,7 @@ const CommentWrapper = styled.div`
 const Comment = () => {
   return (
     <CommentWrapper>
-      <img src={rightIcon_4} />
+      <img src={ImgData.iconRight4} />
       <div>
         <span>김민기</span>
         <span>

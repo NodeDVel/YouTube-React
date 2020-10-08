@@ -4,14 +4,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import videoImg2 from '../../lib/png/videoImg2.png';
-import videoImg3 from '../../lib/png/videoImg3.png';
-import videoImg4 from '../../lib/png/videoImg4.png';
-import videoImg5 from '../../lib/png/videoImg5.png';
-import chartImg from '../../lib/png/chart.png';
-import vlogImg from '../../lib/png/vlog.png';
-import newsImg from '../../lib/png/news.png';
-import gameImg from '../../lib/png/game.png';
+import { ImgData } from '../../lib/png';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -93,7 +86,7 @@ const SearchListTextLayout = styled.div`
 
 export const data = {
   "인기차트": {
-    imgSrc: chartImg,
+    imgSrc: ImgData.chart,
     title: '노래방 인기차트 발라드 TOP 20 가사',
     informationName: '낭소월드',
     informationNumber: '조회수 11만회',
@@ -101,7 +94,7 @@ export const data = {
     description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'
   },
   "브이로그": {
-    imgSrc: vlogImg,
+    imgSrc: ImgData.vlog,
     title: 'YouTube Vlog',
     informationName: 'firma',
     informationNumber: '조회수 20만회',
@@ -109,7 +102,7 @@ export const data = {
     description: '유튜버의 vlog'
   },
   "뉴스": {
-    imgSrc: newsImg,
+    imgSrc: ImgData.news,
     title: 'new News',
     informationName: 'MBC News',
     informationNumber: '조회수 32만회',
@@ -117,7 +110,7 @@ export const data = {
     description: '새로운 뉴스'
   },
   "게임": {
-    imgSrc: gameImg,
+    imgSrc: ImgData.game,
     title: '리그 오브 레전드',
     informationName: 'LOL',
     informationNumber: '조회수 120만회',
@@ -139,15 +132,15 @@ const SearchResultList = (props) => {
         <MiddleHover>
           <div>
             <ImgHover>
-              <img src={videoImg2} />
+              <img src={ImgData.videoImg2} />
               <MiddleHover2>
-                <img src={videoImg4} />
+                <img src={ImgData.videoImg4} />
               </MiddleHover2>
             </ImgHover>
             <ImgHover>
-              <img src={videoImg3} />
+              <img src={ImgData.videoImg3} />
               <MiddleHover3>
-                <img src={videoImg5} />
+                <img src={ImgData.videoImg5} />
               </MiddleHover3>
             </ImgHover>
           </div>

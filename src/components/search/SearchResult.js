@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import SearchResultList from './SearchResultList';
 
-import filterImg from '../../lib/png/filter.png';
+import { ImgData } from '../../lib/png';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -102,7 +102,7 @@ const SearchResult = (props) => {
       <SearchListBox>
         <SearchListLayout changed={props.collapsed}>
           <SearchFilter>
-            <img src={filterImg} />
+            <img src={ImgData.filter} />
             <span>필터</span>
           </SearchFilter>
           {

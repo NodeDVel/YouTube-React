@@ -1,49 +1,12 @@
 import React, { useRef, useState, useCallback } from 'react';
 
+import { ImgData } from '../../lib/png';
+
 import styled from 'styled-components';
 
 import { Link, withRouter } from 'react-router-dom';
 
 import SearchList from './searchList/SearchList';
-
-import iconPng from '../../lib/png/icon.png';
-import mainIcon from '../../lib/png/mainIcon.png';
-import middleIcon from '../../lib/png/iconMiddle.png';
-
-import buttonPng from '../../lib/png/Button.png';
-
-import rightIcon_1 from '../../lib/png/iconRight-1.png';
-import rightIcon_2 from '../../lib/png/iconRight-2.png';
-import rightIcon_3 from '../../lib/png/iconRight-3.png';
-import rightIcon_4 from '../../lib/png/iconRight-4.png';
-import rightIcon_5 from '../../lib/png/iconRight-5.png';
-
-import firstRightImg from '../../lib/png/FirstRightImg.png';
-import firstRightImg2 from '../../lib/png/FirstRightImg2.png';
-
-import secondRightImg from '../../lib/png/SecondRightImg.png';
-import secondRightImg2 from '../../lib/png/SecondRightImg2.png';
-import secondRightImg3 from '../../lib/png/SecondRightImg3.png';
-
-import thirdRightImg from '../../lib/png/ThirdRightImg.png';
-import thirdRightImg2 from '../../lib/png/ThirdRightImg2.png';
-import thirdRightImg3 from '../../lib/png/ThirdRightImg3.png';
-
-import backImg from '../../lib/png/back.png'
-import fourthRightImg1 from '../../lib/png/FourthRightImg1.png';
-import fourthRightImg2 from '../../lib/png/FourthRightImg2.png';
-import fourthRightImg3 from '../../lib/png/FourthRightImg3.png';
-import fourthRightImg4 from '../../lib/png/FourthRightImg4.png';
-import fourthRightImg5 from '../../lib/png/FourthRightImg5.png';
-import fourthRightImg6 from '../../lib/png/FourthRightImg6.png';
-import fourthRightImg7 from '../../lib/png/FourthRightImg7.png';
-import fourthRightImg8 from '../../lib/png/FourthRightImg8.png';
-import fourthRightImg9 from '../../lib/png/FourthRightImg9.png';
-import fourthRightImg10 from '../../lib/png/FourthRightImg10.png';
-import fourthRightImg11 from '../../lib/png/FourthRightImg11.png';
-import fourthRightImg12 from '../../lib/png/FourthRightImg12.png';
-import fourthRightImg13 from '../../lib/png/FourthRightImg13.png';
-import fourthRightImg14 from '../../lib/png/FourthRightImg14.png';
 
 const HoverText1 = styled.div`
   font-size: 13px;
@@ -458,15 +421,15 @@ const HeaderBar = (props) => {
     <LayoutHeader>
       <Header>
         <LeftHeader none={isHidden}>
-          <img src={iconPng} onClick={handleClick} />
-          <Link to="/"><img src={mainIcon} /></Link>
+          <img src={ImgData.icon} onClick={handleClick} />
+          <Link to="/"><img src={ImgData.mainIcon} /></Link>
         </LeftHeader>
-        <HiddenSearchHeader none={isHidden}><img src={backImg} onClick={() => setHidden(!isHidden)} /></HiddenSearchHeader>
+        <HiddenSearchHeader none={isHidden}><img src={ImgData.back} onClick={() => setHidden(!isHidden)} /></HiddenSearchHeader>
         <SearchHeader onSubmit={onSubmit} none={isHidden}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
-          <div className="icon"><img src={middleIcon} /></div>
+          <div className="icon"><img src={ImgData.iconMiddle} /></div>
           <SearchHeaderButton onClick={onClickFilter}>
-            <img src={buttonPng} style={{ marginTop: '3px' }} />
+            <img src={ImgData.Button} style={{ marginTop: '3px' }} />
           </SearchHeaderButton>
           {
             isShowed && <SearchList items={items} onRemove={onRemove} />
@@ -474,28 +437,28 @@ const HeaderBar = (props) => {
         </SearchHeader>
         <RightHeader none={isHidden}>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_5} onClick={() => onClickHiddenPopup('search')} />
+            <img src={ImgData.iconRight5} onClick={() => onClickHiddenPopup('search')} />
             <HoverText1>검색</HoverText1>
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_1} onClick={() => onClickOpenPopup('upload')} />
+            <img src={ImgData.iconRight1} onClick={() => onClickOpenPopup('upload')} />
             <HoverText2>만들기</HoverText2>
             {
               openPopup === 'upload' && isPressed &&
               <FirstRightHeaderClickMenu>
                 <FirstRightHeaderBox>
-                  <img src={firstRightImg} />
+                  <img src={ImgData.firstRightImg} />
                   <span>동영상 업로드</span>
                 </FirstRightHeaderBox>
                 <FirstRightHeaderBox>
-                  <img src={firstRightImg2} />
+                  <img src={ImgData.FirstRightImg2} />
                   <span>실시간 스트리밍 시작</span>
                 </FirstRightHeaderBox>
               </FirstRightHeaderClickMenu>
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_2} onClick={() => onClickOpenPopup('app')} />
+            <img src={ImgData.iconRight2} onClick={() => onClickOpenPopup('app')} />
             <HoverText3>YouTube 앱</HoverText3>
             {
               openPopup === 'app' && isPressed &&
@@ -507,7 +470,7 @@ const HeaderBar = (props) => {
                     borderBottom: '1px solid #eee',
                   }}>
                   <SecondRightHeaderBox>
-                    <img src={secondRightImg} />
+                    <img src={ImgData.SecondRightImg} />
                     <span>YouTube TV</span>
                   </SecondRightHeaderBox>
                 </div>
@@ -518,11 +481,11 @@ const HeaderBar = (props) => {
                     borderBottom: '1px solid #eee',
                   }}>
                   <SecondRightHeaderBox>
-                    <img src={secondRightImg2} />
+                    <img src={ImgData.SecondRightImg2} />
                     <span>YouTube Music</span>
                   </SecondRightHeaderBox>
                   <SecondRightHeaderBox>
-                    <img src={secondRightImg3} />
+                    <img src={ImgData.SecondRightImg3} />
                     <span>YouTube Kids</span>
                   </SecondRightHeaderBox>
                 </div>
@@ -533,11 +496,11 @@ const HeaderBar = (props) => {
                     borderBottom: '1px solid #eee',
                   }}>
                   <SecondRightHeaderBox>
-                    <img src={secondRightImg3} />
+                    <img src={ImgData.SecondRightImg3} />
                     <span>크리에이터 아카데미</span>
                   </SecondRightHeaderBox>
                   <SecondRightHeaderBox>
-                    <img src={secondRightImg3} />
+                    <img src={ImgData.SecondRightImg3} />
                     <span>YouTube for Artists</span>
                   </SecondRightHeaderBox>
                 </div>
@@ -545,7 +508,7 @@ const HeaderBar = (props) => {
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_3} onClick={() => onClickOpenPopup('noti')} />
+            <img src={ImgData.iconRight3} onClick={() => onClickOpenPopup('noti')} />
             <HoverText4>알림</HoverText4>
             {
               openPopup === 'noti' && isPressed &&
@@ -556,53 +519,53 @@ const HeaderBar = (props) => {
                     flex: 1,
                     fontSize: '16px'
                   }}>알림</span>
-                  <img src={thirdRightImg} />
+                  <img src={ImgData.ThirdRightImg} />
                 </ThirdRightHeaderBox>
                 <ThirdRightListBox>
                   <div style={{
                     display: 'flex',
                     padding: '10px 65px 0px 7px',
                   }}>
-                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <img src={ImgData.ThirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
                     <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
                       <br />
                       <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
+                    <img src={ImgData.ThirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
                   <div style={{ display: 'flex', padding: '30px 65px 0px 7px' }}>
-                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <img src={ImgData.ThirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
                     <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
                       <br />
                       <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
+                    <img src={ImgData.ThirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
                   <div style={{ display: 'flex', padding: '30px 65px 0px 7px' }}>
-                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <img src={ImgData.ThirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
                     <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
                       <br />
                       <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
+                    <img src={ImgData.ThirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
                 </ThirdRightListBox>
               </ThirdRightHeaderClickMenu>
             }
           </RightImgHeader>
           <RightImgHeader hover={isPressed}>
-            <img src={rightIcon_4} onClick={() => onClickOpenPopup('profile')} />
+            <img src={ImgData.iconRight4} onClick={() => onClickOpenPopup('profile')} />
             {
               openPopup === 'profile' && isPressed &&
               <FourthRightHeaderClickMenu>
                 <div className="FourthRightMenu_1">
-                  <img src={rightIcon_4} />
+                  <img src={ImgData.iconRight4} />
                   <div>
                     <span>김민기</span>
                     <span>minki@firmagroup.co</span>
@@ -611,68 +574,68 @@ const HeaderBar = (props) => {
                 </div>
                 <div className="FourthRightMenu_2">
                   <div>
-                    <img src={fourthRightImg1} />
+                    <img src={ImgData.FourthRightImg1} />
                     <span>채널 만들기</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg2} />
+                    <img src={ImgData.FourthRightImg2} />
                     <span>유료 멤버십</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg3} />
+                    <img src={ImgData.FourthRightImg3} />
                     <span>YouTube 스튜디오</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg4} />
+                    <img src={ImgData.FourthRightImg4} />
                     <span style={{ display: 'flex', flex: '1' }}>계정 전환</span>
-                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                    <img src={ImgData.FourthRightImg14} width="22px" style={{ margin: '0px' }} />
                   </div>
                   <div>
-                    <img src={fourthRightImg5} />
+                    <img src={ImgData.FourthRightImg5} />
                     <span>로그아웃</span>
                   </div>
                 </div>
                 <div className="FourthRightMenu_2">
                   <div>
-                    <img src={fourthRightImg6} />
+                    <img src={ImgData.FourthRightImg6} />
                     <span style={{ display: 'flex', flex: '1' }}>어두운 테마: 사용 안함</span>
-                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                    <img src={ImgData.FourthRightImg14} width="22px" style={{ margin: '0px' }} />
                   </div>
                   <div>
-                    <img src={fourthRightImg7} />
+                    <img src={ImgData.FourthRightImg7} />
                     <span style={{ display: 'flex', flex: '1' }}>언어: 한국어</span>
-                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                    <img src={ImgData.FourthRightImg14} width="22px" style={{ margin: '0px' }} />
                   </div>
                   <div>
-                    <img src={fourthRightImg8} />
+                    <img src={ImgData.FourthRightImg8} />
                     <span style={{ display: 'flex', flex: '1' }}>위치: 한국</span>
-                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                    <img src={ImgData.FourthRightImg14} width="22px" style={{ margin: '0px' }} />
                   </div>
                   <div>
-                    <img src={fourthRightImg9} />
+                    <img src={ImgData.FourthRightImg9} />
                     <span>설정</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg10} />
+                    <img src={ImgData.FourthRightImg10} />
                     <span>YouTube의 내 데이터</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg11} />
+                    <img src={ImgData.FourthRightImg11} />
                     <span>고객센터</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg12} />
+                    <img src={ImgData.FourthRightImg12} />
                     <span>의견 보내기</span>
                   </div>
                   <div>
-                    <img src={fourthRightImg13} />
+                    <img src={ImgData.FourthRightImg13} />
                     <span>단축키</span>
                   </div>
                 </div>
                 <div className="FourthRightMenu_3">
                   <div style={{ display: 'flex', flex: '1' }}>
                     <span>제한 모드: 사용 안함</span>
-                    <img src={fourthRightImg14} width="22px" style={{ margin: '0px' }} />
+                    <img src={ImgData.FourthRightImg14} width="22px" style={{ margin: '0px' }} />
                   </div>
                 </div>
               </FourthRightHeaderClickMenu>

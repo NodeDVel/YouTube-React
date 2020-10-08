@@ -5,9 +5,7 @@ import styled from 'styled-components';
 import { data } from './SearchResultList';
 import Comment from './comment/Comment';
 
-import windPng from '../../lib/png/wind.png';
-import profilePng from '../../lib/png/unnamed.jpg';
-import rightIcon_4 from '../../lib/png/iconRight-4.png';
+import { ImgData } from '../../lib/png';
 
 const WatchBoxLayout = styled.div`
   width: 100%;
@@ -306,7 +304,7 @@ const WatchScreen = (props) => {
           <img src={params.imgSrc} className="ImgLayout" />
           <FotterBar>
             <div className="videoLength"></div>
-            <img src={windPng} onClick={onClickWiden} />
+            <img src={ImgData.wind} onClick={onClickWiden} />
           </FotterBar>
         </WatchBoxFotterLayout>
         <LeftWatchUser wide={isWidened}>
@@ -316,7 +314,7 @@ const WatchScreen = (props) => {
             <span>{params.informationNumber} • {params.informationDate}</span>
           </LeftWatchTitle>
           <LeftWatchInformation>
-            <img src={profilePng} />
+            <img src={ImgData.unnamed} />
             <div>
               <span>{params.informationName}</span>
               <span>구독자 72만명</span>
@@ -339,7 +337,7 @@ const WatchScreen = (props) => {
           <LeftWatchComment>
             <span>댓글 1000개</span> <br />
             <div className="myComment">
-              <img src={rightIcon_4} />
+              <img src={ImgData.iconRight4} />
               <span>공개적으로 댓글을 남길 계정: 김민기</span>
             </div>
             {

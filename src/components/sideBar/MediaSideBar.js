@@ -5,6 +5,8 @@ import sideImg2 from '../../lib/png/sideImg2.png';
 import sideImg3 from '../../lib/png/sideImg3.png';
 import sideImg4 from '../../lib/png/sideImg4.png';
 
+import { ImgData } from '../../lib/png';
+
 const MediaSideBarLayout = styled.div`
   display: none;
 
@@ -80,13 +82,13 @@ const MediaSideBar = (props) => {
         <img src="img/sideImg1.png" />홈
       </MediaBoxLayout>
       <MediaBoxLayout changed={props.showed}>
-        <img src={sideImg2} />인기
+        <img src={ImgData.sideImg2} />인기
       </MediaBoxLayout>
       <MediaBoxLayout changed={props.showed}>
-        <img src={sideImg3} />구독
+        <img src={ImgData.sideImg3} />구독
       </MediaBoxLayout>
       <MediaBoxLayout changed={props.showed}>
-        <img src={sideImg4} />보관함
+        <img src={ImgData.sideImg4} />보관함
       </MediaBoxLayout>
     </MediaSideBarLayout>
   )

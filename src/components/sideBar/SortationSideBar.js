@@ -2,25 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import sideImg2 from '../../lib/png/sideImg2.png';
-import sideImg3 from '../../lib/png/sideImg3.png';
-import sideImg4 from '../../lib/png/sideImg4.png';
-import sideImg5 from '../../lib/png/sideImg5.png';
-import sideImg6 from '../../lib/png/sideImg6.png';
-import sideImg7 from '../../lib/png/sideImg7.png';
-import sideImg8 from '../../lib/png/sideImg8.png';
-import sideImg9 from '../../lib/png/sideImg9.png';
-import sideImg10 from '../../lib/png/sideImg10.png';
-import sideImg11 from '../../lib/png/sideImg11.png';
-import sideImg12 from '../../lib/png/sideImg12.png';
-import sideImg13 from '../../lib/png/sideImg13.png';
-import sideImg14 from '../../lib/png/sideImg14.png';
-import sideImg15 from '../../lib/png/sideImg15.png';
-import sideImg16 from '../../lib/png/sideImg16.png';
-import sideImg17 from '../../lib/png/sideImg17.png';
-import sideImg18 from '../../lib/png/sideImg18.png';
-import sideImg19 from '../../lib/png/sideImg19.png';
-import sideImg20 from '../../lib/png/sideImg20.png';
+import { ImgData } from '../../lib/png';
 
 const SideLayoutBox = styled.div`
   @media all and (max-width: 1300px) {
@@ -115,89 +97,89 @@ const SortationSideBar = () => {
           <span>홈</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg2} />
+          <img src={ImgData.sideImg2} />
           <span>인기</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg3} />
+          <img src={ImgData.sideImg3} />
           <span>구독</span>
         </LayoutBox>
       </SideLayout_1>
       <SideLayout_2>
         <LayoutBox>
-          <img src={sideImg4} />
+          <img src={ImgData.sideImg4} />
           <span>보관함</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg5} />
+          <img src={ImgData.sideImg5} />
           <span>시청기록</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg6} />
+          <img src={ImgData.sideImg6} />
           <span>나중에 볼 동영상</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg7} />
+          <img src={ImgData.sideImg7} />
           <span>좋아요 표시한 동영상</span>
         </LayoutBox>
       </SideLayout_2>
       <SideLayout_3>
         <LayoutBoxHeader>구독</LayoutBoxHeader>
         <LayoutBox>
-          <img src={sideImg8} />
+          <img src={ImgData.sideImg8} />
           <span>음악</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg9} />
+          <img src={ImgData.sideImg9} />
           <span>스포츠</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg10} />
+          <img src={ImgData.sideImg10} />
           <span>게임</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg11} />
+          <img src={ImgData.sideImg11} />
           <span>영화</span>
         </LayoutBox>
       </SideLayout_3>
       <SideLayout_4>
         <LayoutBoxHeader>YOUTUBE 더보기</LayoutBoxHeader>
         <LayoutBox>
-          <img src={sideImg12} />
+          <img src={ImgData.sideImg12} />
           <span>YouTube Preminum</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg13} />
+          <img src={ImgData.sideImg13} />
           <span>영화</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg14} />
+          <img src={ImgData.sideImg14} />
           <span>고객센터</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg15} />
+          <img src={ImgData.sideImg15} />
           <span>실시간</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg16} />
+          <img src={ImgData.sideImg16} />
           <span>학습</span>
         </LayoutBox>
       </SideLayout_4>
       <SideLayout_2>
         <LayoutBox>
-          <img src={sideImg17} />
+          <img src={ImgData.sideImg17} />
           <span>설정</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg18} />
+          <img src={ImgData.sideImg18} />
           <span>신고기록</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg19} />
+          <img src={ImgData.sideImg19} />
           <span>고객센터</span>
         </LayoutBox>
         <LayoutBox>
-          <img src={sideImg20} />
+          <img src={ImgData.sideImg20} />
           <span>의견 보내기</span>
         </LayoutBox>
       </SideLayout_2>

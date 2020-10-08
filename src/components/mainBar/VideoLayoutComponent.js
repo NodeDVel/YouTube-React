@@ -4,12 +4,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import chartImg from '../../lib/png/chart.png';
-import videoImg2 from '../../lib/png/videoImg2.png';
-import videoImg3 from '../../lib/png/videoImg3.png';
-import videoImg4 from '../../lib/png/videoImg4.png';
-import videoImg5 from '../../lib/png/videoImg5.png';
-import profilePng from '../../lib/png/unnamed.jpg';
+import { ImgData } from '../../lib/png';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -117,25 +112,25 @@ const VideoTextLayout = styled.div`
 const VideoLayoutComponent = (props) => {
   return (
     <VideoLayout changed={props.collapsed}>
-      <Link to="/search/인기차트/watch"><img src={chartImg} /></Link>
+      <Link to="/search/인기차트/watch"><img src={ImgData.chart} /></Link>
       <MiddleHover>
         <div>
           <ImgHover>
-            <img src={videoImg2} />
+            <img src={ImgData.videoImg2} />
             <MiddleHover2>
-              <img src={videoImg4} />
+              <img src={ImgData.videoImg4} />
             </MiddleHover2>
           </ImgHover>
           <ImgHover>
-            <img src={videoImg3} />
+            <img src={ImgData.videoImg3} />
             <MiddleHover3>
-              <img src={videoImg5} />
+              <img src={ImgData.videoImg5} />
             </MiddleHover3>
           </ImgHover>
         </div>
       </MiddleHover>
       <VideoBoxLayout>
-        <img src={profilePng} />
+        <img src={ImgData.unnamed} />
         <VideoTextLayout>
           <span>노래방 인기차트 발라드 TOP 20 가사</span>
           <br />
