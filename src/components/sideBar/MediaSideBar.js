@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import sideImg2 from '../../lib/png/sideImg2.png';
-import sideImg3 from '../../lib/png/sideImg3.png';
-import sideImg4 from '../../lib/png/sideImg4.png';
-
 import { ImgData } from '../../lib/png';
 
 const MediaSideBarLayout = styled.div`

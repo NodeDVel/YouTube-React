@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { data } from './SearchResultList';
-import Comment from './comment/Comment';
 
 import { ImgData } from '../../lib/png';
+
+import Comment from './comment/Comment';
 
 const WatchBoxLayout = styled.div`
   width: 100%;
