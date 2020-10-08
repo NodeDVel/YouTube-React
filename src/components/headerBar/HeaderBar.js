@@ -384,14 +384,14 @@ const FourthRightHeaderClickMenu = styled.div`
 const HeaderBar = (props) => {
   const [items, setItems] = useState([]);
 
-  const nextId = useRef(1);
-
   const [value, setValue] = useState('');
   const [isShowed, setShowed] = useState(false);
 
   const [openPopup, setOpenPopup] = useState('');
   const [isPressed, setPressed] = useState(false);
   const [isHidden, setHidden] = useState(false);
+
+  const nextId = useRef(1);
 
   const handleClick = (e) => {
     props.onClickMenu && props.onClickMenu();
@@ -446,7 +446,7 @@ const HeaderBar = (props) => {
     [items]
   )
 
-  const ClickFilter = () => {
+  const onClickFilter = () => {
     if (!value) {
       console.log('none');
     } else {
@@ -465,7 +465,7 @@ const HeaderBar = (props) => {
         <SearchHeader onSubmit={onSubmit} none={isHidden}>
           <SearchHeaderInput placeholder="검색" onClick={onClickSearch} onChange={onChange} value={value} />
           <div className="icon"><img src={middleIcon} /></div>
-          <SearchHeaderButton onClick={() => ClickFilter()}>
+          <SearchHeaderButton onClick={onClickFilter}>
             <img src={buttonPng} style={{ marginTop: '3px' }} />
           </SearchHeaderButton>
           {
@@ -563,70 +563,34 @@ const HeaderBar = (props) => {
                     display: 'flex',
                     padding: '10px 65px 0px 7px',
                   }}>
-                    <img src={thirdRightImg2} style={{
-                      marginRight: '8px',
-                      height: '100%',
-                    }} />
-                    <span style={{
-                      fontSize: '14px',
-                    }}>
+                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
-                    <br />
-                      <span style={{
-                        fontSize: '13px',
-                        color: '#606060',
-                      }}>1주전</span>
+                      <br />
+                      <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{
-                      marginLeft: '10px',
-                    }} />
+                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
-                  <div style={{
-                    display: 'flex',
-                    padding: '30px 65px 0px 7px',
-                  }}>
-                    <img src={thirdRightImg2} style={{
-                      marginRight: '8px',
-                      height: '100%',
-                    }} />
-                    <span style={{
-                      fontSize: '14px',
-                    }}>
+                  <div style={{ display: 'flex', padding: '30px 65px 0px 7px' }}>
+                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
-                    <br />
-                      <span style={{
-                        fontSize: '13px',
-                        color: '#606060',
-                      }}>1주전</span>
+                      <br />
+                      <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{
-                      marginLeft: '10px',
-                    }} />
+                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
-                  <div style={{
-                    display: 'flex',
-                    padding: '30px 65px 0px 7px',
-                  }}>
-                    <img src={thirdRightImg2} style={{
-                      marginRight: '8px',
-                      height: '100%',
-                    }} />
-                    <span style={{
-                      fontSize: '14px',
-                    }}>
+                  <div style={{ display: 'flex', padding: '30px 65px 0px 7px' }}>
+                    <img src={thirdRightImg2} style={{ marginRight: '8px', height: '100%' }} />
+                    <span style={{ fontSize: '14px' }}>
                       맞춤 동영상: 유튜브 좋은 노래 명곡 100곡
                       Best K POP Songs Korean #발라드 모음
-                    <br />
-                      <span style={{
-                        fontSize: '13px',
-                        color: '#606060',
-                      }}>1주전</span>
+                      <br />
+                      <span style={{ fontSize: '13px', color: '#606060' }}>1주전</span>
                     </span>
-                    <img src={thirdRightImg3} style={{
-                      marginLeft: '10px',
-                    }} />
+                    <img src={thirdRightImg3} style={{ marginLeft: '10px' }} />
                   </div>
                 </ThirdRightListBox>
               </ThirdRightHeaderClickMenu>
@@ -638,7 +602,7 @@ const HeaderBar = (props) => {
               openPopup === 'profile' && isPressed &&
               <FourthRightHeaderClickMenu>
                 <div className="FourthRightMenu_1">
-                  <img src={rightIcon_4} alt="" />
+                  <img src={rightIcon_4} />
                   <div>
                     <span>김민기</span>
                     <span>minki@firmagroup.co</span>

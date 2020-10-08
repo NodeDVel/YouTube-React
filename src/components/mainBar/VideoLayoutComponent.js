@@ -79,7 +79,6 @@ const VideoLayout = styled.div`
     margin-bottom: 4%;
   }
 
-
   @media all and (max-width: 1500px) {
     width: 32%;
   }
@@ -117,7 +116,7 @@ const VideoTextLayout = styled.div`
 
 const VideoLayoutComponent = (props) => {
   return (
-    <VideoLayout changed={props.collapsed} key={props.key}>
+    <VideoLayout changed={props.collapsed}>
       <Link to="/search/인기차트/watch"><img src={chartImg} /></Link>
       <MiddleHover>
         <div>
@@ -140,7 +139,7 @@ const VideoLayoutComponent = (props) => {
         <VideoTextLayout>
           <span>노래방 인기차트 발라드 TOP 20 가사</span>
           <br />
-          <span>낭소월드 <br /> 조회수 11만회 - 1일전</span>
+          <span>낭소월드 <br /> 조회수 11만회 • 1일전</span>
         </VideoTextLayout>
       </VideoBoxLayout>
     </VideoLayout>

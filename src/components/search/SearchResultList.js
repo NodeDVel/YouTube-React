@@ -94,7 +94,7 @@ const SearchListTextLayout = styled.div`
 export const data = {
   "인기차트": {
     imgSrc: chartImg,
-    title: '노래방 인기차트 TOP 20 가사',
+    title: '노래방 인기차트 발라드 TOP 20 가사',
     informationName: '낭소월드',
     informationNumber: '조회수 11만회',
     informationDate: '1일전',
