@@ -29,6 +29,7 @@ import thirdRightImg from '../../lib/png/ThirdRightImg.png';
 import thirdRightImg2 from '../../lib/png/ThirdRightImg2.png';
 import thirdRightImg3 from '../../lib/png/ThirdRightImg3.png';
 
+import backImg from '../../lib/png/back.png'
 import fourthRightImg1 from '../../lib/png/FourthRightImg1.png';
 import fourthRightImg2 from '../../lib/png/FourthRightImg2.png';
 import fourthRightImg3 from '../../lib/png/FourthRightImg3.png';
@@ -43,7 +44,6 @@ import fourthRightImg11 from '../../lib/png/FourthRightImg11.png';
 import fourthRightImg12 from '../../lib/png/FourthRightImg12.png';
 import fourthRightImg13 from '../../lib/png/FourthRightImg13.png';
 import fourthRightImg14 from '../../lib/png/FourthRightImg14.png';
-import backImg from '../../lib/png/back.png'
 
 const HoverText1 = styled.div`
   font-size: 13px;
@@ -90,11 +90,8 @@ const Header = styled.div`
   background-color: #ffffff;
 
   @media all and (max-width: 650px) {
-    ${props => props.none && `
-      display: none;
-    `}
+    ${props => props.none && ` display: none;`}
   }
-
 `;
 
 const LeftHeader = styled.div`
@@ -112,9 +109,7 @@ const LeftHeader = styled.div`
   }
 
   @media all and (max-width: 650px) {
-    ${props => props.none && `
-      display: none;
-    `}
+    ${props => props.none && `display: none;`}
   }
 `;
 
@@ -188,9 +183,7 @@ const RightHeader = styled.div`
   justify-content: flex-end;
 
   @media all and (max-width: 650px) {
-    ${props => props.none && `
-      display: none;
-    `}
+    ${props => props.none && `display: none;`}
   }
 `;
 
@@ -206,10 +199,7 @@ const RightImgHeader = styled.div`
 
   &:hover ${HoverText1}, &:hover ${HoverText2}, &:hover ${HoverText3}, &:hover ${HoverText4} {
     opacity: 1;
-    ${props => props.hover && `
-      opacity: 0;
-    `
-    }
+    ${props => props.hover && `opacity: 0;`}
   }
 
   @media all and (max-width: 650px) {
@@ -392,10 +382,6 @@ const FourthRightHeaderClickMenu = styled.div`
 `;
 
 const HeaderBar = (props) => {
-  const handleClick = (e) => {
-    props.onClickMenu && props.onClickMenu();
-  };
-
   const [items, setItems] = useState([]);
 
   const nextId = useRef(1);
@@ -406,6 +392,10 @@ const HeaderBar = (props) => {
   const [openPopup, setOpenPopup] = useState('');
   const [isPressed, setPressed] = useState(false);
   const [isHidden, setHidden] = useState(false);
+
+  const handleClick = (e) => {
+    props.onClickMenu && props.onClickMenu();
+  };
 
   const onClickOpenPopup = (str) => {
     setOpenPopup(str);

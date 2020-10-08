@@ -68,10 +68,7 @@ const VideoLayout = styled.div`
   position: relative;
   cursor: pointer;
 
-  ${props => props.changed && `
-    width: 19.6%;
-    `
-  }
+  ${props => props.changed && `width: 19.6%;`}
 
   &:hover ${MiddleHover} {
     opacity: 1;
@@ -118,9 +115,9 @@ const VideoTextLayout = styled.div`
   }
 `;
 
-const VideoLayoutComponent = (props, key) => {
+const VideoLayoutComponent = (props) => {
   return (
-    <VideoLayout changed={props.collapsed} key={key}>
+    <VideoLayout changed={props.collapsed} key={props.key}>
       <Link to="/search/인기차트/watch"><img src={chartImg} /></Link>
       <MiddleHover>
         <div>

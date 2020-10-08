@@ -13,10 +13,7 @@ const SideBarBox = styled.div`
   position: fixed;
   top: 60px;
 
-  ${props => props.shrink && `
-    width: 4.5rem;
-  `
-  }
+  ${props => props.shrink && ` width: 4.5rem;`}
 
   div {
     box-sizing: border-box;

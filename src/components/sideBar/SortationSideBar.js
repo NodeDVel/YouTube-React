@@ -75,7 +75,7 @@ const LayoutBox = styled.div`
   img {
     margin: 0 24px 0 0;
   }
-  `;
+`;
 
 const LayoutBoxHeader = styled.div`
   width: 100%;

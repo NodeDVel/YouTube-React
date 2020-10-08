@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 
 import VideoLayoutComponent from './VideoLayoutComponent';
-
-import { withRouter } from 'react-router-dom';
-
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -16,10 +14,7 @@ const SpaceBox = styled.div`
   height: 100%;
   background-color: #F9F9F9;
 
-  ${props => props.changed && `
-    width: 75px;
-  `
-  }
+  ${props => props.changed && `width: 75px;`}
 
   @media all and (max-width: 1300px) {
     width: 81px;
@@ -42,9 +37,7 @@ const MainBarLayout = styled.div`
   margin: 1% 4% 1% 5%;
   height: 100%;
 
-  ${props => props.changed && `
-    margin: 1% 4% 1% 1.5%;
-  `}
+  ${props => props.changed && `margin: 1% 4% 1% 1.5%;`}
 
   @media all and (max-width: 1000px) {
     margin: 1% 6% 1% 7%;
@@ -54,7 +47,6 @@ const MainBarLayout = styled.div`
     margin: 1% 0% 0% 0%;
   }
 `;
-
 
 const MainBar = (props) => {
   useEffect(() => {
@@ -73,10 +65,6 @@ const MainBar = (props) => {
     }
   }
 
-  const onClickWatch = () => {
-    props.history.push('/search/인기차트/watch');
-  }
-
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
@@ -85,7 +73,7 @@ const MainBar = (props) => {
           {
             layout.map((val, key) => {
               return (
-                <VideoLayoutComponent collapsed={props.collapsed} key={key} onClick={() => onClickWatch()} />
+                <VideoLayoutComponent collapsed={props.collapsed} key={key} />
               )
             })
           }
@@ -95,4 +83,4 @@ const MainBar = (props) => {
   )
 }
 
-export default withRouter(MainBar);
+export default MainBar;

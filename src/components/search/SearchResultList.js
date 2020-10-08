@@ -127,15 +127,14 @@ export const data = {
 }
 
 const SearchResultList = (props) => {
-  
   const params = props.title;
-  const searchName = data[params];
+  const query = data[params];
 
   return (
     <>
       <SearchResultListLayout>
         <Link to={`/search/${params}/watch`}>
-          <img src={searchName.imgSrc} width="249px" height="138px" />
+          <img src={query.imgSrc} width="249px" height="138px" />
         </Link>
         <MiddleHover>
           <div>
@@ -154,9 +153,9 @@ const SearchResultList = (props) => {
           </div>
         </MiddleHover>
         <SearchListTextLayout>
-          <span style={{ fontSize: '18px' }}>{searchName.title}</span>
-          <span style={{ fontSize: '13px', color: '#606060' }}>{searchName.informationName} • {searchName.informationNumber} • {searchName.informationDate} </span>
-          <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{searchName.description}</span>
+          <span style={{ fontSize: '18px' }}>{query.title}</span>
+          <span style={{ fontSize: '13px', color: '#606060' }}>{query.informationName} • {query.informationNumber} • {query.informationDate} </span>
+          <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{query.description}</span>
         </SearchListTextLayout>
       </SearchResultListLayout>
     </>

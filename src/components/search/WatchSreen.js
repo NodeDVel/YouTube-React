@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 import { data } from './SearchResultList';
 
+import windPng from '../../lib/png/wind.png';
 import profilePng from '../../lib/png/unnamed.jpg';
 import rightIcon_4 from '../../lib/png/iconRight-4.png';
-import windPng from '../../lib/png/wind.png';
 
 const WatchBoxLayout = styled.div`
   width: 100%;
@@ -66,7 +66,6 @@ const WatchBoxFotterLayout = styled.div`
       opacity: 1;
     }
 
-
   ${props => props.wide && `
     & {
       height: 31%;
@@ -80,35 +79,27 @@ const WatchBoxFotterLayout = styled.div`
       width: 65%;
       height: auto;
     }
-  `
-  }
+  `}
 
   @media all and (max-width: 1700px) {
     margin-left: 30px;
 
-    ${props => props.wide && `
-      margin-left: 0px;
-    `}
+    ${props => props.wide && ` margin-left: 0px;`}
   }
 
   @media all and (max-width: 1200px) {
     margin-left: 10px;
 
-    ${props => props.wide && `
-      margin-left: 0px;
-    `}
+    ${props => props.wide && `margin-left: 0px;`}
   }
 `;
 
 const LeftWatch = styled.div`
   margin-top: 20px;
 
-  ${props => props.wide && `
-    width: 100%;
-  `}
+  ${props => props.wide && `width: 100%;`}
 
   @media all and (max-width: 1700px) {
-    /* width: 77%; */
     width: 65%;
 
     .ImgLayout {
@@ -140,7 +131,6 @@ const LeftWatch = styled.div`
         width: 100%;
       }
     `}
-    
   }
 `;
 
@@ -148,30 +138,22 @@ const LeftWatchUser = styled.div`
   margin-top: 10px;
   margin-left: 100px; 
   
-  ${props => props.wide && `
-      width: 63%;
-  `}
+  ${props => props.wide && `width: 63%;`}
 
   @media all and (max-width: 1700px) {
     margin-left: 30px;
 
-    ${props => props.wide && `
-      width: 65%;
-    `}
+    ${props => props.wide && `width: 65%;`}
   }
 
   @media all and (max-width: 1450px) {
-    ${props => props.wide && `
-      width: 57%;
-    `}
+    ${props => props.wide && `width: 57%;`}
   }
 
   @media all and (max-width: 1200px) {
     margin-left: 10px;
 
-    ${props => props.wide && `
-      width: 99%;
-    `}
+    ${props => props.wide && `width: 99%;`}
   }
 `;
 
@@ -265,15 +247,11 @@ const RightWatch = styled.div`
   `}
 
   @media all and (max-width: 1700px) {
-    ${props => props.wide && `
-        right: 30px;
-    `}
+    ${props => props.wide && `right: 30px;`}
   }
 
   @media all and (max-width: 1200px) {
-    ${props => props.wide && `
-      position: static;
-    `}
+    ${props => props.wide && `position: static;`}
   }
 `;
 
@@ -324,68 +302,68 @@ const WatchScreen = (props) => {
       <LeftWatch wide={isWidened}>
         <WatchBoxFotterLayout wide={isWidened}>
           <img src={params.imgSrc} className="ImgLayout" />
-            <FotterBar>
-              <div className="videoLength"></div>
-              <img src={windPng} onClick={onClickWiden} />
-            </FotterBar>
+          <FotterBar>
+            <div className="videoLength"></div>
+            <img src={windPng} onClick={onClickWiden} />
+          </FotterBar>
         </WatchBoxFotterLayout>
-          <LeftWatchUser wide={isWidened}>
-            <LeftWatchTitle>
-              <span>{params.title}</span>
-              <br />
-              <span>{params.informationNumber} • {params.informationDate}</span>
-            </LeftWatchTitle>
-            <LeftWatchInformation>
-              <img src={profilePng} />
-              <div>
-                <span>{params.informationName}</span>
-                <span>구독자 72만명</span>
-                <span>{params.description} </span>
+        <LeftWatchUser wide={isWidened}>
+          <LeftWatchTitle>
+            <span>{params.title}</span>
+            <br />
+            <span>{params.informationNumber} • {params.informationDate}</span>
+          </LeftWatchTitle>
+          <LeftWatchInformation>
+            <img src={profilePng} />
+            <div>
+              <span>{params.informationName}</span>
+              <span>구독자 72만명</span>
+              <span>{params.description} </span>
+            </div>
+            <div
+              style={{ width: '72px', height: '37px', backgroundColor: '#CC0000', color: 'white', fontSize: '14px', alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
+              구독
               </div>
-              <div
-                style={{ width: '72px', height: '37px', backgroundColor: '#CC0000', color: 'white', fontSize: '14px', alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-                구독
-              </div>
-            </LeftWatchInformation>
-            <LeftWatchComment>
-              <span>댓글 1000개</span> <br />
-              <div className="myComment">
-                <img src={rightIcon_4} />
-                <span>공개적으로 댓글을 남길 계정: 김민기</span>
-              </div>
-              {
-                layout.map((val, key) => {
-                  return (
-                    <div className="comment" key={key}>
-                      <img src={rightIcon_4} />
-                      <div>
-                        <span>김민기</span>
-                        <span>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓<br />글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글<br />댓글댓글댓글댓글댓글댓글댓글댓글댓</span>
-                      </div>
+          </LeftWatchInformation>
+          <LeftWatchComment>
+            <span>댓글 1000개</span> <br />
+            <div className="myComment">
+              <img src={rightIcon_4} />
+              <span>공개적으로 댓글을 남길 계정: 김민기</span>
+            </div>
+            {
+              layout.map((val, key) => {
+                return (
+                  <div className="comment" key={key}>
+                    <img src={rightIcon_4} />
+                    <div>
+                      <span>김민기</span>
+                      <span>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓<br />글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글<br />댓글댓글댓글댓글댓글댓글댓글댓글댓</span>
                     </div>
-                  )
-                })
-              }
-            </LeftWatchComment>
-          </LeftWatchUser>
+                  </div>
+                )
+              })
+            }
+          </LeftWatchComment>
+        </LeftWatchUser>
       </LeftWatch>
-        <RightWatch wide={isWidened}>
-          <span>다음 동영상</span>
-          {
-            layout.map((val, key) => {
-              return (
-                <RightWatchListLayout key={key}>
-                  <img src={params.imgSrc} />
-                  <RightWatchTextLayout>
-                    <span style={{ fontSize: '18px' }}>{params.title}</span>
-                    <span style={{ fontSize: '13px', color: '#606060' }}>{params.informationName} <br /> {params.informationNumber} • {params.informationDate} </span>
-                    <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{params.description}</span>
-                  </RightWatchTextLayout>
-                </RightWatchListLayout>
-              )
-            })
-          }
-        </RightWatch>
+      <RightWatch wide={isWidened}>
+        <span>다음 동영상</span>
+        {
+          layout.map((val, key) => {
+            return (
+              <RightWatchListLayout key={key}>
+                <img src={params.imgSrc} />
+                <RightWatchTextLayout>
+                  <span style={{ fontSize: '18px' }}>{params.title}</span>
+                  <span style={{ fontSize: '13px', color: '#606060' }}>{params.informationName} <br /> {params.informationNumber} • {params.informationDate} </span>
+                  <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{params.description}</span>
+                </RightWatchTextLayout>
+              </RightWatchListLayout>
+            )
+          })
+        }
+      </RightWatch>
     </WatchBoxLayout>
   )
 }

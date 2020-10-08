@@ -10,10 +10,10 @@ const Main = () => {
   const handleClickMenu = () => {
     setCollapsed(!isCollapsed);
   };
-  
+
   return (
     <>
-      <HeaderBar onClickMenu={handleClickMenu}/>
+      <HeaderBar onClickMenu={handleClickMenu} />
       <SideBar collapsed={isCollapsed} />
       <MainBar collapsed={isCollapsed} />
     </>

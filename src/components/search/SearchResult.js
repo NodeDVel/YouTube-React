@@ -16,10 +16,7 @@ const SpaceBox = styled.div`
   height: 100%;
   background-color: #F9F9F9;
 
-  ${props => props.changed && `
-    width: 75px;
-  `
-  }
+  ${props => props.changed && `width: 75px;`}
 
   @media all and (max-width: 1300px) {
     width: auto;
@@ -43,9 +40,7 @@ const SearchListLayout = styled.div`
   margin: 1% 4% 0% 12%;
   height: 100%;
 
-  ${props => props.changed && `
-    margin: 1% 4% 1% 1.5%;
-  `}
+  ${props => props.changed && `margin: 1% 4% 1% 1.5%;`}
 
   @media all and (max-width: 1000px) {
     margin: 1% 6% 1% 7%;
@@ -113,10 +108,10 @@ const SearchResult = (props) => {
           {
             props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
               ? layout.map((key) => {
-                  return (
-                    <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
-                  )
-                })
+                return (
+                  <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
+                )
+              })
               : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>
           }
         </SearchListLayout>

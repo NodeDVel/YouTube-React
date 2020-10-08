@@ -20,8 +20,7 @@ const MediaSideBarLayout = styled.div`
         cursor: pointer;
         background-color: #e8e8e8;
       }
-    `
-    }
+  `}
 
   @media all and (max-width: 1300px) {
     display: block;
@@ -56,8 +55,7 @@ const MediaBoxLayout = styled.div`
     img {
       margin-bottom: 20%;
     }
-  `
-  }
+  `}
 
   @media all and (max-width: 1300px) {
     display: block;
