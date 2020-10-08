@@ -15,7 +15,7 @@ const WatchBoxLayout = styled.div`
   display: flex;
   position: relative;
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: 1200px) {
     display: block;
   }
 `;
@@ -24,7 +24,7 @@ const FotterBar = styled.div`
   position: absolute;
   bottom: 5px;
   left: 0px;
-  opacity: 1;
+  opacity: 0;
   width: 100%;
 
   @keyframes trans {
@@ -43,7 +43,7 @@ const FotterBar = styled.div`
     width: 100%;
     height: 4px;
     animation-name: trans;
-    animation-duration:500s;
+    animation-duration:800s;
     animation-duration: leaner;
     animation-iteration-count:1;
     animation-direction:alternate;
@@ -58,7 +58,7 @@ const WatchBoxFotterLayout = styled.div`
   overflow: hidden;
 
    .ImgLayout {
-    width: 1280px;
+    max-width: 100%;
     height: 720px;
     }
 
@@ -69,15 +69,16 @@ const WatchBoxFotterLayout = styled.div`
 
   ${props => props.wide && `
     & {
-      height: 716px;
+      height: 31%;
       display: flex;
       justify-content: center;
       background-color: black;
       margin-left: 0px;
     }
 
-    & > img {
-      width: 80%;
+    .ImgLayout {
+      width: 65%;
+      height: auto;
     }
   `
   }
@@ -90,7 +91,7 @@ const WatchBoxFotterLayout = styled.div`
     `}
   }
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: 1200px) {
     margin-left: 10px;
 
     ${props => props.wide && `
@@ -107,10 +108,12 @@ const LeftWatch = styled.div`
   `}
 
   @media all and (max-width: 1700px) {
-    width: 77%;
+    /* width: 77%; */
+    width: 65%;
 
     .ImgLayout {
-      width: 97%;
+      width: 100%;
+      height: 90%;
     }
 
     ${props => props.wide && `
@@ -118,11 +121,12 @@ const LeftWatch = styled.div`
 
       .ImgLayout {
         width: 1100px;
+        height: auto;
       }
     `}
   }
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: 1200px) {
     width: 99%;
 
     .ImgLayout {
@@ -145,24 +149,24 @@ const LeftWatchUser = styled.div`
   margin-left: 100px; 
   
   ${props => props.wide && `
-      width: 73%;
+      width: 63%;
   `}
 
   @media all and (max-width: 1700px) {
     margin-left: 30px;
 
     ${props => props.wide && `
-      width: 75%;
+      width: 65%;
     `}
   }
 
   @media all and (max-width: 1450px) {
     ${props => props.wide && `
-      width: 68%;
+      width: 57%;
     `}
   }
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: 1200px) {
     margin-left: 10px;
 
     ${props => props.wide && `
@@ -266,7 +270,7 @@ const RightWatch = styled.div`
     `}
   }
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: 1200px) {
     ${props => props.wide && `
       position: static;
     `}
