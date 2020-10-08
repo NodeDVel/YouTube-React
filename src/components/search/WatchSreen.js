@@ -58,7 +58,7 @@ const WatchBoxFotterLayout = styled.div`
   overflow: hidden;
 
   .ImgLayout {
-    max-width: 100%;
+    width: 100%;
     height: 720px;
   }
 
@@ -95,6 +95,7 @@ const WatchBoxFotterLayout = styled.div`
 `;
 
 const LeftWatch = styled.div`
+  width: 74%;
   margin-top: 20px;
 
   ${props => props.wide && `width: 100%;`}
@@ -359,9 +360,9 @@ const WatchScreen = (props) => {
               <RightWatchListLayout key={key}>
                 <img src={params.imgSrc} />
                 <RightWatchTextLayout>
-                  <span style={{ fontSize: '18px' }}>{params.title}</span>
-                  <span style={{ fontSize: '13px', color: '#606060' }}>{params.informationName} <br /> {params.informationNumber} • {params.informationDate} </span>
-                  <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{params.description}</span>
+                  <span style={{ fontSize: '14px' }}>{params.title}</span>
+                  <span style={{ fontSize: '11px', color: '#606060' }}>{params.informationName} <br /> {params.informationNumber} • {params.informationDate} </span>
+                  <span style={{ fontSize: '11px', color: '#606060', marginTop: '19px' }}>{params.description}</span>
                 </RightWatchTextLayout>
               </RightWatchListLayout>
             )
