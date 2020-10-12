@@ -107,9 +107,9 @@ const SearchResult = (props) => {
           </SearchFilter>
           {
             props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
-              ? layout.map((key) => {
+              ? layout.map((val) => {
                 return (
-                  <SearchResultList collapsed={props.collapsed} key={key} title={props.title} />
+                  <SearchResultList collapsed={props.collapsed} title={props.title} num={val} />
                 )
               })
               : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>

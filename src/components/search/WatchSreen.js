@@ -138,16 +138,16 @@ const LeftWatchUser = styled.div`
   margin-top: 10px;
   margin-left: 100px; 
   
-  ${props => props.wide && `width: 63%;`}
+  ${props => props.wide && `width: 65%;`}
 
   @media all and (max-width: 1700px) {
     margin-left: 30px;
 
-    ${props => props.wide && `width: 65%;`}
+    ${props => props.wide && `width: 67%;`}
   }
 
   @media all and (max-width: 1450px) {
-    ${props => props.wide && `width: 57%;`}
+    ${props => props.wide && `width: 59%;`}
   }
 
   @media all and (max-width: 1200px) {
@@ -277,9 +277,9 @@ const RightWatchTextLayout = styled.div`
 const WatchScreen = (props) => {
   const params = data[props.title];
 
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-  });
+  // useEffect(() => {
+  //   window.addEventListener('scroll', onScroll);
+  // });
 
   const [layout, setLayout] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   const [isWidened, setWidened] = useState(false);

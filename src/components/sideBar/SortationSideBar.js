@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -114,10 +115,12 @@ const SortationSideBar = () => {
           <img src={ImgData.sideImg5} />
           <span>시청기록</span>
         </LayoutBox>
-        <LayoutBox>
-          <img src={ImgData.sideImg6} />
-          <span>나중에 볼 동영상</span>
-        </LayoutBox>
+        <Link to="/list" style={{ textDecoration: 'none' }}>
+          <LayoutBox>
+            <img src={ImgData.sideImg6} />
+            <span style={{ color: '#000000'}}>나중에 볼 동영상</span>
+          </LayoutBox>
+        </Link>
         <LayoutBox>
           <img src={ImgData.sideImg7} />
           <span>좋아요 표시한 동영상</span>

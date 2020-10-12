@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -119,9 +119,21 @@ export const data = {
   },
 }
 
-const SearchResultList = (props) => {
+const SearchResultList = (props, { lists, onInsert, onRemove }) => {
   const params = props.title;
   const query = data[params];
+
+  const [isChecked, setChecked] = useState(false);
+
+  const onClick = e => {
+    setChecked(!isChecked);
+    if (!isChecked) {
+      alert('추가되었습니다');
+      // onInsert(query);
+    } else {
+      alert('삭제되었습니다');
+    }
+  }
 
   return (
     <>
@@ -132,7 +144,7 @@ const SearchResultList = (props) => {
         <MiddleHover>
           <div>
             <ImgHover>
-              <img src={ImgData.videoImg2} />
+              <img onClick={onClick} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
               <MiddleHover2>
                 <img src={ImgData.videoImg4} />
               </MiddleHover2>
@@ -146,7 +158,7 @@ const SearchResultList = (props) => {
           </div>
         </MiddleHover>
         <SearchListTextLayout>
-          <span style={{ fontSize: '18px' }}>{query.title}</span>
+          <span style={{ fontSize: '18px' }}>{query.title} - {props.num} </span>
           <span style={{ fontSize: '13px', color: '#606060' }}>{query.informationName} • {query.informationNumber} • {query.informationDate} </span>
           <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{query.description}</span>
         </SearchListTextLayout>

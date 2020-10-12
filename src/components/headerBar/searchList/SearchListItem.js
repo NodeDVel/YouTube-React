@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import { ImgData } from '../../../lib/png';
-
 const SearchListItemLayout = styled.div`
   display: flex;
   align-items: center;

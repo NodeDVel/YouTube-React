@@ -62,6 +62,7 @@ import videoImg4 from './png/videoImg4.png';
 import videoImg5 from './png/videoImg5.png';
 import vlog from './png/vlog.png';
 import wind from './png/wind.png';
+import check from './png/check.png';
 
 export const ImgData = {
   mainIcon,
@@ -127,5 +128,6 @@ export const ImgData = {
   videoImg4,
   videoImg5,
   vlog,
-  wind
+  wind,
+  check
 }
