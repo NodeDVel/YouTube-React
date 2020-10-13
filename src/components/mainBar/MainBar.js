@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import VideoLayoutComponent from './VideoLayoutComponent';
+import VideoLayoutContainer from '../../containers/VideoLayoutContainer';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ const MainBar = (props) => {
           {
             layout.map((val, key) => {
               return (
-                <VideoLayoutComponent collapsed={props.collapsed} key={key} />
+                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={val} />
               )
             })
           }

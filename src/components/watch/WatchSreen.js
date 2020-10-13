@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import { data } from './SearchResultList';
+import { data } from '../search/SearchResultList';
 
 import { ImgData } from '../../lib/png';
 
 import Comment from './comment/Comment';
+import ShareBox from './ShareBox';
 
 const WatchBoxLayout = styled.div`
   width: 100%;
@@ -158,7 +159,6 @@ const LeftWatchUser = styled.div`
 `;
 
 const LeftWatchTitle = styled.div`
-  padding-bottom: 20px;
   border-bottom: 1px solid #e3e3e3;
 
   & > span:first-child {
@@ -170,6 +170,20 @@ const LeftWatchTitle = styled.div`
   & > span:nth-child(3) {
     font-size: 14px;
     color: #606060;
+  }
+
+  .shareBox {
+    display: flex;
+    color: #606060;
+    font-size: 13px;
+    align-items: center;
+    width: 66px;
+    height: 40px;
+    cursor: pointer;
+
+    img {
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -184,9 +198,9 @@ const LeftWatchInformation = styled.div`
     flex-direction: column;
     flex: 1;
 
-    span:first-child { font-size: 14px; font-weight: 700 };
-    span:nth-child(2) { font-size: 13px; margin-bottom: 40px };
-    span:nth-child(3) { font-size: 14px; }
+    & > div:first-child { font-size: 14px; font-weight: 700 };
+    & > div:nth-child(2) { font-size: 13px; margin-bottom: 40px };
+    & > div:nth-child(3) { font-size: 13px; }
   }
 
   img {
@@ -298,6 +312,10 @@ const WatchScreen = (props) => {
     }
   }
 
+  const onClickHandleModal = (e) => {
+    props.handleClickModal && props.handleClickModal();
+  }
+
   return (
     <WatchBoxLayout>
       <LeftWatch wide={isWidened}>
@@ -313,13 +331,24 @@ const WatchScreen = (props) => {
             <span>{params.title}</span>
             <br />
             <span>{params.informationNumber} • {params.informationDate}</span>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}>
+              <div onClick={onClickHandleModal} className="shareBox">
+                <img src={ImgData.share} />
+                <span>공유</span>
+              </div>
+            </div>
           </LeftWatchTitle>
           <LeftWatchInformation>
             <img src={ImgData.unnamed} />
             <div>
-              <span>{params.informationName}</span>
-              <span>구독자 72만명</span>
-              <span>{params.description} </span>
+              <div>{params.informationName}</div>
+              <div>구독자 72만명</div>
+              <div className="fotterText">
+                <div>{params.description}</div> 
+              </div>
             </div>
             <div
               style={{

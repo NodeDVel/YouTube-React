@@ -6,6 +6,8 @@ import SearchResultList from './SearchResultList';
 
 import { ImgData } from '../../lib/png';
 
+import InsertSerachResultListContainer from '../../containers/InsertSerachResultListContainer';
+
 const SpaceBoxLayout = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -107,9 +109,9 @@ const SearchResult = (props) => {
           </SearchFilter>
           {
             props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
-              ? layout.map((val) => {
+              ? layout.map((val, key) => {
                 return (
-                  <SearchResultList collapsed={props.collapsed} title={props.title} num={val} />
+                  <InsertSerachResultListContainer collapsed={props.collapsed} key={key} title={props.title} num={val} />
                 )
               })
               : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>

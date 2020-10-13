@@ -63,6 +63,16 @@ import videoImg5 from './png/videoImg5.png';
 import vlog from './png/vlog.png';
 import wind from './png/wind.png';
 import check from './png/check.png';
+import list from './png/list.png';
+import modal1 from './png/modal1.png';
+import modal2 from './png/modal2.png';
+import modal3 from './png/modal3.png';
+import modal4 from './png/modal4.png';
+import modal5 from './png/modal5.png';
+import modal6 from './png/modal6.png';
+import modal7 from './png/modal7.png';
+import share from './png/share.png';
+import x from './png/x.png';
 
 export const ImgData = {
   mainIcon,
@@ -129,5 +139,15 @@ export const ImgData = {
   videoImg5,
   vlog,
   wind,
-  check
+  check,
+  list,
+  modal1,
+  modal2,
+  modal3,
+  modal4,
+  modal5,
+  modal6,
+  modal7,
+  share,
+  x,
 }

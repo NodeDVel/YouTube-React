@@ -6,6 +6,18 @@ import styled from 'styled-components';
 import { ImgData } from '../../lib/png';
 
 const SideLayoutBox = styled.div`
+  ${props => props.wide && `
+    position: fixed;
+    z-index: 999;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffff;
+    width: 240px;
+    overflow: auto;
+  `}
+
   @media all and (max-width: 1300px) {
     display: none;
   }
@@ -89,9 +101,9 @@ const FooterMessageBoxLayout = styled(HeaderMessageBoxLayout)`
   }
 `;
 
-const SortationSideBar = () => {
+const SortationSideBar = (props) => {
   return (
-    <SideLayoutBox>
+    <SideLayoutBox wide={props.wide}>
       <SideLayout_1>
         <LayoutBox>
           <img src="/img/sideImg1.png" />

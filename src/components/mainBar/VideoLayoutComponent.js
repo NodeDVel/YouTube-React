@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
 import { ImgData } from '../../lib/png';
+import { data } from '../search/SearchResultList';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -109,14 +110,32 @@ const VideoTextLayout = styled.div`
   }
 `;
 
-const VideoLayoutComponent = (props) => {
+const VideoLayoutComponent = ({
+  collapsed,
+  num,
+  lists, 
+  onInsert,
+  onRemove
+}) => {
+  const [isChecked, setChecked] = useState(false);
+  const onClickHandler = e => {
+    setChecked(!isChecked);
+    if (!isChecked) {
+      alert('추가되었습니다');
+      onInsert(data.인기차트);
+    } else {
+      alert('삭제되었습니다');
+      onRemove();
+    }
+  }
+
   return (
-    <VideoLayout changed={props.collapsed}>
+    <VideoLayout changed={collapsed}>
       <Link to="/search/인기차트/watch"><img src={ImgData.chart} /></Link>
       <MiddleHover>
         <div>
           <ImgHover>
-            <img src={ImgData.videoImg2} />
+            <img onClick={onClickHandler} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
             <MiddleHover2>
               <img src={ImgData.videoImg4} />
             </MiddleHover2>

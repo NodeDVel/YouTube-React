@@ -91,7 +91,7 @@ export const data = {
     informationName: '낭소월드',
     informationNumber: '조회수 11만회',
     informationDate: '1일전',
-    description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart'
+    description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart',
   },
   "브이로그": {
     imgSrc: ImgData.vlog,
@@ -99,7 +99,7 @@ export const data = {
     informationName: 'firma',
     informationNumber: '조회수 20만회',
     informationDate: '3일전',
-    description: '유튜버의 vlog'
+    description: '유튜버의 vlog',
   },
   "뉴스": {
     imgSrc: ImgData.news,
@@ -107,7 +107,7 @@ export const data = {
     informationName: 'MBC News',
     informationNumber: '조회수 32만회',
     informationDate: '1달전',
-    description: '새로운 뉴스'
+    description: '새로운 뉴스',
   },
   "게임": {
     imgSrc: ImgData.game,
@@ -115,23 +115,30 @@ export const data = {
     informationName: 'LOL',
     informationNumber: '조회수 120만회',
     informationDate: '1일전',
-    description: '새 게임 영상'
+    description: '새 게임 영상',
   },
 }
 
-const SearchResultList = (props, { lists, onInsert, onRemove }) => {
-  const params = props.title;
+const SearchResultList = ({
+  title,
+  num,
+  lists,
+  onInsert,
+  onRemove
+}) => {
+  const params = title;
   const query = data[params];
 
   const [isChecked, setChecked] = useState(false);
 
-  const onClick = e => {
+  const onClickHandler = e => {
     setChecked(!isChecked);
     if (!isChecked) {
       alert('추가되었습니다');
-      // onInsert(query);
+      onInsert(query);
     } else {
       alert('삭제되었습니다');
+      onRemove();
     }
   }
 
@@ -144,7 +151,7 @@ const SearchResultList = (props, { lists, onInsert, onRemove }) => {
         <MiddleHover>
           <div>
             <ImgHover>
-              <img onClick={onClick} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
+              <img onClick={onClickHandler} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
               <MiddleHover2>
                 <img src={ImgData.videoImg4} />
               </MiddleHover2>
@@ -158,7 +165,7 @@ const SearchResultList = (props, { lists, onInsert, onRemove }) => {
           </div>
         </MiddleHover>
         <SearchListTextLayout>
-          <span style={{ fontSize: '18px' }}>{query.title} - {props.num} </span>
+          <span style={{ fontSize: '18px' }}>{query.title} - {num} </span>
           <span style={{ fontSize: '13px', color: '#606060' }}>{query.informationName} • {query.informationNumber} • {query.informationDate} </span>
           <span style={{ fontSize: '13px', color: '#606060', marginTop: '19px' }}>{query.description}</span>
         </SearchListTextLayout>

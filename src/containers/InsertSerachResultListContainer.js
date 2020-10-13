@@ -6,9 +6,9 @@ import { insert, remove } from '../modules/playList';
 
 import SearchResultList from '../components/search/SearchResultList';
 
-const InsertSerachListResultList = ({ lists, insert, remove }) => {
+const InsertSerachListResultList = ({ collapsed, key, title, num, lists, insert, remove }) => {
   return (
-    <SearchResultList lists={lists} onInsert={insert} onRemove={remove} />
+    <SearchResultList collapsed={collapsed} key={key} title={title} num={num} lists={lists} onInsert={insert} onRemove={remove} />
   )
 }
 

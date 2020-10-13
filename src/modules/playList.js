@@ -1,6 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
 
-import { ImgData } from "../lib/png";
 import { data } from '../components/search/SearchResultList';
 
 const INSERT = "video/INSERT";
@@ -13,7 +12,7 @@ const initialState = {
   lists: [
     {
       id: 1,
-      img: data.게임.imgSrc,
+      imgSrc: data.게임.imgSrc,
       title: data.게임.title,
       informationName: data.게임.informationName ,
       informationNumber: data.게임.informationNumber,
@@ -22,7 +21,7 @@ const initialState = {
     },
     {
       id: 2,
-      img: data.게임.imgSrc,
+      imgSrc: data.게임.imgSrc,
       title: data.게임.title,
       informationName: data.게임.informationName ,
       informationNumber: data.게임.informationNumber,

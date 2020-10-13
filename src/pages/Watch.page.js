@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import HeaderBar from '../components/headerBar/HeaderBar';
-import WatchScreen from '../components/search/WatchSreen';
+import WatchScreen from '../components/watch/WatchSreen';
+import WatchSideBar from '../components/watch/WatchSideBar';
+import ShareBox from '../components/watch/ShareBox';
 
 const Watch = ({ match }) => {
   const { title } = match.params;
 
+  const [isCollapsed, setCollapsed] = useState(false);
+  const [isShowed, setShowed] = useState(false); 
+
+  const handleClickMenu = (e) => {
+    setCollapsed(!isCollapsed);
+  };
+
+  const handleClickModal = (e) => {
+    setShowed(!isShowed);
+  }
+
   return (
     <>
-      <HeaderBar />
-      <WatchScreen title={title} />
+      <HeaderBar onClickMenu={handleClickMenu} />
+      {
+        isCollapsed && <WatchSideBar handleClickMenu={handleClickMenu} />
+      }
+      {
+        isShowed && <ShareBox handleClickModal={handleClickModal} /> 
+      }
+      <WatchScreen title={title} handleClickModal={handleClickModal}  />
     </>
   )
 }
