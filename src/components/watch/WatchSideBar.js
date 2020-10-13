@@ -18,6 +18,21 @@ const WatchSideBarWrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgb(0, 0, 0, 0.4); 
+
+  @keyframes asdf {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  animation-name: asdf;
+  animation-duration: 0.2s;
+  animation-iteration-count:1;
+  animation-direction:alternate;
+  animation-fill-mode: forwards;
 `;
 
 const WatchSideHeaderBar = styled.div`
@@ -26,6 +41,21 @@ const WatchSideHeaderBar = styled.div`
   height: 55px;
   background-color: #ffff;
   width: 240px;
+
+  @keyframes trans {
+    a {
+      left:-100%;
+    }
+    b {
+      left:0%;
+    }
+  }
+
+  animation-name: trans;
+  animation-duration: 200s;
+  animation-iteration-count:1;
+  animation-direction:alternate;
+  animation-fill-mode: forwards;
 
   & > img {
     padding-left: 24px;
@@ -49,7 +79,7 @@ const WatchSideBar = (props) => {
   }
 
   return (
-    <WatchSideBarWrapper>
+    <WatchSideBarWrapper onClick={onClickHandler}>
       <WatchSideHeaderBar>
         <img src={ImgData.icon} onClick={() => onClickHandler()} />
         <Link to="/" style={{ marginLeft: '32px', paddingTop: '2px' }}><img src={ImgData.mainIcon} /></Link>

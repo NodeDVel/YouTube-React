@@ -42,12 +42,10 @@ const PlayListItem = ({ list }) => {
       <PlayListItemWrapper>
         <img src={list.imgSrc} style={{ width: '120px', height: '67px' }} />
         <PlayListItemText>
-          {list.id}
           <span>{list.title}</span>
           <span>{list.informationName}</span>
         </PlayListItemText>
       </PlayListItemWrapper>
-
     </div>
   )
 }

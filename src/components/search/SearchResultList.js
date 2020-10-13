@@ -84,8 +84,11 @@ const SearchListTextLayout = styled.div`
   flex-direction: column;
 `;
 
+let id = "";
+
 export const data = {
   "인기차트": {
+    id: "",
     imgSrc: ImgData.chart,
     title: '노래방 인기차트 발라드 TOP 20 가사',
     informationName: '낭소월드',
@@ -94,6 +97,7 @@ export const data = {
     description: '노래방 인기차트 발라드 TOP 20 가사 KPOP Chart',
   },
   "브이로그": {
+    id: "",
     imgSrc: ImgData.vlog,
     title: 'YouTube Vlog',
     informationName: 'firma',
@@ -102,6 +106,7 @@ export const data = {
     description: '유튜버의 vlog',
   },
   "뉴스": {
+    id: "",
     imgSrc: ImgData.news,
     title: 'new News',
     informationName: 'MBC News',
@@ -110,6 +115,7 @@ export const data = {
     description: '새로운 뉴스',
   },
   "게임": {
+    id: "",
     imgSrc: ImgData.game,
     title: '리그 오브 레전드',
     informationName: 'LOL',
@@ -121,26 +127,20 @@ export const data = {
 
 const SearchResultList = ({
   title,
-  num,
   lists,
   onInsert,
-  onRemove
+  onRemove,
+  num,
 }) => {
   const params = title;
-  const query = data[params];
+  const query = { ...data[params] };
+  query.id = `${title + num}`;
 
-  const [isChecked, setChecked] = useState(false);
-
-  const onClickHandler = e => {
-    setChecked(!isChecked);
-    if (!isChecked) {
-      alert('추가되었습니다');
-      onInsert(query);
-    } else {
-      alert('삭제되었습니다');
-      onRemove();
+  const id = lists.find(list => {
+    if(list.id === query.id) {
+      return true;
     }
-  }
+  });
 
   return (
     <>
@@ -151,7 +151,7 @@ const SearchResultList = ({
         <MiddleHover>
           <div>
             <ImgHover>
-              <img onClick={onClickHandler} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
+              <img onClick={id ? () => onRemove(query.id) : () => onInsert(query)} src={id ? ImgData.check : ImgData.videoImg2} />
               <MiddleHover2>
                 <img src={ImgData.videoImg4} />
               </MiddleHover2>

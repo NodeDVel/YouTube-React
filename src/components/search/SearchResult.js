@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import styled from 'styled-components'
 
@@ -98,6 +98,8 @@ const SearchResult = (props) => {
     }
   }
 
+  const nextId = useRef(1);
+
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
@@ -111,7 +113,7 @@ const SearchResult = (props) => {
             props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
               ? layout.map((val, key) => {
                 return (
-                  <InsertSerachResultListContainer collapsed={props.collapsed} key={key} title={props.title} num={val} />
+                  <InsertSerachResultListContainer collapsed={props.collapsed} key={val} title={props.title} num={nextId.current++} />
                 )
               })
               : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>

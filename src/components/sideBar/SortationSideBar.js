@@ -16,10 +16,30 @@ const SideLayoutBox = styled.div`
     background-color: #ffff;
     width: 240px;
     overflow: auto;
+
+    @keyframes trans {
+    0% {
+      left:-100%;
+    }
+    100% {
+      left:0%;
+    }
+  }
+
+  animation-name: trans;
+  animation-duration: 20.0s;
+  animation-iteration-count:1;
+  animation-direction:alternate;
+  animation-fill-mode: forwards;
+
   `}
 
   @media all and (max-width: 1300px) {
     display: none;
+
+    ${props => props.wide && `
+      display: block;
+    `}
   }
 `;
 

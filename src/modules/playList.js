@@ -9,26 +9,7 @@ export const insert = createAction(INSERT);
 export const remove = createAction(REMOVE);
 
 const initialState = {
-  lists: [
-    {
-      id: 1,
-      imgSrc: data.게임.imgSrc,
-      title: data.게임.title,
-      informationName: data.게임.informationName ,
-      informationNumber: data.게임.informationNumber,
-      informationDate: data.게임.informationDate,
-      description: data.게임.description,
-    },
-    {
-      id: 2,
-      imgSrc: data.게임.imgSrc,
-      title: data.게임.title,
-      informationName: data.게임.informationName ,
-      informationNumber: data.게임.informationNumber,
-      informationDate: data.게임.informationDate,
-      description: data.게임.description,
-    },
-  ]
+  lists: []
 }
 
 const playList = handleActions(
@@ -39,7 +20,7 @@ const playList = handleActions(
     }),
     [REMOVE]: (state, action) => ({
       ...state,
-      lists: state.lists.filter(list => list.id !== action.id)
+      lists: state.lists.filter(list => list.id !== action.payload)
     })
   },
   initialState,
