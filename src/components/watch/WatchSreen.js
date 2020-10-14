@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import { data } from '../search/SearchResultList';
+import { data } from '../search/SearchResultItem';
 
 import { ImgData } from '../../lib/png';
 

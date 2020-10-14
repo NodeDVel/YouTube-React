@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ImgData } from '../../lib/png';
-import { data } from '../search/SearchResultList';
+import { data } from '../search/SearchResultItem';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -113,21 +113,19 @@ const VideoTextLayout = styled.div`
 const VideoLayoutComponent = ({
   collapsed,
   num,
-  lists, 
+  lists,
   onInsert,
   onRemove
 }) => {
-  const [isChecked, setChecked] = useState(false);
-  const onClickHandler = e => {
-    setChecked(!isChecked);
-    if (!isChecked) {
-      alert('추가되었습니다');
-      onInsert(data.인기차트);
-    } else {
-      alert('삭제되었습니다');
-      onRemove();
+  data.인기차트.id = `${'인기차트'+ num}`;
+
+  const id = lists.find(list => {
+    if (list.id === data.인기차트.id) {
+      return true;
     }
-  }
+  });
+
+  const previousData = { ...data.인기차트 };
 
   return (
     <VideoLayout changed={collapsed}>
@@ -135,7 +133,7 @@ const VideoLayoutComponent = ({
       <MiddleHover>
         <div>
           <ImgHover>
-            <img onClick={onClickHandler} src={!isChecked ? ImgData.videoImg2 : ImgData.check} />
+            <img onClick={id ? () => onRemove(previousData.id) : () => onInsert(previousData)}  src={id ? ImgData.check : ImgData.videoImg2} />
             <MiddleHover2>
               <img src={ImgData.videoImg4} />
             </MiddleHover2>
@@ -151,7 +149,7 @@ const VideoLayoutComponent = ({
       <VideoBoxLayout>
         <img src={ImgData.unnamed} />
         <VideoTextLayout>
-          <span>노래방 인기차트 발라드 TOP 20 가사</span>
+          <span>노래방 인기차트 발라드 TOP 20 가사 - {num}</span>
           <br />
           <span>낭소월드 <br /> 조회수 11만회 • 1일전</span>
         </VideoTextLayout>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
 
@@ -65,6 +65,8 @@ const MainBar = (props) => {
     }
   }
 
+  const nextId = useRef(1);
+
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
@@ -73,7 +75,7 @@ const MainBar = (props) => {
           {
             layout.map((val, key) => {
               return (
-                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={val} />
+                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={nextId.current++} />
               )
             })
           }

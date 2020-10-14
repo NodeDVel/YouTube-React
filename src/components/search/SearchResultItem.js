@@ -84,8 +84,6 @@ const SearchListTextLayout = styled.div`
   flex-direction: column;
 `;
 
-let id = "";
-
 export const data = {
   "인기차트": {
     id: "",
@@ -125,7 +123,7 @@ export const data = {
   },
 }
 
-const SearchResultList = ({
+const SearchResultItem = ({
   title,
   lists,
   onInsert,
@@ -134,6 +132,7 @@ const SearchResultList = ({
 }) => {
   const params = title;
   const query = { ...data[params] };
+
   query.id = `${title + num}`;
 
   const id = lists.find(list => {
@@ -174,4 +173,4 @@ const SearchResultList = ({
   )
 }
 
-export default SearchResultList;
+export default SearchResultItem;

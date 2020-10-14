@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { insert, remove } from '../modules/playList';
 
-import SearchResultList from '../components/search/SearchResultList';
+import SearchResultList from '../components/search/SearchResultItem';
 
 const InsertSerachListResultList = ({ collapsed, key, title, num, lists, insert, remove }) => {
   return (

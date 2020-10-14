@@ -27,11 +27,10 @@ const SideLayoutBox = styled.div`
   }
 
   animation-name: trans;
-  animation-duration: 20.0s;
+  animation-duration: 0s;
   animation-iteration-count:1;
   animation-direction:alternate;
   animation-fill-mode: forwards;
-
   `}
 
   @media all and (max-width: 1300px) {

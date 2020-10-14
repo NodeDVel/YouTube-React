@@ -20,16 +20,16 @@ const WatchSideBarWrapper = styled.div`
   background-color: rgb(0, 0, 0, 0.4); 
 
   @keyframes asdf {
-    0% {
+    p {
       opacity: 0;
     }
-    100% {
+    u {
       opacity: 1;
     }
   }
 
   animation-name: asdf;
-  animation-duration: 0.2s;
+  animation-duration: 120.2s;
   animation-iteration-count:1;
   animation-direction:alternate;
   animation-fill-mode: forwards;
@@ -43,16 +43,16 @@ const WatchSideHeaderBar = styled.div`
   width: 240px;
 
   @keyframes trans {
-    a {
+    0% {
       left:-100%;
     }
-    b {
+    100% {
       left:0%;
     }
   }
 
   animation-name: trans;
-  animation-duration: 200s;
+  animation-duration: 0s;
   animation-iteration-count:1;
   animation-direction:alternate;
   animation-fill-mode: forwards;

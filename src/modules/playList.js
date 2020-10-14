@@ -1,7 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
 
-import { data } from '../components/search/SearchResultList';
-
 const INSERT = "video/INSERT";
 const REMOVE = "video/REMOVE";
 
