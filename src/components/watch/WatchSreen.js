@@ -7,7 +7,6 @@ import { data } from '../search/SearchResultItem';
 import { ImgData } from '../../lib/png';
 
 import Comment from './comment/Comment';
-import ShareBox from './ShareBox';
 
 const WatchBoxLayout = styled.div`
   width: 100%;

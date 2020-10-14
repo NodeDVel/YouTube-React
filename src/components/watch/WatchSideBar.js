@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
-import { ImgData } from '../../lib/png';
-
 import SortationSideBar from '../sideBar/SortationSideBar';
+import WatchSideHeaderBar from './WatchSideHeaderBar';
 
 const WatchSideBarWrapper = styled.div`
   position: fixed;
@@ -20,47 +17,19 @@ const WatchSideBarWrapper = styled.div`
   background-color: rgb(0, 0, 0, 0.4); 
 
   @keyframes asdf {
-    p {
+    from {
       opacity: 0;
     }
-    u {
+    to {
       opacity: 1;
     }
   }
 
   animation-name: asdf;
-  animation-duration: 120.2s;
+  animation-duration: 0.2s;
   animation-iteration-count:1;
   animation-direction:alternate;
   animation-fill-mode: forwards;
-`;
-
-const WatchSideHeaderBar = styled.div`
-  display: flex;
-  align-items: center;
-  height: 55px;
-  background-color: #ffff;
-  width: 240px;
-
-  @keyframes trans {
-    0% {
-      left:-100%;
-    }
-    100% {
-      left:0%;
-    }
-  }
-
-  animation-name: trans;
-  animation-duration: 0s;
-  animation-iteration-count:1;
-  animation-direction:alternate;
-  animation-fill-mode: forwards;
-
-  & > img {
-    padding-left: 24px;
-    cursor: pointer;
-  }
 `;
 
 const WatchSideBar = (props) => {
@@ -80,10 +49,7 @@ const WatchSideBar = (props) => {
 
   return (
     <WatchSideBarWrapper onClick={onClickHandler}>
-      <WatchSideHeaderBar>
-        <img src={ImgData.icon} onClick={() => onClickHandler()} />
-        <Link to="/" style={{ marginLeft: '32px', paddingTop: '2px' }}><img src={ImgData.mainIcon} /></Link>
-      </WatchSideHeaderBar>
+      <WatchSideHeaderBar wide={props.handleClickMenu} />
       <SortationSideBar wide={props.handleClickMenu} />
     </WatchSideBarWrapper>
   )

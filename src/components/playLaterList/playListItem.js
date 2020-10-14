@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -36,11 +37,15 @@ const PlayListItemText = styled.div`
 `;
 
 const PlayListItem = ({ list }) => {
+  let id = list.id.split("-");
+  let value = id[0];
+
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src={ImgData.list} style={{ margin: '0px 5px' }} />
       <PlayListItemWrapper>
-        <img src={list.imgSrc} style={{ width: '120px', height: '67px' }} />
+        <Link to={`/search/${value}/watch`}>
+        <img src={list.imgSrc} style={{ width: '120px', height: '67px' }} /></Link>
         <PlayListItemText>
           <span>{list.title}</span>
           <span>{list.informationName}</span>

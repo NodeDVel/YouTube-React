@@ -11,7 +11,7 @@ const MiddleHover = styled.div`
   opacity: 0;
   position: absolute;
   top: 4%;
-  left: 208px;
+  left: 214px;
   text-align: center;
   cursor: pointer;
 
@@ -47,6 +47,10 @@ const MiddleHover3 = styled.div`
 
 const ImgHover = styled.div`
   position: relative;
+  
+  & > img {
+    height: 28px;
+  }
 
   &:hover ${MiddleHover2} {
     opacity: 1;
@@ -133,7 +137,7 @@ const SearchResultItem = ({
   const params = title;
   const query = { ...data[params] };
 
-  query.id = `${title + num}`;
+  query.id = `${title}-${num}`;
 
   const id = lists.find(list => {
     if(list.id === query.id) {

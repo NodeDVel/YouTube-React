@@ -58,6 +58,7 @@ const ShareBoxHeader = styled.div`
     align-items: center;
     font-size: 13px;
     color: #030303;
+    cursor: pointer;
   }
 
   & > img {
@@ -81,6 +82,10 @@ const ShareBoxHMiddle = styled.div`
     box-sizing: border-box;
     padding: 0% 4%;
     font-size: 14px;
+  }
+
+  & > div span:nth-child(2) {
+    cursor: pointer;
   }
 `;
 const ShareBoxFotter = styled.div`
@@ -107,7 +112,7 @@ const ShareBox = (props) => {
   }
 
   return (
-    <ShareBoxWrapper>
+    <ShareBoxWrapper onClick={onClickHandleModal}>
       <ShareBoxLayout>
         <div className="HeaderText">
           <span>공유</span>

@@ -117,7 +117,7 @@ const VideoLayoutComponent = ({
   onInsert,
   onRemove
 }) => {
-  data.인기차트.id = `${'인기차트'+ num}`;
+  data.인기차트.id = `인기차트-${num}`;
 
   const id = lists.find(list => {
     if (list.id === data.인기차트.id) {

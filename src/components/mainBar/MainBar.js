@@ -65,8 +65,6 @@ const MainBar = (props) => {
     }
   }
 
-  const nextId = useRef(1);
-
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={props.collapsed} />
@@ -75,7 +73,7 @@ const MainBar = (props) => {
           {
             layout.map((val, key) => {
               return (
-                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={nextId.current++} />
+                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={val} />
               )
             })
           }
