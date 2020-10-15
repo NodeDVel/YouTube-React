@@ -73,6 +73,7 @@ import modal6 from './png/modal6.png';
 import modal7 from './png/modal7.png';
 import share from './png/share.png';
 import x from './png/x.png';
+import plus from './png/plus.png';
 
 export const ImgData = {
   mainIcon,
@@ -150,4 +151,5 @@ export const ImgData = {
   modal7,
   share,
   x,
+  plus,
 }

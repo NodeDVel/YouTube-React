@@ -22,9 +22,7 @@ const Watch = ({ match }) => {
   return (
     <>
       <HeaderBar onClickMenu={handleClickMenu} />
-      {
-        isCollapsed && <WatchSideBar handleClickMenu={handleClickMenu} />
-      }
+      <WatchSideBar handleClickMenu={handleClickMenu} collapsed={isCollapsed} />
       {
         isShowed && <ShareBox handleClickModal={handleClickModal} /> 
       }

@@ -346,21 +346,21 @@ const WatchScreen = (props) => {
               <div>{params.informationName}</div>
               <div>구독자 72만명</div>
               <div className="fotterText">
-                <div>{params.description}</div> 
+                <div>{params.description}</div>
               </div>
             </div>
             <div
               style={{
-                width: '72px', 
-                height: '37px', 
-                backgroundColor: '#CC0000', 
-                color: 'white', 
-                fontSize: '14px', 
-                alignItems: 'center', 
-                display: 'flex', 
-                justifyContent: 'center' ,
+                width: '72px',
+                height: '37px',
+                backgroundColor: '#CC0000',
+                color: 'white',
+                fontSize: '14px',
+                alignItems: 'center',
+                display: 'flex',
+                justifyContent: 'center',
                 cursor: 'pointer'
-                }}>구독
+              }}>구독
             </div>
           </LeftWatchInformation>
           <LeftWatchComment>

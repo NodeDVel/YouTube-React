@@ -24,13 +24,17 @@ const MiddleHover = styled.div`
 const MiddleHover2 = styled.div`
   width: 97px;
   height: 27px;
-  transition: .8s ease-in-out;
+  /* transition: .8s ease-in-out; */
   opacity: 0;
   position: absolute;
   top: 0;
   right: 100%;
   text-align: center;
   cursor: pointer;
+
+  ${props => props.changed && `
+    width: 49px;
+  `}
 `;
 
 const MiddleHover3 = styled.div`
@@ -57,7 +61,7 @@ const ImgHover = styled.div`
   }
 
   &:hover ${MiddleHover3} {
-    opacity: 2;
+    opacity: 1;
   }
 `;
 
@@ -155,8 +159,8 @@ const SearchResultItem = ({
           <div>
             <ImgHover>
               <img onClick={id ? () => onRemove(query.id) : () => onInsert(query)} src={id ? ImgData.check : ImgData.videoImg2} />
-              <MiddleHover2>
-                <img src={ImgData.videoImg4} />
+              <MiddleHover2 changed={id}>
+                <img src={id ? ImgData.plus : ImgData.videoImg4} />
               </MiddleHover2>
             </ImgHover>
             <ImgHover>

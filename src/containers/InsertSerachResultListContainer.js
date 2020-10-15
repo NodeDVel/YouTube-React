@@ -20,4 +20,4 @@ export default connect(
     insert,
     remove
   },
-)(InsertSerachListResultList)
+)(InsertSerachListResultList);

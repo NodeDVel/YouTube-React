@@ -23,15 +23,21 @@ const MiddleHover = styled.div`
 `;
 
 const MiddleHover2 = styled.div`
-  width: 97px;
-  height: 27px;
-  transition: .8s ease-in-out;
+  width: auto;
+  height: 100%;
   opacity: 0;
   position: absolute;
   top: 0;
   right: 100%;
   text-align: center;
   cursor: pointer;
+
+  ${props => props.changed && `
+    img {
+      width: 42px;
+      height: 28px;
+    }
+  `}
 `;
 
 const MiddleHover3 = styled.div`
@@ -54,7 +60,7 @@ const ImgHover = styled.div`
   }
 
   &:hover ${MiddleHover3} {
-    opacity: 2;
+    opacity: 1;
   }
 `;
 
@@ -70,11 +76,6 @@ const VideoLayout = styled.div`
     opacity: 1;
   }
 
-  img {
-    width: 100%;
-    margin-bottom: 4%;
-  }
-
   @media all and (max-width: 1500px) {
     width: 32%;
   }
@@ -88,11 +89,12 @@ const VideoBoxLayout = styled.div`
   display: flex;
   margin-bottom: 15%;
 
-  img {
+  & > img:first-child {
     margin: 0px 20px 0px 0px;
     border-radius: 40px;
     width: 36px;
-    height: 36px;
+    height: 36px; 
+    margin-bottom: 4%;
   }
 `;
 
@@ -129,13 +131,13 @@ const VideoLayoutComponent = ({
 
   return (
     <VideoLayout changed={collapsed}>
-      <Link to="/search/인기차트/watch"><img src={ImgData.chart} /></Link>
+      <Link to="/search/인기차트/watch"><img src={ImgData.chart} style={{ width: '100%', marginBottom: '4%' }} /></Link>
       <MiddleHover>
         <div>
           <ImgHover>
             <img onClick={id ? () => onRemove(previousData.id) : () => onInsert(previousData)}  src={id ? ImgData.check : ImgData.videoImg2} />
-            <MiddleHover2>
-              <img src={ImgData.videoImg4} />
+            <MiddleHover2 changed={id}>
+              <img src={id ? ImgData.plus : ImgData.videoImg4} width={id ? "40px" : "97px"} />
             </MiddleHover2>
           </ImgHover>
           <ImgHover>

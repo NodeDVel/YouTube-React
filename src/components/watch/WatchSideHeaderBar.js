@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -7,35 +7,21 @@ import { ImgData } from '../../lib/png';
 import styled from 'styled-components';
 
 const WatchSideHeaderWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 55px;
-  background-color: #ffffff;
-  width: 240px;
+  transform: translate(-100%, 0);
+  transition-duration: 0.5s;
 
-  ${props => props.wide && `
+  ${props => props.wide &&`
+    display: flex;
+    align-items: center;
+    height: 55px;
+    background-color: #ffffff;
+    width: 240px;
     position: fixed;
-    z-index: 999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    
-    @keyframes trans {
-      from {
-        left:-100%;
-      }
-      to {
-        left:0%;
-      }
-    }
 
-    animation-name: trans;
-    animation-duration: 0.3s;
-    animation-iteration-count:1;
-    animation-direction:alternate;
-    animation-fill-mode: forwards;
+    transform: translate(0%, 0);
+  `}
+  ${props => props.active && `
+    transform: translate(-100%, 0);
   `}
 
   & > img {
@@ -46,8 +32,8 @@ const WatchSideHeaderWrapper = styled.div`
 
 const WatchSideHeaderBar = (props) => {
   return (
-    <WatchSideHeaderWrapper wide={props.wide}>
-      <img src={ImgData.icon} />
+    <WatchSideHeaderWrapper wide={props.collapsed} active={props.active}>
+      <img src={ImgData.icon} onClick={() => props.onClickActive()} />
       <Link to="/" style={{ marginLeft: '32px', paddingTop: '2px' }}><img src={ImgData.mainIcon} /></Link>
     </WatchSideHeaderWrapper>
   )

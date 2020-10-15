@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -6,7 +7,7 @@ import styled from 'styled-components';
 import { ImgData } from '../../lib/png';
 
 const SideLayoutBox = styled.div`
-  ${props => props.wide && `
+  ${props => props.collapsed && `
     position: fixed;
     z-index: 999;
     top: 50px;
@@ -17,20 +18,22 @@ const SideLayoutBox = styled.div`
     width: 240px;
     overflow: auto;
 
-    @keyframes trans {
-    0% {
-      left:-100%;
+    @keyframes left {
+      from {
+        transform: translate(-100%, 0px);
+      }
+      to {
+        transform: translate(0%, 0px);
+      }
     }
-    100% {
-      left:0%;
-    }
-  }
 
-  animation-name: trans;
-  animation-duration: 0.3s;
-  animation-iteration-count:1;
-  animation-direction:alternate;
-  animation-fill-mode: forwards;
+    animation: left 0.5s ;
+    }
+  `}
+
+  ${props => props.active && `
+    transform: translate(-100%, 0px);
+    transition-duration: 0.5s;
   `}
 
   @media all and (max-width: 1300px) {
@@ -122,7 +125,7 @@ const FooterMessageBoxLayout = styled(HeaderMessageBoxLayout)`
 
 const SortationSideBar = (props) => {
   return (
-    <SideLayoutBox wide={props.wide}>
+    <SideLayoutBox collapsed={props.collapsed} active={props.active}>
       <SideLayout_1>
         <LayoutBox>
           <img src="/img/sideImg1.png" />
