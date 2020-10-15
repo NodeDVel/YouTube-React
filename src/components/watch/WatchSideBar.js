@@ -29,7 +29,7 @@ const WatchSideBarWrapper = styled.div`
     }
 
     animation-name: opacity;
-    animation-duration: 0.2s;
+    animation-duration: 0.1s;
     animation-iteration-count:1;
     animation-direction:alternate;
     animation-fill-mode: forwards;
@@ -58,7 +58,7 @@ const WatchSideBar = (props) => {
     setTimeout(() => {
       props.handleClickMenu();
       setActive(false);
-    }, 500)
+    }, 300)
   }
 
   return (

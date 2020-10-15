@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const WatchSideHeaderWrapper = styled.div`
   transform: translate(-100%, 0);
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
 
   ${props => props.wide &&`
     display: flex;

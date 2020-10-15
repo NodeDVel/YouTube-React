@@ -27,13 +27,13 @@ const SideLayoutBox = styled.div`
       }
     }
 
-    animation: left 0.5s ;
+    animation: left 0.3s ;
     }
   `}
 
   ${props => props.active && `
     transform: translate(-100%, 0px);
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
   `}
 
   @media all and (max-width: 1300px) {
