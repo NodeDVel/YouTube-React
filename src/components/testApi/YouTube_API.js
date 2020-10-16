@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import axios from 'axios';
 
-const KEY = "AIzaSyCqxQUVujJ4d2IVigUad4c0AfPEVrk4pOs";
-const id = "7TBPrYJDoDE";
+const API_KEY = "AIzaSyCqxQUVujJ4d2IVigUad4c0AfPEVrk4pOs";
 
 const params = {
   part: 'snippet',
   maxResults: 10,
-  key: KEY,
+  key: API_KEY,
 }
 
-const response = axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}`, { params });
+const response = axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`, { params });
 
 const YouTube_API = () => {
+  const [data, setData] = useState(null);
+
+  response.then(res => setData(res.data));
+  
   const onClickAPI = () => {
-    console.log(response);
+    console.log(data.items);
   }
   return (
     <h1 onClick={onClickAPI}>button</h1>
