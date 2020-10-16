@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components'
-
-import SearchResultList from './SearchResultItem';
 
 import { ImgData } from '../../lib/png';
 
@@ -97,8 +95,6 @@ const SearchResult = (props) => {
       setLayout((arr) => arr.concat(arr.length));
     }
   }
-
-  const nextId = useRef(1);
 
   return (
     <SpaceBoxLayout>
