@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
+// import axios from 'axios';
 
-import axios from 'axios';
+// const API_KEY = "AIzaSyBJal6OSOqlBOjdV0NH45j23a_HQjzQvkE";
 
-const API_KEY = "AIzaSyCqxQUVujJ4d2IVigUad4c0AfPEVrk4pOs";
+// const params = {
+//   part: 'id,snippet',
+//   maxResults: 10,
+// }
 
-const params = {
-  part: 'snippet',
-  maxResults: 10,
-  key: API_KEY,
-}
+// const response = axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`, { params });
 
-const response = axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`, { params });
+// export const data2 = response.then(res => res.data);
 
-const YouTube_API = () => {
-  const [data, setData] = useState(null);
+//----------------------------------------------------------------------------
 
-  response.then(res => setData(res.data));
-  
-  const onClickAPI = () => {
-    console.log(data.items);
-  }
-  return (
-    <h1 onClick={onClickAPI}>button</h1>
-  )  
-}
+    // const API_KEY = "AIzaSyDd4p-uXYRuaFgDMqUOINT2y3QyvlXw494";
 
-export default YouTube_API;
+    // const params = {
+    //   part: 'id, snippet',
+    //   maxResults: 10,
+    // }
+
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`, { params });
+    //     setData(await (response.data));
+    //     console.log(response.data);
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
+
+    // fetchData();

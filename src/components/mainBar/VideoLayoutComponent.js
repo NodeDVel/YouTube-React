@@ -117,7 +117,8 @@ const VideoLayoutComponent = ({
   num,
   lists,
   onInsert,
-  onRemove
+  onRemove,
+  res,
 }) => {
   data.인기차트.id = `인기차트-${num}`;
 

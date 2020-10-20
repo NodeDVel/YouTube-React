@@ -75,7 +75,7 @@ const MediaSideBar = (props) => {
   return (
     <MediaSideBarLayout changed={props.showed}>
       <MediaBoxLayout changed={props.showed}>
-        <img src="img/sideImg1.png" />홈
+        <img src="/img/sideImg1.png" />홈
       </MediaBoxLayout>
       <MediaBoxLayout changed={props.showed}>
         <img src={ImgData.sideImg2} />인기
