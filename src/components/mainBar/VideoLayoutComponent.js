@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ImgData } from '../../lib/png';
+
 import { data } from '../search/SearchResultItem';
 
 const MiddleHover = styled.div`

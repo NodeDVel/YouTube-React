@@ -63,17 +63,19 @@ const App = () => {
   const [value, setValue] = useState({});
 
   useEffect(() => {
-    axios.defaults.headers.post['Content-Type'] = 'application/json';
-
     axios({
       url: 'https://www.youtube.com/youtubei/v1/browse?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
       method: "POST",
       data: data,
-      headers: config
-    }).then(val => setValue(val.data.onResponseReceivedActions[0].appendContinuationItemsAction.continuationItems[0].richItemRenderer.content.videoRenderer.descriptionSnippet.runs[0]))
-  }, [])
+      headers: config,
+    }).then(val => setValue(val.data.onResponseReceivedActions[0].appendContinuationItemsAction.continuationItems[0].richItemRenderer.content.videoRenderer.descriptionSnippet));
+   }, []);
 
-  console.log(value.text)
+  useEffect(() => {
+    if(value.runs) {
+      console.log(value.runs[0])
+    }
+  }, [value]);
 
   return (
     <Switch>
