@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { connect, useDispatch } from 'react-redux';
 
+import MainBar from '../components/mainBar/MainBar';
+
 import { postList } from '../modules/youtubeList';
 
 const YoutubeVideoItemContainer = ({ videos }) => {
@@ -11,13 +13,8 @@ const YoutubeVideoItemContainer = ({ videos }) => {
     dispatch(postList());
   }, [])
 
-  if (videos) {
-    console.log(videos[1])
-  }
-
   return (
-    <div>
-    </div>
+    <MainBar videos={videos} />
   )
 }
 

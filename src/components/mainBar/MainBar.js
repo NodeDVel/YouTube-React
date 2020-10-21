@@ -53,12 +53,6 @@ const MainBarLayout = styled.div`
 `;
 
 const MainBar = (props) => {
-  // const dispatch = useDispatch();
-  // dispatch(postList())
-  // const videos = useSelector(state => state.youtubeAPI);
-
-  // console.log(videos);
-
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
   });
@@ -80,7 +74,6 @@ const MainBar = (props) => {
       <SpaceBox changed={props.collapsed} />
       <MainBarBox>
         <MainBarLayout changed={props.collapsed}>
-          <YoutubeVideoItemContainer />
           {
             layout.map((val, key) => {
               return (
