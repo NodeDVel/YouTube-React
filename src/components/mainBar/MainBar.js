@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 
 import styled from 'styled-components';
 
 import VideoLayoutContainer from '../../containers/VideoLayoutContainer';
+import YoutubeVideoItemContainer from '../../containers/YoutubeVideoItemContainer';
+
+import { postList } from '../../modules/youtubeList';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -51,6 +53,12 @@ const MainBarLayout = styled.div`
 `;
 
 const MainBar = (props) => {
+  // const dispatch = useDispatch();
+  // dispatch(postList())
+  // const videos = useSelector(state => state.youtubeAPI);
+
+  // console.log(videos);
+
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
   });
@@ -72,6 +80,7 @@ const MainBar = (props) => {
       <SpaceBox changed={props.collapsed} />
       <MainBarBox>
         <MainBarLayout changed={props.collapsed}>
+          <YoutubeVideoItemContainer />
           {
             layout.map((val, key) => {
               return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled from 'styled-components';
 
@@ -119,7 +119,6 @@ const VideoLayoutComponent = ({
   lists,
   onInsert,
   onRemove,
-  res,
 }) => {
   data.인기차트.id = `인기차트-${num}`;
 

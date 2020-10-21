@@ -1,0 +1,10 @@
+export const api_data = {
+  "context":{"client":{"hl":"ko","gl":"KR","deviceMake":"Apple","visitorData":"CgtpUXQ3R1FsQ2pHQSiJ_r38BQ%3D%3D","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36,gzip(gfe)","clientName":"WEB","clientVersion":"2.20201020.04.00","osName":"Macintosh","osVersion":"10_15_5","browserName":"Chrome","browserVersion":"86.0.4240.80","screenWidthPoints":1230,"screenHeightPoints":969,"screenPixelDensity":1,"screenDensityFloat":1,"utcOffsetMinutes":540,"userInterfaceTheme":"USER_INTERFACE_THEME_DARK","connectionType":"CONN_CELLULAR_4G"},"request":{"sessionId":"6885861693263265293","internalExperimentFlags":[],"consistencyTokenJars":[{"encryptedTokenJarContents":"AGDxDePZyST3580B2w4nAxgQPjwAgNCbbInb0YJhpVcM-NZJIGRQ5TdRcjg4ryFlcsJkJ8sghBKs-U33359pGjBkBAXFY7mLjS4kO8XqhML44kKalPS-okU6pfk1ppiqFoniSGf9EARSdcWIlFwIxpI","expirationSeconds":"600"}]},"adSignalsInfo":{"consentBumpParams":{"consentHostnameOverride":"https://www.youtube.com","urlOverride":""}},"user":{},"clientScreenNonce":"MC44ODgyNTIwNjU4MDg1ODQy","clickTracking":{"clickTrackingParams":"CAAQhGciEwj5x6T-tcTsAhUJTyoKHZJ2AgE="}},"continuation":"4qmFsgLhAxIPRkV3aGF0X3RvX3dhdGNoGpIDQ0RCNnBnSkRhVGhCUVVkMGRrRkJSa3hWWjBGQ1V6RkpRVUZSUWtkU1dHUnZXVmhTWm1SSE9XWmtNa1l3V1RKblFVRlJRVUZCVVVWQ1FVRkJRVUZSUVVKQlFVRkNRVkpCV1VkTGJXODBjVWN4ZUU5M1EwMW5iMGw2UzJadmVqY3RhamRRTkZaVGFXOUxTVkZ2Wms1RWFFdFRWRVpxWlVoRk5GUjZVbEpaTUZFd1drZDRVbGRZVWtSVFJGcE9URmM1VUZOV1drTlplR2xEY0RkUVJURkROV0ZhWjNCclEyaENOV1JHT1hkWlYyUnNXRE5PZFZsWVFucGhSemt3UldnNE1FOUZjRXBOVjA0MFkxUm9VRTVHUm1wU1JGSnJZa1pHV21SRlRrbE9hekIwWWpBNVNsWnJTbXBIYVRoQlFVZDBka0ZCUmt4VlowRkNVekZKUVVGUlFrZFNXR1J2V1ZoU1ptUkhPV1prTWtZd1dUSm5RVUZSUVVGQlVVVkNRVUZCUVVGUlFVSkJRVUZDUVZFJTNEkgIbGhdodHRwczovL3d3dy55b3V0dWJlLmNvbSIAmgIaYnJvd3NlLWZlZWRGRXdoYXRfdG9fd2F0Y2g%3D"
+}
+
+export const config = {
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+};
