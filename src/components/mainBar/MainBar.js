@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styled from 'styled-components';
 
@@ -52,11 +52,8 @@ const MainBarLayout = styled.div`
   }
 `;
 
-const MainBar = (props) => {
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-  });
-
+const MainBar = ({ collapsed, videos }) => {
+  const dispatch = useDispatch();
   const [layout, setLayout] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
 
   const onScroll = (e) => {
@@ -68,16 +65,26 @@ const MainBar = (props) => {
       setLayout((arr) => arr.concat(arr.length));
     }
   }
+  
+  useEffect(() => {
+    dispatch(postList());
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+  });
+
+  const data = Object.keys(videos);
 
   return (
     <SpaceBoxLayout>
-      <SpaceBox changed={props.collapsed} />
+      <SpaceBox changed={collapsed} />
       <MainBarBox>
-        <MainBarLayout changed={props.collapsed}>
+        <MainBarLayout changed={collapsed}>
           {
-            layout.map((val, key) => {
+            data.map((val, key) => {
               return (
-                <VideoLayoutContainer collapsed={props.collapsed} key={key} num={val} />
+                <VideoLayoutContainer collapsed={collapsed} key={key} num={val} />
               )
             })
           }

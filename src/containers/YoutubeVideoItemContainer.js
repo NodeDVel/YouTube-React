@@ -1,20 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
+import { postList } from '../modules/youtubeList';
 
 import MainBar from '../components/mainBar/MainBar';
 
-import { postList } from '../modules/youtubeList';
 
-const YoutubeVideoItemContainer = ({ videos }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(postList());
-  }, [])
-
+const YoutubeVideoItemContainer = ({ videos, collapsed }) => {
   return (
-    <MainBar videos={videos} />
+    <MainBar videos={videos} collapsed={collapsed} />
   )
 }
 

@@ -11,7 +11,6 @@ const Main = () => {
   const handleClickMenu = () => {
     setCollapsed(!isCollapsed);
   };
-  
 
   return (
     <>
