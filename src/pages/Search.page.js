@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import HeaderBar from '../components/headerBar/HeaderBar';
 import SideBar from '../components/sideBar/SideBar';
-import SearchResult from '../components/search/SearchResult';
+import SearchYoutubeVideoItemContainer from '../containers/SearchYoutubeVideoItemContainer';
 
 const Search = ({ match }) => {
   const { title } = match.params;
@@ -17,7 +17,7 @@ const Search = ({ match }) => {
     <>
       <HeaderBar onClickMenu={handleClickMenu} />
       <SideBar collapsed={isCollapsed} />
-      <SearchResult collapsed={isCollapsed} title={title} />
+      <SearchYoutubeVideoItemContainer collapsed={isCollapsed} title={title} />
     </>
   )
 }

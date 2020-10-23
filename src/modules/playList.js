@@ -18,7 +18,7 @@ const playList = handleActions(
     }),
     [REMOVE]: (state, action) => ({
       ...state,
-      lists: state.lists.filter(list => list.id !== action.payload)
+      lists: state.lists.filter(list => list.videoId !== action.payload)
     })
   },
   initialState,

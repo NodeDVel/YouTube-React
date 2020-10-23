@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
+
+import { searchPostList } from '../../modules/youtubeList';
+
+import InsertSerachResultListContainer from '../../containers/InsertSerachResultListItemContainer';
 
 import styled from 'styled-components'
 
 import { ImgData } from '../../lib/png';
-
-import InsertSerachResultListContainer from '../../containers/InsertSerachResultListContainer';
+import { config, search_data, search_data_scroll } from '../../lib/apiData';
+import axios from 'axios';
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -79,12 +85,18 @@ const SearchFilter = styled.div`
   }
 `;
 
-const SearchResult = (props) => {
+const SearchResult = ({ collapsed, title, searchVideos }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-  });
+  }, []);
 
-  const [layout, setLayout] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+  useEffect(() => {
+    search_data.query = title;
+
+    dispatch(searchPostList());
+  }, [title]);
 
   const onScroll = (e) => {
     const scrollHeight = document.documentElement.scrollHeight;
@@ -92,28 +104,25 @@ const SearchResult = (props) => {
     const clientHeight = document.documentElement.clientHeight;
 
     if (scrollTop + clientHeight >= scrollHeight) {
-      setLayout((arr) => arr.concat(arr.length));
+      axios({
+        url: 'https://www.youtube.com/youtubei/v1/browse?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
+        method: "POST",
+        data: search_data_scroll,
+        headers: config,
+      }).then(val => console.log(val.data))
     }
   }
 
   return (
     <SpaceBoxLayout>
-      <SpaceBox changed={props.collapsed} />
+      <SpaceBox changed={collapsed} />
       <SearchListBox>
-        <SearchListLayout changed={props.collapsed}>
+        <SearchListLayout changed={collapsed}>
           <SearchFilter>
             <img src={ImgData.filter} />
             <span>필터</span>
           </SearchFilter>
-          {
-            props.title === "인기차트" || props.title === "브이로그" || props.title === "뉴스" || props.title === "게임"
-              ? layout.map((val, key) => {
-                return (
-                  <InsertSerachResultListContainer collapsed={props.collapsed} key={key} title={props.title} num={val} />
-                )
-              })
-              : <h3>{props.title} 에 대한 검색 결과가 없습니다</h3>
-          }
+          <InsertSerachResultListContainer collapsed={collapsed} title={title} searchVideos={searchVideos}/>
         </SearchListLayout>
       </SearchListBox>
     </SpaceBoxLayout>

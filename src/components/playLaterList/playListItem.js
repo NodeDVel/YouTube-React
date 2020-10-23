@@ -6,11 +6,12 @@ import styled from 'styled-components';
 import { ImgData } from '../../lib/png';
 
 const PlayListItemWrapper = styled.div`
-  width: 612px;
+  width: 670px;
   height: 60px;
   background-color: #f1f1f1;
   display: flex;
-  padding: 11px 0px;
+  padding-bottom: 11px;
+  margin-bottom: 12px;
   border-bottom: 1px solid #606060;
   align-items: center;
   img {
@@ -25,9 +26,9 @@ const PlayListItemText = styled.div`
   height: 100%;
 
   & > span:first-child {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
   }
 
   & > span:nth-child(2) {
@@ -37,18 +38,16 @@ const PlayListItemText = styled.div`
 `;
 
 const PlayListItem = ({ list }) => {
-  let id = list.id.split("-");
-  let value = id[0];
-
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <img src={ImgData.list} style={{ margin: '0px 5px' }} />
+      <img src={ImgData.list} style={{ margin: '0px 5px', paddingBottom: '27px' }} />
       <PlayListItemWrapper>
-        <Link to={`/search/${value}/watch`}>
-        <img src={list.imgSrc} style={{ width: '120px', height: '67px' }} /></Link>
+        {/* <Link to={`/search/${value}/watch`}> */}
+        <img src={list.thumbnail.thumbnails[0].url} style={{ width: '120px', height: '67px' }} />
+        {/* </Link> */}
         <PlayListItemText>
-          <span>{list.title}</span>
-          <span>{list.informationName}</span>
+          <span>{list.title.runs[0].text}</span>
+          <span>{list.ownerText.runs[0].text}</span>
         </PlayListItemText>
       </PlayListItemWrapper>
     </div>

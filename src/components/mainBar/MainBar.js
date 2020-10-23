@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import { useDispatch } from 'react-redux';
 
 import styled from 'styled-components';
 
 import VideoLayoutContainer from '../../containers/VideoLayoutContainer';
-import YoutubeVideoItemContainer from '../../containers/YoutubeVideoItemContainer';
 
 import { postList } from '../../modules/youtubeList';
 
@@ -54,7 +54,6 @@ const MainBarLayout = styled.div`
 
 const MainBar = ({ collapsed, videos }) => {
   const dispatch = useDispatch();
-  const [layout, setLayout] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
 
   const onScroll = (e) => {
     const scrollHeight = document.documentElement.scrollHeight;
@@ -62,32 +61,24 @@ const MainBar = ({ collapsed, videos }) => {
     const clientHeight = document.documentElement.clientHeight;
 
     if (scrollTop + clientHeight >= scrollHeight) {
-      setLayout((arr) => arr.concat(arr.length));
+      dispatch(postList());
     }
   }
-  
+
   useEffect(() => {
     dispatch(postList());
   }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-  });
-
-  const data = Object.keys(videos);
+  }, []);
 
   return (
     <SpaceBoxLayout>
       <SpaceBox changed={collapsed} />
       <MainBarBox>
         <MainBarLayout changed={collapsed}>
-          {
-            data.map((val, key) => {
-              return (
-                <VideoLayoutContainer collapsed={collapsed} key={key} num={val} />
-              )
-            })
-          }
+          <VideoLayoutContainer collapsed={collapsed} videos={videos} />
         </MainBarLayout>
       </MainBarBox>
     </SpaceBoxLayout>

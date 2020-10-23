@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import { data } from '../search/SearchResultItem';
-
 import { ImgData } from '../../lib/png';
 
 import Comment from './comment/Comment';
@@ -288,7 +286,7 @@ const RightWatchTextLayout = styled.div`
 `;
 
 const WatchScreen = (props) => {
-  const params = data[props.title];
+  // const params = data[props.title];
 
   // useEffect(() => {
   //   window.addEventListener('scroll', onScroll);
@@ -317,7 +315,7 @@ const WatchScreen = (props) => {
 
   return (
     <WatchBoxLayout>
-      <LeftWatch wide={isWidened}>
+      {/* <LeftWatch wide={isWidened}>
         <WatchBoxFotterLayout wide={isWidened}>
           <img src={params.imgSrc} className="ImgLayout" />
           <FotterBar>
@@ -395,7 +393,7 @@ const WatchScreen = (props) => {
             )
           })
         }
-      </RightWatch>
+      </RightWatch> */}
     </WatchBoxLayout>
   )
 }

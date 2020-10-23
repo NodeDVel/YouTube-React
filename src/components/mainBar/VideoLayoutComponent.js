@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
 import { ImgData } from '../../lib/png';
-
-import { data } from '../search/SearchResultItem';
 
 const MiddleHover = styled.div`
   transition: .2s ease;
@@ -88,7 +86,7 @@ const VideoLayout = styled.div`
 
 const VideoBoxLayout = styled.div`
   display: flex;
-  margin-bottom: 15%;
+  margin-bottom: 8%;
 
   & > img:first-child {
     margin: 0px 20px 0px 0px;
@@ -115,49 +113,54 @@ const VideoTextLayout = styled.div`
 
 const VideoLayoutComponent = ({
   collapsed,
-  num,
   lists,
   onInsert,
   onRemove,
+  videos,
 }) => {
-  data.인기차트.id = `인기차트-${num}`;
-
-  const id = lists.find(list => {
-    if (list.id === data.인기차트.id) {
-      return true;
-    }
-  });
-
-  const previousData = { ...data.인기차트 };
-
   return (
-    <VideoLayout changed={collapsed}>
-      <Link to="/search/인기차트/watch"><img src={ImgData.chart} style={{ width: '100%', marginBottom: '4%' }} /></Link>
-      <MiddleHover>
-        <div>
-          <ImgHover>
-            <img onClick={id ? () => onRemove(previousData.id) : () => onInsert(previousData)}  src={id ? ImgData.check : ImgData.videoImg2} />
-            <MiddleHover2 changed={id}>
-              <img src={id ? ImgData.plus : ImgData.videoImg4} width={id ? "40px" : "97px"} />
-            </MiddleHover2>
-          </ImgHover>
-          <ImgHover>
-            <img src={ImgData.videoImg3} />
-            <MiddleHover3>
-              <img src={ImgData.videoImg5} />
-            </MiddleHover3>
-          </ImgHover>
-        </div>
-      </MiddleHover>
-      <VideoBoxLayout>
-        <img src={ImgData.unnamed} />
-        <VideoTextLayout>
-          <span>노래방 인기차트 발라드 TOP 20 가사 - {num}</span>
-          <br />
-          <span>낭소월드 <br /> 조회수 11만회 • 1일전</span>
-        </VideoTextLayout>
-      </VideoBoxLayout>
-    </VideoLayout>
+    <>
+      {
+        videos.map((video, key) => {
+          const id = lists.find(list => {
+            if (list.videoId === video.videoId) {
+              return true;
+            }
+          });
+
+          return (
+            <VideoLayout changed={collapsed} key={key}>
+              <Link to="/search/인기차트/watch"><img src={video.thumbnail.thumbnails[0].url} style={{ width: '100%', marginBottom: '4%' }} /></Link>
+              <MiddleHover>
+                <div>
+                  <ImgHover>
+                    <img onClick={id ? () => onRemove(video.videoId) : () => onInsert(video)} src={id ? ImgData.check : ImgData.videoImg2} />
+                    <MiddleHover2 changed={id}>
+                      <img src={id ? ImgData.plus : ImgData.videoImg4} width={id ? "40px" : "97px"} />
+                    </MiddleHover2>
+                  </ImgHover>
+                  <ImgHover>
+                    <img src={ImgData.videoImg3} />
+                    <MiddleHover3>
+                      <img src={ImgData.videoImg5} />
+                    </MiddleHover3>
+                  </ImgHover>
+                </div>
+              </MiddleHover>
+              <VideoBoxLayout>
+                <img src={video.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer.thumbnail.thumbnails[0].url} />
+                <VideoTextLayout>
+                  <span>{video.title.runs[0].text}</span>
+                  <br />
+                  <span>{video.ownerText.runs[0].text} <br /> {video.shortViewCountText.simpleText} • </span>
+                  {/* {video.publishedTimeText.simpleText } */}
+                </VideoTextLayout>
+              </VideoBoxLayout>
+            </VideoLayout>
+          )
+        })
+      }
+    </>
   )
 }
 
