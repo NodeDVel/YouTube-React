@@ -116,7 +116,6 @@ const SearchResultItem = ({
   onRemove,
   searchVideos
 }) => {
-  const params = title;
   return (
     <>
       {
@@ -126,9 +125,10 @@ const SearchResultItem = ({
               return true;
             }
           });
+
           return (
             <SearchResultListLayout key={key}>
-              <Link to={`/search/${params}/watch`}>
+              <Link to={`/search/${title}/watch`}>
                 <img src={video.thumbnail.thumbnails[0].url} width="249px" height="138px" />
               </Link>
               <MiddleHover>
@@ -157,7 +157,6 @@ const SearchResultItem = ({
                 <span style={{ fontSize: '13px', color: '#606060' }}>{video.descriptionSnippet.runs.map(val => val.text)}</span>
               </SearchListTextLayout>
             </SearchResultListLayout>
-
           )
         })
       }

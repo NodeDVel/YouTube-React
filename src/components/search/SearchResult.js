@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { searchPostList } from '../../modules/youtubeList';
+import { searchContinuePostList, searchPostList } from '../../modules/youtubeList';
 
 import InsertSerachResultListContainer from '../../containers/InsertSerachResultListItemContainer';
 
 import styled from 'styled-components'
 
 import { ImgData } from '../../lib/png';
-import { config, search_data, search_data_scroll } from '../../lib/apiData';
-import axios from 'axios';
+import { search_data } from '../../lib/apiData';
+
 
 const SpaceBoxLayout = styled.div`
   display: flex;
@@ -89,27 +89,22 @@ const SearchResult = ({ collapsed, title, searchVideos }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
     search_data.query = title;
 
     dispatch(searchPostList());
   }, [title]);
 
-  const onScroll = (e) => {
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+  }, []);
+
+  const onScroll = async (e) => {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const clientHeight = document.documentElement.clientHeight;
 
     if (scrollTop + clientHeight >= scrollHeight) {
-      axios({
-        url: 'https://www.youtube.com/youtubei/v1/browse?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
-        method: "POST",
-        data: search_data_scroll,
-        headers: config,
-      }).then(val => console.log(val.data))
+      dispatch(searchContinuePostList());
     }
   }
 
@@ -122,7 +117,7 @@ const SearchResult = ({ collapsed, title, searchVideos }) => {
             <img src={ImgData.filter} />
             <span>필터</span>
           </SearchFilter>
-          <InsertSerachResultListContainer collapsed={collapsed} title={title} searchVideos={searchVideos}/>
+          <InsertSerachResultListContainer collapsed={collapsed} title={title} searchVideos={searchVideos} />
         </SearchListLayout>
       </SearchListBox>
     </SpaceBoxLayout>

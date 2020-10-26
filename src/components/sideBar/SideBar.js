@@ -11,7 +11,7 @@ const SideBarBox = styled.div`
   width: 15rem;
   background-color: #ffffff;
   position: fixed;
-  top: 60px;
+  top: 56px;
 
   ${props => props.shrink && ` width: 4.5rem;`}
 

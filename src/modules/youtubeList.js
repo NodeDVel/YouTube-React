@@ -2,7 +2,7 @@ import { handleActions } from "redux-actions";
 
 import axios from 'axios';
 
-import { api_data, config, search_data } from '../lib/apiData';
+import { api_data, config, search_data, search_data_scroll } from '../lib/apiData';
 
 const MAIN_CONTINUE_TOKEN = 'api/MAIN_CONTINUE_TOKEN';
 const SEARCH_CONTINUE_TOKEN = 'api/SEARCH_CONTINUE_TOKEN';
@@ -47,20 +47,46 @@ export const searchPostList = () => async dispatch => {
     })
 
     let searchVal = await searchData;
+
     const searchVideoItem = searchVal.data.contents.twoColumnSearchResultsRenderer.primaryContents.sectionListRenderer.contents[0].itemSectionRenderer.contents.filter(x => x.videoRenderer)
     const searchItemsPageInfo = searchVal.data.contents.twoColumnSearchResultsRenderer.primaryContents.sectionListRenderer.contents[1].continuationItemRenderer.continuationEndpoint.continuationCommand.token;
-    console.log(searchItemsPageInfo)
 
-    dispatch({
-      type: SEARCH_CONTINUE_TOKEN,
-      payload: searchItemsPageInfo,
-    })
+    search_data_scroll.continuation = searchItemsPageInfo;
 
     dispatch({
       type: POST_SEARCH_LIST,
       payload: searchVideoItem.map(val => val.videoRenderer)
     })
+  } catch (e) {
+    throw e;
+  }
+}
 
+export const searchContinuePostList = () => async dispatch => {
+  try {
+    const response = await axios({
+      url: 'https://www.youtube.com/youtubei/v1/search?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
+      method: "POST",
+      data: search_data_scroll,
+      headers: config,
+    });
+
+    const searchContinueVal = await response.data;
+
+    const searchContinueItem = searchContinueVal.onResponseReceivedCommands[0].appendContinuationItemsAction.continuationItems[0].itemSectionRenderer.contents.filter(x => x.videoRenderer);
+    const searchContinueItemPageInfo = searchContinueVal.onResponseReceivedCommands[0].appendContinuationItemsAction.continuationItems[1].continuationItemRenderer.continuationEndpoint.continuationCommand.token;
+
+    search_data_scroll.continuation = searchContinueItemPageInfo;
+
+    dispatch({
+      type: POST_SEARCH_LIST,
+      payload: searchContinueItem.map(val => val.videoRenderer)
+    })
+
+    dispatch({
+      type: SEARCH_CONTINUE_TOKEN,
+      payload: searchContinueItemPageInfo,
+    })
   } catch (e) {
     throw e;
   }
@@ -84,11 +110,11 @@ const youtubeList = handleActions(
     }),
     [POST_SEARCH_LIST]: (state, action) => ({
       ...state,
-      searchVideos: action.payload
+      searchVideos: state.searchVideos.concat(action.payload)
     }),
     [SEARCH_CONTINUE_TOKEN]: (state, action) => ({
       ...state,
-      coutinueToken: action.payload
+      coutinueToken: action.payload,
     })
   },
   initialState,

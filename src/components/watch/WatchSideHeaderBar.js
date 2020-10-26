@@ -21,7 +21,7 @@ const WatchSideHeaderWrapper = styled.div`
     transform: translate(0%, 0);
   `}
   ${props => props.active && `
-    transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
   `}
 
   & > img {

@@ -447,7 +447,7 @@ const HeaderBar = (props) => {
               openPopup === 'upload' && isPressed &&
               <FirstRightHeaderClickMenu>
                 <FirstRightHeaderBox>
-                  <img src={ImgData.firstRightImg} />
+                  <img src={ImgData.FirstRightImg} />
                   <span>동영상 업로드</span>
                 </FirstRightHeaderBox>
                 <FirstRightHeaderBox>

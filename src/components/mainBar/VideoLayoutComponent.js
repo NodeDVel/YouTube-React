@@ -152,7 +152,7 @@ const VideoLayoutComponent = ({
                 <VideoTextLayout>
                   <span>{video.title.runs[0].text}</span>
                   <br />
-                  <span>{video.ownerText.runs[0].text} <br /> {video.shortViewCountText.simpleText} • </span>
+                  <span>{video.ownerText.runs[0].text} <br /> {video.shortViewCountText.simpleText}</span>
                   {/* {video.publishedTimeText.simpleText } */}
                 </VideoTextLayout>
               </VideoBoxLayout>
