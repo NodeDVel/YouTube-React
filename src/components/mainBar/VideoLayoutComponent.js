@@ -130,7 +130,7 @@ const VideoLayoutComponent = ({
 
           return (
             <VideoLayout changed={collapsed} key={key}>
-              <Link to="/search/인기차트/watch"><img src={video.thumbnail.thumbnails[0].url} style={{ width: '100%', marginBottom: '4%' }} /></Link>
+              <Link to={`/watch/${video.longBylineText.runs[0].text}/${video.videoId}`}><img src={video.thumbnail.thumbnails[0].url} style={{ width: '100%', marginBottom: '4%' }} /></Link>
               <MiddleHover>
                 <div>
                   <ImgHover>
@@ -152,8 +152,7 @@ const VideoLayoutComponent = ({
                 <VideoTextLayout>
                   <span>{video.title.runs[0].text}</span>
                   <br />
-                  <span>{video.ownerText.runs[0].text} <br /> {video.shortViewCountText.simpleText}</span>
-                  {/* {video.publishedTimeText.simpleText } */}
+                  <span>{video.ownerText.runs[0].text}<br />{video.shortViewCountText.simpleText} • {video.publishedTimeText && video.publishedTimeText.simpleText}</span>
                 </VideoTextLayout>
               </VideoBoxLayout>
             </VideoLayout>

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import HeaderBar from '../components/headerBar/HeaderBar';
-import WatchScreen from '../components/watch/WatchSreen';
 import WatchSideBar from '../components/watch/WatchSideBar';
 import ShareBox from '../components/watch/ShareBox';
+import WatchScreenVideoItemContainer from '../containers/WatchScreenVideoItemContainer';
 
 const Watch = ({ match }) => {
   const { title } = match.params;
+  const { id } = match.params;
 
   const [isCollapsed, setCollapsed] = useState(false);
   const [isShowed, setShowed] = useState(false); 
@@ -26,7 +27,7 @@ const Watch = ({ match }) => {
       {
         isShowed && <ShareBox handleClickModal={handleClickModal} /> 
       }
-      <WatchScreen title={title} handleClickModal={handleClickModal}  />
+      <WatchScreenVideoItemContainer title={title} handleClickModal={handleClickModal} id={id}  />
     </>
   )
 }

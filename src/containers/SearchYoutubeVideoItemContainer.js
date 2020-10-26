@@ -5,7 +5,7 @@ import { searchPostList } from '../modules/youtubeList'
 
 import SearchResult from '../components/search/SearchResult';
 
-const SearchYoutubeVideoItemContainer = ({ collapsed, title ,searchVideos }) => {
+const SearchYoutubeVideoItemContainer = ({ collapsed, title, searchVideos }) => {
   return (
     <SearchResult collapsed={collapsed} title={title} searchVideos={searchVideos} />
   )

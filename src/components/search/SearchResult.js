@@ -117,7 +117,11 @@ const SearchResult = ({ collapsed, title, searchVideos }) => {
             <img src={ImgData.filter} />
             <span>필터</span>
           </SearchFilter>
-          <InsertSerachResultListContainer collapsed={collapsed} title={title} searchVideos={searchVideos} />
+          {
+            searchVideos
+             ? <InsertSerachResultListContainer collapsed={collapsed} title={title} searchVideos={searchVideos} />
+             : <h3>검색 결과가 없습니다</h3>
+          }
         </SearchListLayout>
       </SearchListBox>
     </SpaceBoxLayout>

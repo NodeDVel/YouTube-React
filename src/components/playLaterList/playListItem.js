@@ -41,9 +41,9 @@ const PlayListItem = ({ list }) => {
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src={ImgData.list} style={{ margin: '0px 5px', paddingBottom: '27px' }} />
       <PlayListItemWrapper>
-        {/* <Link to={`/search/${value}/watch`}> */}
+        <Link to={`/watch/${list.videoId}`}>
         <img src={list.thumbnail.thumbnails[0].url} style={{ width: '120px', height: '67px' }} />
-        {/* </Link> */}
+        </Link>
         <PlayListItemText>
           <span>{list.title.runs[0].text}</span>
           <span>{list.ownerText.runs[0].text}</span>

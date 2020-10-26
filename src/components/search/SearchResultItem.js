@@ -128,7 +128,7 @@ const SearchResultItem = ({
 
           return (
             <SearchResultListLayout key={key}>
-              <Link to={`/search/${title}/watch`}>
+              <Link to={`/watch/${title}/${video.videoId}`}>
                 <img src={video.thumbnail.thumbnails[0].url} width="249px" height="138px" />
               </Link>
               <MiddleHover>
@@ -149,12 +149,12 @@ const SearchResultItem = ({
               </MiddleHover>
               <SearchListTextLayout>
                 <span style={{ fontSize: '18px' }}>{video.title.runs[0].text}</span>
-                <span style={{ fontSize: '13px', color: '#606060' }}>{video.shortViewCountText.simpleText}</span>
+                <span style={{ fontSize: '13px', color: '#606060' }}>{video.shortViewCountText.simpleText} • {video.publishedTimeText && video.publishedTimeText.simpleText}</span>
                 <div className="infor">
                   <img src={video.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer.thumbnail.thumbnails[0].url} />
                   <span>{video.longBylineText.runs[0].text}</span>
                 </div>
-                <span style={{ fontSize: '13px', color: '#606060' }}>{video.descriptionSnippet.runs.map(val => val.text)}</span>
+                <span style={{ fontSize: '13px', color: '#606060' }}>{video.descriptionSnippet && video.descriptionSnippet.runs.map(val => val.text)}</span>
               </SearchListTextLayout>
             </SearchResultListLayout>
           )

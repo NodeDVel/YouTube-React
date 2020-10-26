@@ -52,7 +52,7 @@ const MainBarLayout = styled.div`
   }
 `;
 
-const MainBar = ({ collapsed, videos }) => {
+const MainBar = ({ collapsed, videos, match }) => {
   const dispatch = useDispatch();
 
   const onScroll = (e) => {

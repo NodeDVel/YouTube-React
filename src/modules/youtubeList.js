@@ -79,13 +79,9 @@ export const searchContinuePostList = () => async dispatch => {
     search_data_scroll.continuation = searchContinueItemPageInfo;
 
     dispatch({
-      type: POST_SEARCH_LIST,
-      payload: searchContinueItem.map(val => val.videoRenderer)
-    })
-
-    dispatch({
       type: SEARCH_CONTINUE_TOKEN,
-      payload: searchContinueItemPageInfo,
+      token: searchContinueItemPageInfo,
+      payload: searchContinueItem.map(val => val.videoRenderer)
     })
   } catch (e) {
     throw e;
@@ -110,11 +106,12 @@ const youtubeList = handleActions(
     }),
     [POST_SEARCH_LIST]: (state, action) => ({
       ...state,
-      searchVideos: state.searchVideos.concat(action.payload)
+      searchVideos: (action.payload)
     }),
     [SEARCH_CONTINUE_TOKEN]: (state, action) => ({
       ...state,
-      coutinueToken: action.payload,
+      coutinueToken: action.token,
+      searchVideos: state.searchVideos.concat(action.payload)
     })
   },
   initialState,

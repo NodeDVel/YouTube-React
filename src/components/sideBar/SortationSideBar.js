@@ -39,6 +39,36 @@ const SideLayoutBox = styled.div`
   @media all and (max-width: 1300px) {
     display: none;
 
+    ${props => props.collapsed && `
+      display: block;
+      position: fixed;
+      z-index: 999;
+      top: 50px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffff;
+      width: 240px;
+      overflow: auto;
+
+      @keyframes left {
+        from {
+          transform: translate(-100%, 0px);
+        }
+        to {
+          transform: translate(0%, 0px);
+        }
+      }
+
+      animation: left 0.3s ;
+      }
+    `}
+
+    ${props => props.active && `
+      transform: translate(-100%, 0px);
+      transition-duration: 0.3s;
+    `}
+
     ${props => props.wide && `
       display: block;
     `}
@@ -152,7 +182,7 @@ const SortationSideBar = (props) => {
         <Link to="/list" style={{ textDecoration: 'none' }}>
           <LayoutBox>
             <img src={ImgData.sideImg6} />
-            <span style={{ color: '#000000'}}>나중에 볼 동영상</span>
+            <span style={{ color: '#000000' }}>나중에 볼 동영상</span>
           </LayoutBox>
         </Link>
         <LayoutBox>
