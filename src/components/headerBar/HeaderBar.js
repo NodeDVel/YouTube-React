@@ -1,12 +1,12 @@
 import React, { useRef, useState, useCallback } from 'react';
 
-import { ImgData } from '../../lib/png';
+import { Link, withRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import { Link, withRouter } from 'react-router-dom';
-
 import SearchList from './searchList/SearchList';
+
+import { ImgData } from '../../lib/png';
 
 const HoverText1 = styled.div`
   font-size: 13px;

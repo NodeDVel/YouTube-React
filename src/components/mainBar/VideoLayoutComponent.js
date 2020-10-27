@@ -26,6 +26,7 @@ const MiddleHover2 = styled.div`
   height: 100%;
   opacity: 0;
   position: absolute;
+  /* transition: .8s ease-in-out; */
   top: 0;
   right: 100%;
   text-align: center;
@@ -122,7 +123,7 @@ const VideoLayoutComponent = ({
     <>
       {
         videos.map((video, key) => {
-          const id = lists.find(list => {
+          const CheckId = lists.find(list => {
             if (list.videoId === video.videoId) {
               return true;
             }
@@ -130,13 +131,16 @@ const VideoLayoutComponent = ({
 
           return (
             <VideoLayout changed={collapsed} key={key}>
-              <Link to={`/watch/${video.longBylineText.runs[0].text}/${video.videoId}`}><img src={video.thumbnail.thumbnails[0].url} style={{ width: '100%', marginBottom: '4%' }} /></Link>
+              <Link to={{
+                pathname: `/watch/${video.longBylineText && video.longBylineText.runs[0].text}/${video.videoId}`,
+                state: video
+              }}><img src={video.thumbnail.thumbnails[0].url} style={{ width: '100%', marginBottom: '4%' }} /></Link>
               <MiddleHover>
                 <div>
                   <ImgHover>
-                    <img onClick={id ? () => onRemove(video.videoId) : () => onInsert(video)} src={id ? ImgData.check : ImgData.videoImg2} />
-                    <MiddleHover2 changed={id}>
-                      <img src={id ? ImgData.plus : ImgData.videoImg4} width={id ? "40px" : "97px"} />
+                    <img onClick={CheckId ? () => onRemove(video.videoId) : () => onInsert(video)} src={CheckId ? ImgData.check : ImgData.videoImg2} />
+                    <MiddleHover2 changed={CheckId}>
+                      <img src={CheckId ? ImgData.plus : ImgData.videoImg4} width={CheckId ? "40px" : "97px"} />
                     </MiddleHover2>
                   </ImgHover>
                   <ImgHover>

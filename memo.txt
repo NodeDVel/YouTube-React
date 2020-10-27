@@ -1,0 +1,1 @@
+1. 영상 클릭시 원래 youtube는 /GET /watchv?v=12341234

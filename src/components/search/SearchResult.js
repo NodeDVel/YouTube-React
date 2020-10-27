@@ -11,7 +11,6 @@ import styled from 'styled-components'
 import { ImgData } from '../../lib/png';
 import { search_data } from '../../lib/apiData';
 
-
 const SpaceBoxLayout = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -98,7 +97,7 @@ const SearchResult = ({ collapsed, title, searchVideos }) => {
     window.addEventListener('scroll', onScroll);
   }, []);
 
-  const onScroll = async (e) => {
+  const onScroll = (e) => {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const clientHeight = document.documentElement.clientHeight;

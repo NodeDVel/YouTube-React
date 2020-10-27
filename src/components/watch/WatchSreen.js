@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
@@ -257,6 +258,7 @@ const LeftWatchComment = styled.div`
 const RightWatch = styled.div`
   margin-top: 20px;
   margin-left: 20px;
+  width: 33%;
 
   ${props => props.wide && `
     position: absolute;
@@ -266,6 +268,7 @@ const RightWatch = styled.div`
   `}
 
   @media all and (max-width: 1700px) {
+    width: auto;
     ${props => props.wide && `top: 640px; right: 30px; width: 420px`}
   }
 
@@ -292,20 +295,18 @@ const RightWatchTextLayout = styled.div`
   flex-direction: column;
 `;
 
-const WatchScreen = ({ id, title, handleClickModal, searchVideos }) => {
+const WatchScreen = ({ title, location, handleClickModal, searchVideos }) => {
   search_data.query = title;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-  }, []);
+    dispatch(searchPostList());
+  }, [title]);
 
   useEffect(() => {
-    dispatch(searchPostList());
-  }, [title])
-
-  const filterVideos = searchVideos.filter(x => x.videoId == id)
+    window.addEventListener('scroll', onScroll);
+  }, []);
 
   const [layout, setLayout] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]);
   const [isWidened, setWidened] = useState(false);
@@ -330,95 +331,87 @@ const WatchScreen = ({ id, title, handleClickModal, searchVideos }) => {
   }
 
   return (
-    <>
-      {
-        filterVideos.map((watch, key) => {
-          return (
-            <WatchBoxLayout key={key}>
-            <LeftWatch wide={isWidened}>
-              <WatchBoxFotterLayout wide={isWidened}>
-                <img src={watch.thumbnail.thumbnails[0].url} className="ImgLayout" />
-                <FotterBar>
-                  <div className="videoLength"></div>
-                  <img src={ImgData.wind} onClick={onClickWiden} />
-                </FotterBar>
-              </WatchBoxFotterLayout>
-              <LeftWatchUser wide={isWidened}>
-                <LeftWatchTitle>
-                  <span>{watch.title.runs[0].text}</span>
-                  <br />
-                  <span>{watch.shortViewCountText.simpleText} • {watch.publishedTimeText.simpleText}</span>
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}>
-                    <div onClick={onClickHandleModal} className="shareBox">
-                      <img src={ImgData.share} />
-                      <span>공유</span>
-                    </div>
+    <WatchBoxLayout>
+      <LeftWatch wide={isWidened}>
+        <WatchBoxFotterLayout wide={isWidened}>
+          <img src={location.state.thumbnail.thumbnails[0].url} className="ImgLayout" />
+          <FotterBar>
+            <div className="videoLength"></div>
+            <img src={ImgData.wind} onClick={onClickWiden} />
+          </FotterBar>
+        </WatchBoxFotterLayout>
+        <LeftWatchUser wide={isWidened}>
+          <LeftWatchTitle>
+            <span>{location.state.title.runs[0].text}</span>
+            <br />
+            <span>{location.state.shortViewCountText.simpleText} • {location.state.publishedTimeText && location.state.publishedTimeText.simpleText}</span>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}>
+              <div onClick={onClickHandleModal} className="shareBox">
+                <img src={ImgData.share} />
+                <span>공유</span>
+              </div>
+            </div>
+          </LeftWatchTitle>
+          <LeftWatchInformation>
+            <img src={location.state.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer.thumbnail.thumbnails[0].url} />
+            <div>
+              <div>{location.state.longBylineText.runs[0].text}</div>
+              <div>구독자 72만명</div>
+              <div className="fotterText">
+                <div>{location.state.descriptionSnippet && location.state.descriptionSnippet.runs.map(val => val.text)}</div>
+              </div>
+            </div>
+            <div
+              style={{
+                width: '72px',
+                height: '37px',
+                backgroundColor: '#CC0000',
+                color: 'white',
+                fontSize: '14px',
+                alignItems: 'center',
+                display: 'flex',
+                justifyContent: 'center',
+                cursor: 'pointer'
+              }}>구독
                   </div>
-                </LeftWatchTitle>
-                <LeftWatchInformation>
-                  <img src={watch.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer.thumbnail.thumbnails[0].url} />
-                  <div>
-                    <div>{watch.longBylineText.runs[0].text}</div>
-                    <div>구독자 72만명</div>
-                    <div className="fotterText">
-                      <div>{watch.descriptionSnippet.runs.map(val => val.text)}</div>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      width: '72px',
-                      height: '37px',
-                      backgroundColor: '#CC0000',
-                      color: 'white',
-                      fontSize: '14px',
-                      alignItems: 'center',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      cursor: 'pointer'
-                    }}>구독
-                  </div>
-                </LeftWatchInformation>
-                <LeftWatchComment>
-                  <span>댓글 1000개</span> <br />
-                  <div className="myComment">
-                    <img src={ImgData.iconRight4} />
-                    <span>공개적으로 댓글을 남길 계정: 김민기</span>
-                  </div>
-                  {
-                    layout.map((val, key) => {
-                      return (
-                        <Comment key={key} />
-                      )
-                    })
-                  }
-                </LeftWatchComment>
-              </LeftWatchUser>
-            </LeftWatch>
-            <RightWatch wide={isWidened}>
-              <div>다음 동영상</div>
-              {
-                searchVideos.map((video, key) => {
-                  return (
-                    <RightWatchListLayout key={key}>
-                      <img src={video.thumbnail.thumbnails[0].url} />
-                      <RightWatchTextLayout>
-                        <span style={{ fontSize: '14px' }}>{video.title.runs[0].text}</span>
-                        <span style={{ fontSize: '11px', color: '#606060' }}>{video.longBylineText.runs[0].text} <br /> {video.shortViewCountText.simpleText} • {video.publishedTimeText && video.publishedTimeText.simpleText} </span>
-                        <span style={{ fontSize: '11px', color: '#606060', marginTop: '19px' }}>{}</span>
-                      </RightWatchTextLayout>
-                    </RightWatchListLayout>
-                  )
-                })
-              }
-            </RightWatch>
-          </WatchBoxLayout>
-          )
-        })
-      }
-    </>
+          </LeftWatchInformation>
+          <LeftWatchComment>
+            <span>댓글 1000개</span> <br />
+            <div className="myComment">
+              <img src={ImgData.iconRight4} />
+              <span>공개적으로 댓글을 남길 계정: 김민기</span>
+            </div>
+            {
+              layout.map((val, key) => {
+                return (
+                  <Comment key={key} />
+                )
+              })
+            }
+          </LeftWatchComment>
+        </LeftWatchUser>
+      </LeftWatch>
+      <RightWatch wide={isWidened}>
+        <div>다음 동영상</div>
+        {
+          searchVideos.map((video, key) => {
+            return (
+              <RightWatchListLayout key={key}>
+                <img src={video.thumbnail.thumbnails[0].url} />
+                <RightWatchTextLayout>
+                  <span style={{ fontSize: '14px' }}>{video.title.runs[0].text}</span>
+                  <span style={{ fontSize: '11px', color: '#606060' }}>{video.longBylineText.runs[0].text} <br /> {video.shortViewCountText.simpleText} • {video.publishedTimeText && video.publishedTimeText.simpleText} </span>
+                  <span style={{ fontSize: '11px', color: '#606060', marginTop: '19px' }}>{}</span>
+                </RightWatchTextLayout>
+              </RightWatchListLayout>
+            )
+          })
+        }
+      </RightWatch>
+    </WatchBoxLayout>
   )
 }
 

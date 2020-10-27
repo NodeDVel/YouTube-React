@@ -59,7 +59,7 @@ const SideLayoutBox = styled.div`
           transform: translate(0%, 0px);
         }
       }
-
+      
       animation: left 0.3s ;
       }
     `}

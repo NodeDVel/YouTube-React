@@ -100,6 +100,7 @@ const SearchListTextLayout = styled.div`
     & > img {
       border-radius: 40px;
       width: 24px;
+      margin-right: 6px;
     }
 
     & > span {
@@ -120,7 +121,7 @@ const SearchResultItem = ({
     <>
       {
         searchVideos.map((video, key) => {
-          const id = lists.find(list => {
+          const CheckId = lists.find(list => {
             if (list.videoId === video.videoId) {
               return true;
             }
@@ -128,15 +129,18 @@ const SearchResultItem = ({
 
           return (
             <SearchResultListLayout key={key}>
-              <Link to={`/watch/${title}/${video.videoId}`}>
+              <Link to={{
+                pathname: `/watch/${title}/${video.videoId}`,
+                state: video
+              }}>
                 <img src={video.thumbnail.thumbnails[0].url} width="249px" height="138px" />
               </Link>
               <MiddleHover>
                 <div>
                   <ImgHover>
-                    <img onClick={id ? () => onRemove(video.videoId) : () => onInsert(video)} src={id ? ImgData.check : ImgData.videoImg2} />
-                    <MiddleHover2 changed={id}>
-                      <img src={id ? ImgData.plus : ImgData.videoImg4} />
+                    <img onClick={CheckId ? () => onRemove(video.videoId) : () => onInsert(video)} src={CheckId ? ImgData.check : ImgData.videoImg2} />
+                    <MiddleHover2 changed={CheckId}>
+                      <img src={CheckId ? ImgData.plus : ImgData.videoImg4} />
                     </MiddleHover2>
                   </ImgHover>
                   <ImgHover>

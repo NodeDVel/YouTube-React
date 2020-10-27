@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+
 import { postList } from '../modules/youtubeList';
 
 import MainBar from '../components/mainBar/MainBar';

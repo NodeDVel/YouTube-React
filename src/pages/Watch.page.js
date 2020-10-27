@@ -5,7 +5,7 @@ import WatchSideBar from '../components/watch/WatchSideBar';
 import ShareBox from '../components/watch/ShareBox';
 import WatchScreenVideoItemContainer from '../containers/WatchScreenVideoItemContainer';
 
-const Watch = ({ match }) => {
+const Watch = ({ match, location }) => {
   const { title } = match.params;
   const { id } = match.params;
 
@@ -27,7 +27,7 @@ const Watch = ({ match }) => {
       {
         isShowed && <ShareBox handleClickModal={handleClickModal} /> 
       }
-      <WatchScreenVideoItemContainer title={title} handleClickModal={handleClickModal} id={id}  />
+      <WatchScreenVideoItemContainer id={id} title={title} location={location} handleClickModal={handleClickModal} />
     </>
   )
 }

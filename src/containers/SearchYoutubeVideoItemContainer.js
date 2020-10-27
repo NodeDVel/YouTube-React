@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+
 import { searchPostList } from '../modules/youtubeList'
 
 import SearchResult from '../components/search/SearchResult';

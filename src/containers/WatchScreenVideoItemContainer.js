@@ -6,9 +6,9 @@ import WatchScreen from '../components/watch/WatchSreen';
 
 import { searchPostList } from '../modules/youtubeList'
 
-const WatchScreenVideoItemContainer = ({ id, title, handleClickModal, searchVideos }) => {
+const WatchScreenVideoItemContainer = ({ id, title, location, handleClickModal, searchVideos }) => {
   return (
-    <WatchScreen id={id} title={title} handleClickModal={handleClickModal} searchVideos={searchVideos} />
+    <WatchScreen id={id} title={title} location={location} handleClickModal={handleClickModal} searchVideos={searchVideos} />
   )
 }
 
